@@ -8,7 +8,7 @@ import ClientLayoutWrapper from "@/components/layout/client-layout-wrapper";
 export const metadata: Metadata = {
   title: "Quinch",
   description: "Web Portfolio of Cyril James De Guzman",
-  metadataBase: new URL("https://www.quinch.dev"),
+  metadataBase: new URL("https://quinchy.dev"),
   keywords: [
     "Quinch",
     "Cyril James De Guzman",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
         alt: "Picture of Cyril James De Guzman",
       },
     ],
-    url: "https://www.quinch.dev",
+    url: "https://quinchy.dev",
     siteName: "Quinch",
     locale: "en_US",
     type: "website",

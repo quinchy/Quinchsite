@@ -1,4 +1,3 @@
-import MainWrapper from "@/components/layout/main-wrapper";
 import SiteLink from "@/components/link/site-link";
 import { Home } from "lucide-react";
 

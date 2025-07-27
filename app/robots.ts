@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "*",
       },
     ],
-    sitemap: "https://www.quinch.dev/sitemap.xml",
+    sitemap: "https://www.quinchy.dev/sitemap.xml",
   };
 }
