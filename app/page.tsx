@@ -3,11 +3,6 @@
 import { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
 
-import AppointmentSystem from "@/public/images/appointment_system.png";
-import PeerToPeerDeliverySystem from "@/public/images/peer_to_peer_delivery_system.png";
-import Zentry from "@/public/images/zentry_hris.png";
-import HueFit from "@/public/images/huefit_web.png";
-
 import MainWrapper from "@/components/layout/main-wrapper";
 import TypewriterText from "@/components/ui/typewriter-text";
 import Footer from "@/components/layout/footer";
@@ -19,20 +14,14 @@ import ViewMoreProjectsLink from "@/components/link/view-more-projects-link";
 import ProjectData from "@/data/projects.json";
 import ProfilePicture from "@/components/ui/profile-picture";
 import useInView from "@/hooks/useInView";
+import { Project } from "@/lib/types";
+import { thumbnails } from "@/lib/utils";
 
 import dynamic from "next/dynamic";
 
 const Navbar = dynamic(() => import("@/components/layout/navbar"), {
   ssr: false,
 });
-
-// Map thumbnail keys to imports
-const thumbnails: Record<string, StaticImageData> = {
-  AppointmentSystem,
-  Zentry,
-  HueFit,
-  PeerToPeerDeliverySystem,
-};
 
 // Fade-in variants for Hero section
 const heroContainer = {
@@ -116,18 +105,21 @@ export default function Home() {
             <>
               <TypewriterText label="code:projects" />
               <div className="grid grid-cols-1 justify-items-center gap-5 md:grid-cols-2">
-                {ProjectData.slice(0, 4).map((project, index) => (
-                  <ProjectCard
-                    key={index}
-                    thumbnail={thumbnails[project.thumbnail]}
-                    title={project.title}
-                    description={project.description}
-                    longDescription={project.longDescription}
-                    technologies={project.technologies}
-                    githubLink={project.githubLink}
-                    websiteLink={project.websiteLink}
-                  />
-                ))}
+                {(ProjectData as Project[])
+                  .slice(0, 4)
+                  .map((project, index) => (
+                    <ProjectCard
+                      key={index}
+                      thumbnail={thumbnails[project.thumbnail]}
+                      title={project.title}
+                      description={project.description}
+                      longDescription={project.longDescription}
+                      technologies={project.technologies}
+                      githubLink={project.githubLink}
+                      websiteLink={project.websiteLink}
+                      type={project.type}
+                    />
+                  ))}
               </div>
 
               <ViewMoreProjectsLink

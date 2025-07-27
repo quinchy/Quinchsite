@@ -10,7 +10,8 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
-import SiteLink from "@/components/link/site-link"
+import SiteLink from "@/components/link/site-link";
+import { Project } from "@/lib/types";
 
 interface ProjectCardProps {
   thumbnail: string | StaticImageData;
@@ -18,8 +19,9 @@ interface ProjectCardProps {
   description: string;
   longDescription: string;
   technologies: string[];
-  githubLink: string;
+  githubLink?: string;
   websiteLink?: string;
+  type?: Project["type"];
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -29,7 +31,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   longDescription,
   technologies,
   githubLink,
-  websiteLink
+  websiteLink,
+  type,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -44,13 +47,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           alt={title}
           width={300}
           height={300}
-          placeholder="blur"
           priority={true}
           quality={100}
           className="rounded-xl"
         />
         <div className="flex flex-col gap-2">
-          <p className="text-highlight text-lg font-bold">{title}</p>
+          <div className="flex items-center gap-2">
+            <p className="text-highlight text-lg font-bold">{title}</p>
+            {type && (
+              <Badge className="bg-highlight/10 text-highlight border-highlight/30 text-xs">
+                {type === "company" ? "Company" : "Personal"}
+              </Badge>
+            )}
+          </div>
           <p>{description}</p>
         </div>
       </div>
@@ -60,7 +69,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           <DialogHeader>
             <DialogTitle asChild>
               <div className="text-highlight flex flex-col items-start gap-4 text-base lg:flex-row lg:items-center">
-                {title}
+                <div className="flex items-center gap-2">
+                  {title}
+                  {type && (
+                    <Badge className="bg-highlight/10 text-highlight border-highlight/30 text-xs">
+                      {type === "company" ? "Company" : "Personal"}
+                    </Badge>
+                  )}
+                </div>
               </div>
             </DialogTitle>
           </DialogHeader>
@@ -75,13 +91,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 width={600}
                 height={400}
                 quality={100}
-                placeholder="blur"
                 priority={true}
                 className="border-border h-auto w-full rounded-xl border-[1px]"
               />
             </div>
             <div className="flex flex-row gap-2 px-5">
-              <SiteLink href={githubLink}>Github</SiteLink>
+              {githubLink && <SiteLink href={githubLink}>Github</SiteLink>}
               {websiteLink && <SiteLink href={websiteLink}>Website</SiteLink>}
             </div>
             <div className="mb-10 flex flex-col gap-4 px-5">

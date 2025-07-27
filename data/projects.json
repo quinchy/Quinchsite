@@ -1,12 +1,46 @@
 [
     {
+        "title": "Thryve",
+        "description": "An intentional dating site for successful men and attractive, empowered women built using Next.js and Supabase",
+        "longDescription": "Thryve is an intentional dating site where growth-driven relationships between successful men and attractive, empowered women. ",
+        "thumbnail": "Thryve",
+        "technologies": [
+            "Next.js",
+            "Supabase",
+            "Prisma",
+            "TailwindCSS",
+            "Framer Motion",
+            "Shadcn",
+            "Zod",
+            "TanStack Query",
+            "React Hook Form",
+            "Stripe",
+            "PromoteKit",
+            "WebRTC"
+        ],
+        "githubLink": "",
+        "websiteLink": "https://thryvenow.com",
+        "type": "company"
+    },
+    {
         "title": "Zentry",
         "description": "An open-source Human Resource Information System to manage employees built using Next.js",
         "longDescription": "Zentry is a platform  designed to simplify employee check-ins and check-outs, enhance team communication through real-time chat, and streamline scheduling for teams of any size.",
         "thumbnail": "Zentry",
-        "technologies": ["Next.js", "Supabase", "Prisma", "TailwindCSS", "Shadcn", "Zod",  "Jest", "TanStack Query", "React Hook Form"],
+        "technologies": [
+            "Next.js",
+            "Supabase",
+            "Prisma",
+            "TailwindCSS",
+            "Shadcn",
+            "Zod",
+            "Jest",
+            "TanStack Query",
+            "React Hook Form"
+        ],
         "githubLink": "https://github.com/Quinchy/Zentry",
-        "websiteLink": "https://zentry-solutions.vercel.app/"
+        "websiteLink": "https://zentry-solutions.vercel.app/",
+        "type": "personal"
     },
     {
         "title": "HueFit",
@@ -20,45 +54,72 @@
             "Supabase",
             "Prisma",
             "TailwindCSS",
+            "Framer Motion",
             "NextAuth",
             "Formik",
             "SWR",
-            "Shadcn"
+            "Shadcn",
+            "TensorFlow",
+            "Scikit-learn"
         ],
         "githubLink": "https://github.com/Quinchy/Hue-Fit",
-        "websiteLink": "https://hue-fit-web.vercel.app/"
+        "websiteLink": "https://hue-fit-web.vercel.app/",
+        "type": "personal"
     },
     {
         "title": "PasaBuy",
         "description": "A Mobile Community Delivery App built using Android Studio.",
         "longDescription": "PasaBuy is an Android mobile app inspired by the Filipino concept of \"PasaBuy.\" It's a community-driven delivery platform that connects users with individuals—often from abroad or different areas—who can help purchase and bring specific products home.",
         "thumbnail": "PeerToPeerDeliverySystem",
-        "technologies": ["Android Studio", "Java", "Firebase"],
-        "githubLink": "https://github.com/Quinchy/Pasabuy"
+        "technologies": [
+            "Android Studio",
+            "Java",
+            "Firebase"
+        ],
+        "githubLink": "https://github.com/Quinchy/Pasabuy",
+        "type": "personal"
     },
     {
         "title": "SmileCare",
         "description": "A Web-based Appointment System built using Laravel.",
         "longDescription": "Donna Mae Jorge-Hollman Dental Clinic is web-based appointment scheduling for a local dental clinic. Patients are able to select appointment schedules that are created by the assistant doctor.",
         "thumbnail": "AppointmentSystem",
-        "technologies": ["Laravel", "PHP", "Breeze", "Socialite", "MySQL", "Heroku"],
-        "githubLink": "https://github.com/Quinchy/Donna-Mae-Jorge-Hollman-Dental-Clinic-Scheduling-System"
+        "technologies": [
+            "Laravel",
+            "PHP",
+            "Breeze",
+            "Socialite",
+            "MySQL",
+            "Heroku"
+        ],
+        "githubLink": "https://github.com/Quinchy/Donna-Mae-Jorge-Hollman-Dental-Clinic-Scheduling-System",
+        "type": "personal"
     },
     {
         "title": "OnlyFunds",
         "description": "A Mock-up Desktop Banking System App built using C# Windows Form.",
         "longDescription": "OnlyFunds is a mock-up desktop banking system built using C# Windows Form. This project was made in my second year college in subject - Object Oriented Programming.",
         "thumbnail": "BankingSystem",
-        "technologies": ["C#", "Windows Form", "MySQL"],
-        "githubLink": "https://github.com/Quinchy/BankingSystem"
+        "technologies": [
+            "C#",
+            "Windows Form",
+            "MySQL"
+        ],
+        "githubLink": "https://github.com/Quinchy/BankingSystem",
+        "type": "personal"
     },
     {
         "title": "AniQuinch",
         "description": "A Mock-up E-commerce Website made only using HTML, CSS, and JavaScript.",
         "longDescription": "AniQuinch is an anime merchandise store simulating how an e-commerce look only using HTML, CSS, and JavaScript. This project was made in my first year college in subject - Computer Fundamental.",
         "thumbnail": "AniQuinch",
-        "technologies": ["HTML", "CSS", "JavaScript"],
+        "technologies": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
         "githubLink": "https://github.com/QuinchX/AniQuinch",
-        "websiteLink": "https://quinchx.github.io/AniQuinch/"
+        "websiteLink": "https://quinchx.github.io/AniQuinch/",
+        "type": "personal"
     }
 ]

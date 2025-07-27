@@ -59,7 +59,7 @@ export default function About() {
         </section>
         {/* 2. History Section */}
         <section>
-          <TypewriterText label="code:journey" />
+          <TypewriterText label="code:timeline" />
           <div></div>
         </section>
       </MainWrapper>

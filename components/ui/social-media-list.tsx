@@ -2,7 +2,7 @@ import React from "react";
 import SocialMediaLink from "../link/social-media-link";
 import GitHubIcon from "@/public/images/github_icon.svg";
 import LinkedInIcon from "@/public/images/linkedin_icon.svg";
-import ResumeIcon from "@/public/images/resume_icon.svg";
+import ResumeDialog from "./resume-dialog";
 import {
   Tooltip,
   TooltipContent,
@@ -44,20 +44,7 @@ const SocialMediaList: React.FC = () => {
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
-      <TooltipProvider>
-        <Tooltip>
-          <TooltipTrigger>
-            <SocialMediaLink
-              href="https://drive.google.com/file/d/1glbtWTyKUdlL7OVwjGxAAVXQXR-xHMb9/view?usp=sharing"
-              iconSrc={ResumeIcon}
-              alt="Resume Icon"
-            />
-          </TooltipTrigger>
-          <TooltipContent>
-            <p>Resume</p>
-          </TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
+      <ResumeDialog />
     </nav>
   );
 };
