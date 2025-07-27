@@ -8,14 +8,20 @@ interface SiteLinkProps {
   href?: string;
   children: React.ReactNode;
   className?: string;
+  blank?: boolean;
 }
 
-const SiteLink: React.FC<SiteLinkProps> = ({ href="", children, className }) => {
+const SiteLink: React.FC<SiteLinkProps> = ({
+  href = "",
+  children,
+  className,
+  blank = true,
+}) => {
   return (
     <Link
       href={href}
-      target="_blank"
-      rel="noopener noreferrer"
+      target={blank ? "_blank" : undefined}
+      rel={blank ? "noopener noreferrer" : undefined}
       className={`hover group text-foreground hover:text-highlight inline-flex items-center rounded-lg text-base font-medium underline transition-all duration-300 ease-in-out ${className || ""}`}
     >
       {children}

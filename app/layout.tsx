@@ -8,18 +8,38 @@ import ClientLayoutWrapper from "@/components/layout/client-layout-wrapper";
 export const metadata: Metadata = {
   title: "Quinch",
   description: "Web Portfolio of Cyril James De Guzman",
-  metadataBase: new URL("https://quinch.vercel.app"),
+  metadataBase: new URL("https://www.quinch.dev"),
+  keywords: [
+    "Quinch",
+    "Cyril James De Guzman",
+    "Full-Stack Software Developer",
+    "Web Developer",
+    "Mobile Developer",
+    "React Developer",
+    "Next.js Developer",
+    "Front End",
+    "Back End",
+  ],
   openGraph: {
-    title: "Quinch — Cyril James De Guzman",
+    title: "Cyril James De Guzman - Developer Portfolio",
     description:
-      "Web Portfolio of Cyril James De Guzman. Full-stack developer, creative engineer.",
-    url: "https://quinch.vercel.app",
+      "Web Portfolio of Cyril James De Guzman, a Full-Stack Software Developer, with experienced in web and mobile development. Expertise in React, Next.js, Tailwind CSS, and TypeScript.",
+    images: [
+      {
+        url: "/images/me.png",
+        width: 1000,
+        height: 1000,
+        alt: "Picture of Cyril James De Guzman",
+      },
+    ],
+    url: "https://www.quinch.dev",
     siteName: "Quinch",
     locale: "en_US",
     type: "website",
   },
   icons: {
     icon: "/favicon.ico",
+    apple: "/favicon.ico",
     shortcut: "/favicon.ico",
   },
   robots: "index, follow",
@@ -32,6 +52,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Chrome, Firefox OS & Opera */}
+        <meta name="theme-color" content="#13171d" />
+
+        {/* Windows Phone */}
+        <meta name="msapplication-navbutton-color" content="#13171d" />
+
+        {/* Safari/iOS */}
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
+      </head>
       <body
         className={`${GeistMono.className} flex flex-col items-center justify-center`}
       >

@@ -15,14 +15,14 @@ const HOME_IMAGE_SRCS = [
 
 // Simple image preloader utility
 function preloadImages(srcs: string[]): Promise<void[]> {
-  if (typeof window === "undefined") return Promise.resolve([]); // SSR safe
+  if (typeof window === "undefined") return Promise.resolve([]);
   return Promise.all(
     srcs.map(
       (src) =>
         new Promise<void>((resolve) => {
           const img = new window.Image();
           img.onload = () => resolve();
-          img.onerror = () => resolve(); // Don't block on fail
+          img.onerror = () => resolve();
           img.src = src;
         }),
     ),
