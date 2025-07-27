@@ -40,7 +40,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     <>
       <div
         onClick={() => setIsOpen(true)}
-        className="border-border bg-background hover:border-highlight hover:bg-muted flex h-96 w-80 cursor-pointer flex-col gap-5 rounded-3xl border-[1px] p-7 duration-500 ease-in-out"
+        className="group border-border bg-background hover:border-highlight hover:bg-muted flex h-96 w-80 flex-col gap-5 rounded-3xl border-[1px] p-7 duration-500 ease-in-out"
       >
         <Image
           src={thumbnail}
@@ -49,7 +49,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           height={300}
           priority={true}
           quality={100}
-          className="rounded-xl"
+          className="rounded-xl group-hover:scale-105 transition-all duration-500 ease-in-out"
         />
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-2">

@@ -83,7 +83,7 @@ const ResumeDialog: React.FC = () => {
           <TooltipTrigger asChild>
             <button
               onClick={() => setIsOpen(true)}
-              className="group group hover:bg-muted h-12 w-12 scale-75 cursor-pointer rounded-xl p-3 duration-500 ease-in-out hover:brightness-125 xl:h-14 xl:w-14"
+              className="group group hover:bg-muted h-12 w-12 scale-75 rounded-xl p-3 duration-500 ease-in-out hover:brightness-125 xl:h-14 xl:w-14"
               aria-label="Resume"
             >
               <Image
@@ -105,7 +105,7 @@ const ResumeDialog: React.FC = () => {
             <div className="absolute top-2 right-2 z-10 flex gap-1 sm:top-4 sm:right-4 sm:gap-2">
               <button
                 onClick={handleZoomIn}
-                className="bg-background border-border text-foreground hover:bg-muted hover:text-highlight flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border transition-all duration-300 sm:h-8 sm:w-8"
+                className="bg-background border-border text-foreground hover:bg-muted hover:text-highlight flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-300 sm:h-8 sm:w-8"
                 aria-label="Zoom in"
               >
                 <svg
@@ -125,7 +125,7 @@ const ResumeDialog: React.FC = () => {
               </button>
               <button
                 onClick={handleZoomOut}
-                className="bg-background border-border text-foreground hover:bg-muted hover:text-highlight flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border transition-all duration-300 sm:h-8 sm:w-8"
+                className="bg-background border-border text-foreground hover:bg-muted hover:text-highlight flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-300 sm:h-8 sm:w-8"
                 aria-label="Zoom out"
               >
                 <svg
@@ -144,7 +144,7 @@ const ResumeDialog: React.FC = () => {
               </button>
               <button
                 onClick={handleReset}
-                className="bg-background border-border text-foreground hover:bg-muted hover:text-highlight flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border transition-all duration-300 sm:h-8 sm:w-8"
+                className="bg-background border-border text-foreground hover:bg-muted hover:text-highlight flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-300 sm:h-8 sm:w-8"
                 aria-label="Reset zoom"
               >
                 <svg
@@ -171,7 +171,7 @@ const ResumeDialog: React.FC = () => {
                   link.click();
                   document.body.removeChild(link);
                 }}
-                className="bg-background border-border text-foreground hover:bg-muted hover:text-highlight flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border transition-all duration-300 sm:h-8 sm:w-8"
+                className="bg-background border-border text-foreground hover:bg-muted hover:text-highlight flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-300 sm:h-8 sm:w-8"
                 aria-label="Download resume"
               >
                 <svg
@@ -190,7 +190,7 @@ const ResumeDialog: React.FC = () => {
               </button>
               <button
                 onClick={() => setIsOpen(false)}
-                className="bg-background border-border text-foreground hover:bg-muted hover:text-highlight flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border transition-all duration-300 sm:h-8 sm:w-8"
+                className="bg-background border-border text-foreground hover:bg-muted hover:text-highlight flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-300 sm:h-8 sm:w-8"
                 aria-label="Close resume"
               >
                 <svg

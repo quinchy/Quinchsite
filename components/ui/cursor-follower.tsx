@@ -63,7 +63,7 @@ export default function CursorFollower() {
         type: "tween",
         duration: 0.15,
       }}
-      className="pointer-events-none fixed z-10 rounded-full border-[1px] border-border p-4 mix-blend-difference"
+      className="border-border pointer-events-none fixed z-10 rounded-full border-[1px] p-4 mix-blend-difference"
     />
   );
 }

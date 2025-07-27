@@ -3,10 +3,11 @@
 import { ReactNode, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import SplashScreen from "@/components/ui/splash-screen";
+import GlitchOverlay from "@/components/ui/glitch-overlay";
 
 const HOME_IMAGE_SRCS = [
   "/images/appointment_system.png",
-  "/images/aniquinch_ecommerce.png",
+  "/images/aniquinch_ecommerce.png",  
   "/images/banking_system.png",
   "/images/huefit_web.png",
   "/images/peer_to_peer_delivery_system.png",
@@ -66,5 +67,10 @@ export default function ClientLayoutWrapper({
   }
 
   // Main app/page children
-  return <>{children}</>;
+  return (
+    <>
+      <GlitchOverlay />
+      {children}
+    </>
+  );
 }

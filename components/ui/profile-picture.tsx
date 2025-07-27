@@ -12,7 +12,7 @@ export default function ProfilePicture() {
 
   return (
     <div
-      className="perspective relative h-[250px] w-[250px] cursor-pointer"
+      className="perspective relative h-[250px] w-[250px]"
       onClick={handleClick}
     >
       <div

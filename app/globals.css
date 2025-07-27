@@ -1,12 +1,12 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
   --color-border: #8abeae50;
   --color-background: #13171d;
-  --color-shadow: #080E12;
+  --color-shadow: #080e12;
   --color-foreground: #8abeae;
   --color-highlight: #83ffc0;
-  --color-muted: #1F282B;
+  --color-muted: #1f282b;
   --color-nav: #1b2226;
 
   @keyframes fadeIn {
@@ -39,31 +39,41 @@
   }
 
   @keyframes grain {
-    0%   { background-position:   0   0; }
-    25%  { background-position: 100px  50px; }
-    50%  { background-position:  -50px 100px; }
-    75%  { background-position:  150px -25px; }
-    100% { background-position:   0   0; }
+    0% {
+      background-position: 0 0;
+    }
+    25% {
+      background-position: 100px 50px;
+    }
+    50% {
+      background-position: -50px 100px;
+    }
+    75% {
+      background-position: 150px -25px;
+    }
+    100% {
+      background-position: 0 0;
+    }
   }
-  
+
   @keyframes slide-in {
-    from { 
-      opacity: 0;  
+    from {
+      opacity: 0;
       transform: translateY(2rem) scale(0.25);
     }
-    to { 
-      opacity: 1; 
+    to {
+      opacity: 1;
       transform: translateY(0) scale(1);
     }
   }
 
   @keyframes fade-in {
-    from { 
-      opacity: 0;  
+    from {
+      opacity: 0;
       transform: translateY(2rem);
     }
-    to { 
-      opacity: 1; 
+    to {
+      opacity: 1;
       transform: translateY(0);
     }
   }
@@ -87,6 +97,174 @@
     to {
       opacity: 0;
       transform: translateY(2rem);
+    }
+  }
+
+  /* Glitch animations */
+  @keyframes glitch-red {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-2px);
+    }
+    50% {
+      transform: translateX(2px);
+    }
+    75% {
+      transform: translateX(-1px);
+    }
+  }
+
+  @keyframes glitch-green {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(2px);
+    }
+    50% {
+      transform: translateX(-2px);
+    }
+    75% {
+      transform: translateX(1px);
+    }
+  }
+
+  @keyframes glitch-blue {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(-1px);
+    }
+    50% {
+      transform: translateY(1px);
+    }
+    75% {
+      transform: translateY(-0.5px);
+    }
+  }
+
+  @keyframes scan-lines {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(2px);
+    }
+  }
+
+  @keyframes random-scan-lines {
+    0% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(1px);
+    }
+    50% {
+      transform: translateY(0);
+    }
+    75% {
+      transform: translateY(-1px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes glitch-scan-lines {
+    0%,
+    100% {
+      transform: translateY(0);
+      opacity: 0.7;
+    }
+    10% {
+      transform: translateY(1px);
+      opacity: 0.9;
+    }
+    20% {
+      transform: translateY(-1px);
+      opacity: 0.5;
+    }
+    30% {
+      transform: translateY(0);
+      opacity: 0.7;
+    }
+    40% {
+      transform: translateY(2px);
+      opacity: 0.8;
+    }
+    50% {
+      transform: translateY(-2px);
+      opacity: 0.6;
+    }
+    60% {
+      transform: translateY(0);
+      opacity: 0.7;
+    }
+    70% {
+      transform: translateY(1px);
+      opacity: 0.9;
+    }
+    80% {
+      transform: translateY(-1px);
+      opacity: 0.5;
+    }
+    90% {
+      transform: translateY(0);
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes glitch-blocks {
+    0%,
+    100% {
+      clip-path: inset(0 0 0 0);
+      transform: translateX(0);
+    }
+    25% {
+      clip-path: inset(10% 0 20% 0);
+      transform: translateX(-1px);
+    }
+    50% {
+      clip-path: inset(20% 0 10% 0);
+      transform: translateX(1px);
+    }
+    75% {
+      clip-path: inset(5% 0 15% 0);
+      transform: translateX(-0.5px);
+    }
+  }
+
+  /* CRT Animations */
+  @keyframes crt-flicker {
+    0%,
+    100% {
+      opacity: 0.1;
+    }
+    50% {
+      opacity: 0.05;
+    }
+  }
+
+  @keyframes crt-static {
+    0%,
+    100% {
+      transform: translateX(0) translateY(0);
+    }
+    25% {
+      transform: translateX(1px) translateY(1px);
+    }
+    50% {
+      transform: translateX(-1px) translateY(-1px);
+    }
+    75% {
+      transform: translateX(0.5px) translateY(-0.5px);
     }
   }
 }
@@ -121,8 +299,8 @@
     position: fixed;
     inset: 0;
     background: url("/images/noise2.png") repeat;
-    opacity: 0.25;               /* tweak for subtlety */
-    mix-blend-mode: overlay;     /* blends noise with bg */
+    opacity: 0.25; /* tweak for subtlety */
+    mix-blend-mode: overlay; /* blends noise with bg */
     animation: grain 0.25s steps(3) infinite;
     z-index: -9999;
   }
@@ -151,6 +329,7 @@
 @layer base {
   * {
     @apply border-border;
+    cursor: url("/images/cursor.svg"), auto;
   }
   body {
     @apply bg-background text-foreground;
@@ -188,9 +367,9 @@
 }
 
 .TooltipContent[data-state="closed"] {
-	animation-name: slide-out;
+  animation-name: slide-out;
 }
 
 .DialogContent[data-state="closed"] {
-	animation-name: fade-out;
+  animation-name: fade-out;
 }

@@ -12,7 +12,7 @@ const ScrollToButton = () => {
   return (
     <motion.button
       onClick={scrollToProjects}
-      className="group relative isolate mt-3 flex cursor-pointer select-none overflow-hidden rounded-xl border border-border py-4 pl-14 pr-7 text-[1.35rem] font-semibold duration-500 ease-in-out"
+      className="group relative isolate mt-3 flex select-none overflow-hidden rounded-xl border border-border py-4 pl-14 pr-7 text-[1.35rem] font-semibold duration-500 ease-in-out"
       initial="rest"
       whileHover="hover"
       animate="rest"
