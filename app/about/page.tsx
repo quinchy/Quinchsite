@@ -1,12 +1,15 @@
 "use client";
 
-import Image from "next/image";
 import MainWrapper from "@/components/layout/main-wrapper";
-import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import ProfilePicture from "@/components/ui/profile-picture";
 import SocialMediaList from "@/components/ui/social-media-list";
 import TypewriterText from "@/components/ui/typewriter-text";
+import dynamic from "next/dynamic";
+
+const Navbar = dynamic(() => import("@/components/layout/navbar"), {
+  ssr: false,
+});
 
 export default function About() {
   return (
@@ -56,12 +59,8 @@ export default function About() {
         </section>
         {/* 2. History Section */}
         <section>
-          <TypewriterText
-            label="code:journey"
-          />
-          <div>
-            
-          </div>
+          <TypewriterText label="code:journey" />
+          <div></div>
         </section>
       </MainWrapper>
       <Footer />

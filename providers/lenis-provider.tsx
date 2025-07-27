@@ -12,8 +12,8 @@ const LenisScrollProvider = ({ children }: LenisScrollProviderProps) => {
 
   useEffect(() => {
     lenisRef.current = new Lenis({
-      duration: 1.5,
-      lerp: 0.1,
+      duration: 1,
+      lerp: 0.05,
       smoothWheel: true,
     });
 

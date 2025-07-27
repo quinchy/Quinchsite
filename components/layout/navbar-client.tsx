@@ -32,7 +32,7 @@ const NavbarClient = ({ children, pathname }: NavbarClientProps) => {
     <div
       className={`${baseClass} ${transitionClass} ${
         scrolled
-          ? "bg-nav/75 border-b-highlight/55 shadow-highlight/25 mt-2 w-[20rem] border-b-[1px] shadow-lg backdrop-blur-lg sm:w-[28rem] md:w-[35rem] lg:w-[40rem]"
+          ? "bg-nav/75 border-b-highlight mt-2 w-[20rem] border-b-[1px] backdrop-blur-lg sm:w-[28rem] md:w-[35rem] lg:w-[40rem]"
           : "mt-0 w-[25rem] border-b-0 border-b-transparent bg-transparent shadow-none sm:w-[32rem] md:w-[38rem] lg:w-[45rem]"
       }`}
       style={style}

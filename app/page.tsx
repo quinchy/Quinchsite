@@ -9,17 +9,22 @@ import Zentry from "@/public/images/zentry_hris.png";
 import HueFit from "@/public/images/huefit_web.png";
 
 import MainWrapper from "@/components/layout/main-wrapper";
-import Navbar from "@/components/layout/navbar";
+import TypewriterText from "@/components/ui/typewriter-text";
 import Footer from "@/components/layout/footer";
 import ScrollToButton from "@/components/button/move-to-project-button";
 import SocialMediaList from "@/components/ui/social-media-list";
-import TypewriterText from "@/components/ui/typewriter-text";
 import ProjectCard from "@/components/ui/project-card";
 import ViewMoreProjectsLink from "@/components/link/view-more-projects-link";
 
 import ProjectData from "@/data/projects.json";
 import ProfilePicture from "@/components/ui/profile-picture";
 import useInView from "@/hooks/useInView";
+
+import dynamic from "next/dynamic";
+
+const Navbar = dynamic(() => import("@/components/layout/navbar"), {
+  ssr: false,
+});
 
 // Map thumbnail keys to imports
 const thumbnails: Record<string, StaticImageData> = {
@@ -49,7 +54,7 @@ export default function Home() {
 
       <MainWrapper>
         {/* 1. Hero Section */}
-        
+
         <motion.section
           className="flex items-center gap-5 md:items-start"
           initial="hidden"
@@ -109,9 +114,7 @@ export default function Home() {
         >
           {hasReachedProjects && (
             <>
-              <TypewriterText
-                label="code:projects"          
-              />
+              <TypewriterText label="code:projects" />
               <div className="grid grid-cols-1 justify-items-center gap-5 md:grid-cols-2">
                 {ProjectData.slice(0, 4).map((project, index) => (
                   <ProjectCard
