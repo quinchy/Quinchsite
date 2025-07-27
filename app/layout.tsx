@@ -53,13 +53,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Chrome, Firefox OS & Opera */}
         <meta name="theme-color" content="#13171d" />
-
-        {/* Windows Phone */}
         <meta name="msapplication-navbutton-color" content="#13171d" />
-
-        {/* Safari/iOS */}
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta
           name="apple-mobile-web-app-status-bar-style"
