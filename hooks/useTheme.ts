@@ -41,8 +41,13 @@ export const useTheme = () => {
   }, []);
 
   const rotateHue = useCallback((hexColor: string, degrees: number) => {
+    // Extract alpha value if present (8 characters = rgba, 6 characters = rgb)
+    const hasAlpha = hexColor.length === 9;
+    const alpha = hasAlpha ? hexColor.slice(7, 9) : null;
+    const rgbHex = hasAlpha ? hexColor.slice(0, 7) : hexColor;
+
     // Convert hex to HSL
-    const hex = hexColor.replace("#", "");
+    const hex = rgbHex.replace("#", "");
     const r = parseInt(hex.substr(0, 2), 16) / 255;
     const g = parseInt(hex.substr(2, 2), 16) / 255;
     const b = parseInt(hex.substr(4, 2), 16) / 255;
@@ -99,7 +104,10 @@ export const useTheme = () => {
       return hex.length === 1 ? "0" + hex : hex;
     };
 
-    return `#${toHex(r1)}${toHex(g1)}${toHex(b1)}`;
+    const result = `#${toHex(r1)}${toHex(g1)}${toHex(b1)}`;
+
+    // Add alpha back if it was present
+    return alpha ? `${result}${alpha}` : result;
   }, []);
 
   const randomizeTheme = useCallback(() => {
