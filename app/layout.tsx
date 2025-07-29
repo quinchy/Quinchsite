@@ -51,6 +51,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta
+          name="google-site-verification"
+          content="YDK4FKni0aKlcMhI_s7VjJAznskAxoUjmBTAEODRLNA"
+        />
+      </head>
       <body
         className={`${GeistMono.className} flex flex-col items-center justify-center`}
       >
