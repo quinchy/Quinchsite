@@ -39,7 +39,7 @@ export default function CursorFollower() {
     const handleClick = () => {
       setIsClicked(true);
       // Create and play the audio from the public folder
-      const audio = new Audio("/sounds/mouse-sound-2.wav");
+      const audio = new Audio("/sounds/mouse-sound.wav");
       audio.play();
       setTimeout(() => setIsClicked(false), 150);
     };

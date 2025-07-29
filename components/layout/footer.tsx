@@ -2,18 +2,17 @@ import React from "react";
 import SocialMediaList from "@/components/ui/social-media-list";
 
 const Footer: React.FC = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="w-full max-w-4xl mx-auto" role="contentinfo">
-      <div className="mb-10 sm flex flex-col lg:flex-row items-center justify-center gap-1 border-t border-muted pt-10 sm:gap-[2rem] lg:gap-[16rem]">
+    <footer className="mx-auto w-full max-w-[43rem]" role="contentinfo">
+      <div className="border-muted flex flex-col items-center justify-center gap-1 border-t py-5 pb-8 sm:gap-[2rem] lg:flex-row lg:gap-[9rem] lg:pb-5">
         <SocialMediaList />
-        <div className="flex flex-col lg:items-end">
-          <small className="text-center lg:text-right text-[0.65rem] min-[520px]:text-[0.75rem] sm:text-[0.85rem]">
-            {"© 2025 Cyril James De Guzman. All Rights Reserved."}
-          </small>
-          <small className="text-center lg:text-right text-[0.65rem] min-[520px]:text-[0.75rem] sm:text-[0.85rem]">
-            {"Made with passion."}
-          </small>
-        </div>
+        <p className="flex flex-col text-center text-xs lg:mb-0 lg:items-end">
+          {`© ${currentYear} Cyril James De Guzman.`}
+          <br className="block lg:hidden" />
+          {" All Rights Reserved."}
+        </p>
       </div>
     </footer>
   );

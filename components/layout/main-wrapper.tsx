@@ -1,15 +1,83 @@
 "use client";
 
-import React from "react";
+import { ReactNode, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import SplashScreen from "@/components/ui/splash-screen";
+import GlitchOverlay from "@/components/ui/glitch-overlay";
+import CursorFollower from "@/components/ui/cursor-follower";
+import Footer from "@/components/layout/footer";
 
-interface MainWrapperProps {
-  children?: React.ReactNode;
+import dynamic from "next/dynamic";
+
+const Navbar = dynamic(() => import("@/components/layout/navbar"), {
+  ssr: false,
+});
+
+const HOME_IMAGE_SRCS = [
+  "/images/appointment_system.png",
+  "/images/aniquinch_ecommerce.png",
+  "/images/banking_system.png",
+  "/images/huefit_web.png",
+  "/images/peer_to_peer_delivery_system.png",
+  "/images/zentry_hris.png",
+];
+
+// Simple image preloader utility
+function preloadImages(srcs: string[]): Promise<void[]> {
+  if (typeof window === "undefined") return Promise.resolve([]);
+  return Promise.all(
+    srcs.map(
+      (src) =>
+        new Promise<void>((resolve) => {
+          const img = new window.Image();
+          img.onload = () => resolve();
+          img.onerror = () => resolve();
+          img.src = src;
+        }),
+    ),
+  );
 }
 
-export default function MainWrapper({ children }: MainWrapperProps) {
+export default function MainWrapper({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
+  const inRoot = pathname === "/";
+
+  const [showSplash, setShowSplash] = useState(inRoot);
+  const [assetsReady, setAssetsReady] = useState(!inRoot);
+
+  useEffect(() => {
+    if (!inRoot) {
+      setShowSplash(false);
+      setAssetsReady(true);
+      return;
+    }
+
+    let isMounted = true;
+    async function loadAssets() {
+      // Wait a tick for hydration
+      await new Promise((r) => setTimeout(r, 80));
+      await preloadImages(HOME_IMAGE_SRCS);
+      if (isMounted) setAssetsReady(true);
+    }
+    loadAssets();
+    return () => {
+      isMounted = false;
+    };
+  }, [inRoot]);
+
+  // Show splash if we're on root ("/") and not done prepping assets yet
+  if (showSplash || !assetsReady) {
+    return <SplashScreen onSlideEnd={() => setShowSplash(false)} />;
+  }
+
+  // Main app/page children
   return (
-    <main className="mt-[9rem] mb-[10rem] flex flex-col items-center justify-center gap-64 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-48">
+    <>
+      <Navbar />
+      <CursorFollower />
+      <GlitchOverlay />
       {children}
-    </main>
+      <Footer />
+    </>
   );
 }

@@ -1,36 +1,38 @@
-import React from 'react';
-import Link from 'next/link';
-import Image, { StaticImageData } from 'next/image';
+import React, { forwardRef } from "react";
+import Link from "next/link";
 
 interface SocialMediaLinkProps {
   href: string;
-  iconSrc: string | StaticImageData;
+  children: React.ReactNode;
   alt?: string;
   className?: string;
 }
 
-const SocialMediaLink: React.FC<SocialMediaLinkProps> = ({
-  href,
-  iconSrc,
-  alt = 'Social Media Icon',
-  className = 'w-12 h-12 xl:w-14 xl:h-14',
-}) => {
-  return (
-    <Link href={href} target="_blank" passHref>
-      <div
-        className={`rounded-xl p-3 group hover:bg-muted hover:brightness-125 scale-75 ease-in-out duration-500 ${className}`}
-      >
-        <Image
-          src={iconSrc}
-          alt={alt}
-          placeholder="empty"
-          quality={100}
-          priority
-          className="group-hover:scale-110 group-hover:mix-blend-color-dodge transition-all duration-300 ease-in-out"
-        />
-      </div>
-    </Link>
-  );
-};
+const SocialMediaLink = forwardRef<HTMLAnchorElement, SocialMediaLinkProps>(
+  (
+    {
+      href,
+      children,
+      alt = "Social Media Icon",
+      className = "w-12 h-12 xl:w-14 xl:h-14",
+    },
+    ref,
+  ) => {
+    return (
+      <Link href={href} target="_blank" passHref ref={ref}>
+        <div
+          className={`group hover:bg-muted text-foreground scale-75 rounded-xl p-3 duration-500 ease-in-out hover:brightness-125 ${className}`}
+          aria-label={alt}
+        >
+          <div className="transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:mix-blend-color-dodge">
+            {children}
+          </div>
+        </div>
+      </Link>
+    );
+  },
+);
+
+SocialMediaLink.displayName = "SocialMediaLink";
 
 export default SocialMediaLink;

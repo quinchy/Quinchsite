@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
-import CursorFollower from "@/components/ui/cursor-follower";
 import LenisScrollProvider from "@/providers/lenis-provider";
-import ClientLayoutWrapper from "@/components/layout/client-layout-wrapper";
+import FloatingMenuBar from "@/components/ui/floating-menu-bar";
 
 export const metadata: Metadata = {
   title: "Quinch",
@@ -52,24 +51,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <meta name="theme-color" content="#13171d" />
-        <meta name="msapplication-navbutton-color" content="#13171d" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta
-          name="apple-mobile-web-app-status-bar-style"
-          content="black-translucent"
-        />
-      </head>
       <body
         className={`${GeistMono.className} flex flex-col items-center justify-center`}
       >
-        <LenisScrollProvider>
-          <ClientLayoutWrapper>
-            <main id="main-content">{children}</main>
-          </ClientLayoutWrapper>
-          <CursorFollower />
-        </LenisScrollProvider>
+        <LenisScrollProvider>{children}</LenisScrollProvider>
+        <FloatingMenuBar />
       </body>
     </html>
   );

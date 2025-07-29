@@ -83,14 +83,24 @@ const ResumeDialog: React.FC = () => {
           <TooltipTrigger asChild>
             <button
               onClick={() => setIsOpen(true)}
-              className="group group hover:bg-muted h-12 w-12 scale-75 rounded-xl p-3 duration-500 ease-in-out hover:brightness-125 xl:h-14 xl:w-14"
+              className="group group hover:bg-muted text-foreground h-12 w-12 scale-75 rounded-xl p-3 duration-500 ease-in-out hover:brightness-125 xl:h-14 xl:w-14"
               aria-label="Resume"
             >
-              <Image
-                src={ResumeIcon}
-                alt="Resume Icon"
-                className="transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:mix-blend-color-dodge"
-              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+                <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                <path d="M10 9H8" />
+                <path d="M16 13H8" />
+                <path d="M16 17H8" />
+              </svg>
             </button>
           </TooltipTrigger>
           <TooltipContent>
@@ -209,19 +219,18 @@ const ResumeDialog: React.FC = () => {
                 </svg>
               </button>
             </div>
-              <div
-                className="h-full w-full overflow-hidden rounded-lg bg-transparent p-2 sm:p-4"
-                onMouseMove={handleMouseMove}
-                onMouseUp={handleMouseUp}
-                onMouseLeave={handleMouseUp}
-                onTouchMove={handleTouchMove}
-                onTouchEnd={handleTouchEnd}
-              >
+            <div
+              className="h-full w-full overflow-hidden rounded-lg bg-transparent p-2 sm:p-4"
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseUp}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
               <div
                 className="flex h-full w-full items-center justify-center"
                 onMouseDown={handleMouseDown}
                 onTouchStart={handleTouchStart}
-                style={{ cursor: scale > 0.75 ? "grab" : "default" }}
               >
                 <div
                   style={{

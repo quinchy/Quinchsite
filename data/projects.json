@@ -24,7 +24,7 @@
     },
     {
         "title": "Zentry",
-        "description": "An open-source Human Resource Information System to manage employees built using Next.js",
+        "description": "An Human Resource Information System to manage employees built using Next.js",
         "longDescription": "Zentry is a platform  designed to simplify employee check-ins and check-outs, enhance team communication through real-time chat, and streamline scheduling for teams of any size.",
         "thumbnail": "Zentry",
         "technologies": [
