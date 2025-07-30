@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import ProfilePicture from "@/components/ui/profile-picture";
 import SocialMediaList from "@/components/ui/social-media-list";
 import MoveToProjectButton from "@/components/button/move-to-project-button";
@@ -8,6 +9,26 @@ import ViewMoreProjectsLink from "@/components/link/view-more-projects-link";
 import ProjectData from "@/data/projects.json";
 import { Project } from "@/lib/types";
 import { thumbnails } from "@/lib/utils";
+
+export const metadata: Metadata = {
+  title: "Quinch - Software Developer Portfolio",
+  description:
+    "Web Portfolio of Cyril James De Guzman. Full-stack Software Developer specializing in Web and Mobile Development based in the Philippines.",
+  keywords: [
+    "software developer",
+    "web development",
+    "mobile development",
+    "portfolio",
+    "Philippines",
+  ],
+  openGraph: {
+    title: "Quinch - Software Developer Portfolio",
+    description:
+      "Web Portfolio of Cyril James De Guzman. Full-stack Software Developer specializing in Web and Mobile Development.",
+    type: "website",
+    url: "https://quinchy.dev",
+  },
+};
 
 export default function Home() {
   return (

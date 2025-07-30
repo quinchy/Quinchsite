@@ -1,6 +1,27 @@
+import { Metadata } from "next";
 import ProfilePicture from "@/components/ui/profile-picture";
 import SocialMediaList from "@/components/ui/social-media-list";
 import TypewriterText from "@/components/ui/typewriter-text";
+
+export const metadata: Metadata = {
+  title: "About - Cyril James De Guzman | Quinch",
+  description:
+    "Learn more about Cyril James De Guzman, a Full-stack Software Developer from the Philippines specializing in Web and Mobile Development.",
+  keywords: [
+    "about",
+    "Cyril James De Guzman",
+    "software developer",
+    "Philippines",
+    "web development",
+  ],
+  openGraph: {
+    title: "About - Cyril James De Guzman | Quinch",
+    description:
+      "Learn more about Cyril James De Guzman, a Full-stack Software Developer from the Philippines specializing in Web and Mobile Development.",
+    type: "website",
+    url: "https://quinchy.dev/about",
+  },
+};
 
 export default function About() {
   return (
