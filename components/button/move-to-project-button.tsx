@@ -1,8 +1,10 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { FaArrowDown } from "react-icons/fa";
 import { useCallback } from "react";
 
-const ScrollToButton = () => {
+const MoveToProjectButton = () => {
   const scrollToProjects = useCallback(() => {
     document
       .getElementById("projects-section")
@@ -50,4 +52,4 @@ const ScrollToButton = () => {
   );
 };
 
-export default ScrollToButton;
+export default MoveToProjectButton;

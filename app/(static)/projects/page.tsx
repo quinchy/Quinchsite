@@ -1,17 +1,8 @@
-"use client";
 
-import MainWrapper from "@/components/layout/main-wrapper";
-import Footer from "@/components/layout/footer";
 import ProjectCard from "@/components/ui/project-card";
 import ProjectData from "@/data/projects.json";
 import { Project } from "@/lib/types";
 import { thumbnails } from "@/lib/utils";
-
-import dynamic from "next/dynamic";
-
-const Navbar = dynamic(() => import("@/components/layout/navbar"), {
-  ssr: false,
-});
 
 export default function Projects() {
   return (

@@ -1,5 +1,3 @@
-"use client";
-
 import ProfilePicture from "@/components/ui/profile-picture";
 import SocialMediaList from "@/components/ui/social-media-list";
 import TypewriterText from "@/components/ui/typewriter-text";

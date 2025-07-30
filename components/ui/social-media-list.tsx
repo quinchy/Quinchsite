@@ -1,6 +1,8 @@
+"use client";
+
 import React from "react";
-import SocialMediaLink from "../link/social-media-link";
-import ResumeDialog from "./resume-dialog";
+import SocialMediaLink from "@/components/link/social-media-link";
+import ResumeDialog from "@/components/ui/resume-dialog";
 import {
   Tooltip,
   TooltipContent,
