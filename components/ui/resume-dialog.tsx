@@ -83,7 +83,7 @@ const ResumeDialog: React.FC = () => {
           <TooltipTrigger asChild>
             <button
               onClick={() => setIsOpen(true)}
-              className="group group hover:bg-muted text-foreground h-12 w-12 scale-75 rounded-xl p-3 duration-500 ease-in-out hover:brightness-125 xl:h-14 xl:w-14"
+              className="group group hover:bg-muted text-foreground hover:text-highlight hover:scale-80 h-12 w-12 scale-75 rounded-xl p-3 duration-500 ease-in-out hover:brightness-125 xl:h-14 xl:w-14"
               aria-label="Resume"
             >
               <svg

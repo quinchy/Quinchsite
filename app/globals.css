@@ -8,6 +8,7 @@
   --color-highlight: #83ffc0;
   --color-muted: #1f282b;
   --color-nav: #1b2226;
+  --color-glow: #baffea;
 
   @keyframes fadeIn {
     from {
@@ -270,23 +271,36 @@
 }
 
 @layer utilities {
+  /* WebKit browsers (Chrome, Safari, Edge) */
   ::-webkit-scrollbar {
     width: 10px;
     opacity: 0.5;
   }
 
   ::-webkit-scrollbar-track {
-    background: var(--color-background);
-    border-radius: 10px;
+    background: transparent;
   }
 
   ::-webkit-scrollbar-thumb {
     background: var(--color-nav);
-    border-radius: 10px;
+    border-radius: 0px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
     background: var(--color-muted);
+  }
+
+  /* Firefox scrollbar styling - only applies to Firefox */
+  @supports (-moz-appearance: none) {
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-nav) transparent;
+    }
+
+    /* Firefox scrollbar hover effect */
+    *:hover {
+      scrollbar-color: var(--color-muted) transparent;
+    }
   }
 
   img {
@@ -337,6 +351,9 @@
     @apply bg-background text-foreground;
     transition: all 0.3s ease-in-out;
   }
+  body[data-scroll-locked] {
+    margin-right: 0 !important;
+  }
 }
 
 :focus-visible {
@@ -375,4 +392,19 @@
 
 .DialogContent[data-state="closed"] {
   animation-name: fade-out;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-nav);
+  border-radius: 0px;
+  overflow: hidden;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  overflow: hidden;
 }

@@ -24,7 +24,7 @@ const SocialMediaLink = forwardRef<HTMLAnchorElement, SocialMediaLinkProps>(
           className={`group hover:bg-muted text-foreground scale-75 rounded-xl p-3 duration-500 ease-in-out hover:brightness-125 ${className}`}
           aria-label={alt}
         >
-          <div className="transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:mix-blend-color-dodge">
+          <div className="transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:text-highlight">
             {children}
           </div>
         </div>

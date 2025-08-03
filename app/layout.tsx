@@ -5,8 +5,9 @@ import LenisScrollProvider from "@/providers/lenis-provider";
 import FloatingMenuBar from "@/components/ui/floating-menu-bar";
 
 export const metadata: Metadata = {
-  title: "Quinch",
-  description: "Web Portfolio of Cyril James De Guzman",
+  title: "Quinch - Software Developer Portfolio",
+  description:
+    "Web Portfolio of Cyril James De Guzman. Full-stack Software Developer specializing in Web and Mobile Development based in the Philippines.",
   metadataBase: new URL("https://quinchy.dev"),
   keywords: [
     "Quinch",
@@ -18,7 +19,12 @@ export const metadata: Metadata = {
     "Next.js Developer",
     "Front End",
     "Back End",
+    "Philippines",
+    "Portfolio",
   ],
+  authors: [{ name: "Cyril James De Guzman" }],
+  creator: "Cyril James De Guzman",
+  publisher: "Cyril James De Guzman",
   openGraph: {
     title: "Cyril James De Guzman - Developer Portfolio",
     description:
@@ -36,12 +42,21 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cyril James De Guzman - Developer Portfolio",
+    description:
+      "Web Portfolio of Cyril James De Guzman, a Full-Stack Software Developer specializing in Web and Mobile Development.",
+  },
   icons: {
     icon: "/favicon.ico",
     apple: "/favicon.ico",
     shortcut: "/favicon.ico",
   },
   robots: "index, follow",
+  alternates: {
+    canonical: "https://quinchy.dev",
+  },
 };
 
 export default function RootLayout({
@@ -56,6 +71,21 @@ export default function RootLayout({
           name="google-site-verification"
           content="YDK4FKni0aKlcMhI_s7VjJAznskAxoUjmBTAEODRLNA"
         />
+        {/* Preload critical resources */}
+        <link rel="preload" href="/images/me.png" as="image" />
+        <link rel="preload" href="/images/noise2.png" as="image" />
+        <link rel="preload" href="/images/aniquinch_ecommerce.png" as="image" />
+        <link rel="preload" href="/images/appointment_system.png" as="image" />
+        <link rel="preload" href="/images/banking_system.png" as="image" />
+        <link rel="preload" href="/images/dating_site.png" as="image" />
+        <link rel="preload" href="/images/huefit_mobile.png" as="image" />
+        <link rel="preload" href="/images/huefit_web.png" as="image" />
+        <link
+          rel="preload"
+          href="/images/peer_to_peer_delivery_system.png"
+          as="image"
+        />
+        <link rel="preload" href="/images/zentry_hris.png" as="image" />
       </head>
       <body
         className={`${GeistMono.className} flex flex-col items-center justify-center`}

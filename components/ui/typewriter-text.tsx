@@ -6,12 +6,14 @@ interface TypewriterTextProps {
   label: string;
   className?: string;
   onComplete?: () => void;
+  animated?: boolean;
 }
 
 const TypewriterText: React.FC<TypewriterTextProps> = ({
   label,
   className,
   onComplete,
+  animated = true,
 }) => {
   const [text, setText] = useState("");
   const currentCharIndex = useRef(0);
@@ -20,19 +22,25 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({
   if (!hasAnimated.current) {
     hasAnimated.current = true;
 
-    const animateTyping = () => {
-      const nextChar = label.slice(0, currentCharIndex.current + 1);
-      setText(nextChar);
-      currentCharIndex.current++;
+    if (animated) {
+      const animateTyping = () => {
+        const nextChar = label.slice(0, currentCharIndex.current + 1);
+        setText(nextChar);
+        currentCharIndex.current++;
 
-      if (currentCharIndex.current < label.length) {
-        setTimeout(animateTyping, 100);
-      } else {
-        onComplete?.();
-      }
-    };
+        if (currentCharIndex.current < label.length) {
+          setTimeout(animateTyping, 100);
+        } else {
+          onComplete?.();
+        }
+      };
 
-    animateTyping();
+      animateTyping();
+    } else {
+      // If not animated, show the full text immediately
+      setText(label);
+      onComplete?.();
+    }
   }
 
   return (

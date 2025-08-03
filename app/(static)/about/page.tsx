@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import ProfilePicture from "@/components/ui/profile-picture";
 import SocialMediaList from "@/components/ui/social-media-list";
 import TypewriterText from "@/components/ui/typewriter-text";
+import Timeline from "@/components/ui/timeline";
 
 export const metadata: Metadata = {
   title: "About - Cyril James De Guzman | Quinch",
@@ -33,11 +34,15 @@ export default function About() {
             <ProfilePicture />
             <figcaption>
               <div className="flex min-w-[10.75rem] flex-col items-start gap-1 select-none md:items-start lg:min-w-[20rem] lg:gap-4">
-                <h1 className="text-highlight text-shadow-highlight flex text-[3rem] leading-none font-semibold tracking-[-0.08em] text-shadow-lg/25 md:text-[4.5rem]">
+                <h1
+                  lang="en"
+                  aria-label="kwinch"
+                  className="text-highlight text-shadow-highlight flex text-[3rem] leading-none font-semibold tracking-[-0.08em] text-shadow-lg/25 md:text-[4.5rem]"
+                >
                   qu<p className="tracking-[-0.55rem]">i</p>nch
                 </h1>
                 <p className="ml-1 text-[1rem] tracking-tighter opacity-90 md:text-[1.40rem] lg:ml-2">
-                  Software Developer.
+                  Software Developer
                 </p>
                 <SocialMediaList />
               </div>
@@ -67,10 +72,13 @@ export default function About() {
           </article>
         </div>
       </section>
+
       {/* 2. History Section */}
-      <section>
-        <TypewriterText label="code:timeline" />
-        <div></div>
+      <section className="flex flex-col items-center justify-center gap-20">
+        <TypewriterText label="code:journey" animated={false} />
+        <div className="w-full min-w-4xl">
+          <Timeline />
+        </div>
       </section>
     </>
   );

@@ -9,6 +9,7 @@ const defaultColors = {
   highlight: "#83ffc0",
   muted: "#1f282b",
   nav: "#1b2226",
+  glow: "#baffea",
 };
 
 export const useTheme = () => {
@@ -143,7 +144,10 @@ export const useTheme = () => {
       "--color-nav",
       rotateHue(defaultColors.nav, hueOffset),
     );
-
+    root.style.setProperty(
+      "--color-glow",
+      rotateHue(defaultColors.glow, hueOffset),
+    );
     // Update cursor with new foreground color
     updateCursor(newForeground);
   }, [rotateHue, updateCursor]);
@@ -157,7 +161,7 @@ export const useTheme = () => {
     root.style.setProperty("--color-highlight", defaultColors.highlight);
     root.style.setProperty("--color-muted", defaultColors.muted);
     root.style.setProperty("--color-nav", defaultColors.nav);
-
+    root.style.setProperty("--color-glow", defaultColors.glow);
     // Reset cursor to default color
     updateCursor(defaultColors.foreground);
   }, [updateCursor]);

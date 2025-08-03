@@ -49,7 +49,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           height={300}
           priority={true}
           quality={100}
-          className="rounded-xl group-hover:scale-105 transition-all duration-500 ease-in-out"
+          className="rounded-xl transition-all duration-500 ease-in-out group-hover:scale-105"
         />
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-2">
@@ -65,7 +65,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       </div>
 
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="flex h-[70vh] flex-col lg:min-w-[40rem]">
+        <DialogContent className="flex h-[70vh] flex-col lg:min-w-[40rem] overflow-hidden">
           <DialogHeader>
             <DialogTitle asChild>
               <div className="text-highlight flex flex-col items-start gap-4 text-base lg:flex-row lg:items-center">
@@ -82,7 +82,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           </DialogHeader>
           <div
             data-lenis-prevent
-            className="flex flex-col gap-4 overflow-y-auto"
+            className="custom-scrollbar flex flex-col gap-4 overflow-y-auto"
           >
             <div className="px-5 pt-5">
               <Image

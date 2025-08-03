@@ -58,15 +58,15 @@ function DialogContent({
         onOpenAutoFocus={(event) => event.preventDefault()}
         data-slot="dialog-content"
         className={cn(
-          "bg-background drop-shadow-xl drop-shadow-black fixed fade-in top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] rounded-xl border shadow-lg duration-200 sm:max-w-lg",
+          "bg-background fade-in fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] rounded-xl border shadow-lg drop-shadow-xl drop-shadow-black duration-200 sm:max-w-lg",
           "DialogContent",
           className,
         )}
         {...props}
       >
         {children}
-        <DialogPrimitive.Close className="hover:bg-muted absolute top-2 right-2 rounded-lg p-2 opacity-70 transition-all duration-500 hover:opacity-100 disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4">
-          <X className="scale-125" />
+        <DialogPrimitive.Close className="translate-y-1 hover:bg-muted hover:text-highlight absolute top-2 right-2 -translate-x-1 rounded-lg p-2 opacity-70 transition-all duration-500 hover:opacity-100 disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4">
+          <X className="scale-150" />
           <span className="sr-only">Close</span>
         </DialogPrimitive.Close>
       </DialogPrimitive.Content>
