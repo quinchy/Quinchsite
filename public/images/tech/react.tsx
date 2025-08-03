@@ -1,5 +1,3 @@
-import * as React from "react";
-
 interface ReactProps extends React.SVGProps<SVGSVGElement> {
   width?: number;
   height?: number;
