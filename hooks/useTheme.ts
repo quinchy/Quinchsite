@@ -10,6 +10,11 @@ const defaultColors = {
   muted: "#1f282b",
   nav: "#1b2226",
   glow: "#baffea",
+  palette1: "#4EB69C",
+  palette2: "#7BCBC2",
+  palette3: "#338A74",
+  palette4: "#338A74",
+  palette5: "#81E7DB",
 };
 
 export const useTheme = () => {
@@ -148,6 +153,26 @@ export const useTheme = () => {
       "--color-glow",
       rotateHue(defaultColors.glow, hueOffset),
     );
+    root.style.setProperty(
+      "--color-palette-1",
+      rotateHue(defaultColors.palette1, hueOffset),
+    );
+    root.style.setProperty(
+      "--color-palette-2",
+      rotateHue(defaultColors.palette2, hueOffset), 
+    );
+    root.style.setProperty(
+      "--color-palette-3",
+      rotateHue(defaultColors.palette3, hueOffset),
+    );
+    root.style.setProperty(
+      "--color-palette-4",
+      rotateHue(defaultColors.palette4, hueOffset),
+    );
+    root.style.setProperty(
+      "--color-palette-5",
+      rotateHue(defaultColors.palette5, hueOffset),
+    );
     // Update cursor with new foreground color
     updateCursor(newForeground);
   }, [rotateHue, updateCursor]);
@@ -162,6 +187,11 @@ export const useTheme = () => {
     root.style.setProperty("--color-muted", defaultColors.muted);
     root.style.setProperty("--color-nav", defaultColors.nav);
     root.style.setProperty("--color-glow", defaultColors.glow);
+    root.style.setProperty("--color-palette-1", defaultColors.palette1);
+    root.style.setProperty("--color-palette-2", defaultColors.palette2);
+    root.style.setProperty("--color-palette-3", defaultColors.palette3);
+    root.style.setProperty("--color-palette-4", defaultColors.palette4);
+    root.style.setProperty("--color-palette-5", defaultColors.palette5);
     // Reset cursor to default color
     updateCursor(defaultColors.foreground);
   }, [updateCursor]);

@@ -9,6 +9,11 @@
   --color-muted: #1f282b;
   --color-nav: #1b2226;
   --color-glow: #baffea;
+  --color-palette-1: #4EB69C;
+  --color-palette-2: #7BCBC2;
+  --color-palette-3: #338A74;
+  --color-palette-4: #64B4AB;
+  --color-palette-5: #81E7DB;
 
   @keyframes fadeIn {
     from {

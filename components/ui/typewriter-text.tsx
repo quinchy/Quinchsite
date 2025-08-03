@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 interface TypewriterTextProps {
   label: string;
@@ -18,30 +18,47 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({
   const [text, setText] = useState("");
   const currentCharIndex = useRef(0);
   const hasAnimated = useRef(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  if (!hasAnimated.current) {
-    hasAnimated.current = true;
-
-    if (animated) {
-      const animateTyping = () => {
-        const nextChar = label.slice(0, currentCharIndex.current + 1);
-        setText(nextChar);
-        currentCharIndex.current++;
-
-        if (currentCharIndex.current < label.length) {
-          setTimeout(animateTyping, 100);
-        } else {
-          onComplete?.();
-        }
-      };
-
-      animateTyping();
-    } else {
-      // If not animated, show the full text immediately
-      setText(label);
-      onComplete?.();
+  useEffect(() => {
+    // Reset animation state when label changes
+    if (hasAnimated.current) {
+      hasAnimated.current = false;
+      currentCharIndex.current = 0;
+      setText("");
     }
-  }
+
+    if (!hasAnimated.current) {
+      hasAnimated.current = true;
+
+      if (animated) {
+        const animateTyping = () => {
+          const nextChar = label.slice(0, currentCharIndex.current + 1);
+          setText(nextChar);
+          currentCharIndex.current++;
+
+          if (currentCharIndex.current < label.length) {
+            timeoutRef.current = setTimeout(animateTyping, 100);
+          } else {
+            onComplete?.();
+          }
+        };
+
+        animateTyping();
+      } else {
+        // If not animated, show the full text immediately
+        setText(label);
+        onComplete?.();
+      }
+    }
+
+    // Cleanup function to clear timeout when component unmounts
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [label, animated, onComplete]);
 
   return (
     <p
