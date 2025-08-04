@@ -91,7 +91,7 @@ export default function Timeline() {
             }}
           >
             {/* First Section: Senior High School (Left Side)*/}
-            <section>
+            <section className="grid">
               {/* ProgressLine */}
               <div className="drop-shadow-highlight h-96 w-1 -translate-x-4.5 place-self-end rounded-t-full drop-shadow-lg"
                 style={{
@@ -100,7 +100,7 @@ export default function Timeline() {
                 }}
               />
               {/* Checkpoint */}
-              <div className="relative">
+              <div className="relative grid">
                 {/* Outline Circle */}
                 <div className="border-glow drop-shadow-highlight h-10 w-10 place-self-end rounded-full border-4 bg-transparent drop-shadow-lg" />
                 <motion.div
@@ -152,11 +152,11 @@ export default function Timeline() {
               </div>
             </section>
             {/* Second Section: Freshman and Sophomore Year (Right Side)*/}
-            <section>
+            <section className="grid">
               {/* ProgressLine */}
               <div className="bg-glow drop-shadow-highlight h-96 w-1 -translate-x-4.5 place-self-end rounded-t-full drop-shadow-lg" />
               {/* Checkpoint */}
-              <div className="relative">
+              <div className="relative grid">
                 {/* Outline Circle */}
                 <div className="border-glow drop-shadow-highlight h-10 w-10 place-self-end rounded-full border-4 bg-transparent drop-shadow-lg" />
                 <motion.div
@@ -210,11 +210,11 @@ export default function Timeline() {
               </div>
             </section>
             {/* Third Section: Junior Year (Left Side)*/}
-            <section>
+            <section className="grid">
               {/* ProgressLine */}
               <div className="bg-glow drop-shadow-highlight h-96 w-1 -translate-x-4.5 place-self-end rounded-t-full drop-shadow-lg" />
               {/* Checkpoint */}
-              <div className="relative">
+              <div className="relative grid">
                 {/* Outline Circle */}
                 <div className="border-glow drop-shadow-highlight h-10 w-10 place-self-end rounded-full border-4 bg-transparent drop-shadow-lg" />
                 <motion.div
@@ -268,11 +268,11 @@ export default function Timeline() {
               </div>
             </section>
             {/* Fourth Section: Senior Year: Internship (Right Side)*/}
-            <section>
+            <section className="grid">
               {/* ProgressLine */}
               <div className="bg-glow drop-shadow-highlight h-96 w-1 -translate-x-4.5 place-self-end rounded-t-full drop-shadow-lg" />
               {/* Checkpoint */}
-              <div className="relative">
+              <div className="relative grid">
                 {/* Outline Circle */}
                 <div className="border-glow drop-shadow-highlight h-10 w-10 place-self-end rounded-full border-4 bg-transparent drop-shadow-lg" />
                 <motion.div
@@ -323,11 +323,11 @@ export default function Timeline() {
               </div>
             </section>
             {/* Fifth Section: Senior Year: Thesis (Left Side)*/}
-            <section>
+            <section className="grid">
               {/* ProgressLine */}
               <div className="bg-glow drop-shadow-highlight h-96 w-1 -translate-x-4.5 place-self-end rounded-t-full drop-shadow-lg" />
               {/* Checkpoint */}
-              <div className="relative">
+              <div className="relative grid">
                 {/* Outline Circle */}
                 <div className="border-glow drop-shadow-highlight h-10 w-10 place-self-end rounded-full border-4 bg-transparent drop-shadow-lg" />
                 <motion.div
@@ -380,11 +380,11 @@ export default function Timeline() {
               </div>
             </section>
             {/* Sixth Section: Graduation and Working in a Startup (Right Side)*/}
-            <section>
+            <section className="grid">
               {/* ProgressLine */}
               <div className="bg-glow drop-shadow-highlight h-96 w-1 -translate-x-4.5 place-self-end rounded-t-full drop-shadow-lg" />
               {/* Checkpoint */}
-              <div className="relative">
+              <div className="relative grid">
                 {/* Outline Circle */}
                 <div className="border-glow drop-shadow-highlight h-10 w-10 place-self-end rounded-full border-4 bg-transparent drop-shadow-lg" />
                 <motion.div
@@ -438,7 +438,7 @@ export default function Timeline() {
               </div>
             </section>
             {/* Last Section: Continuing my journey */}
-            <section>
+            <section className="grid">
               {/* Dotted Progress Line signifying present time and unknown future */}
               <div
                 className="drop-shadow-highlight h-56 -translate-x-4.5 place-self-end border-l-4 border-dashed drop-shadow-lg"
@@ -475,7 +475,7 @@ export default function Timeline() {
           }}
         >
           {/* First Section: Senior High School (Left Side)*/}
-          <section>
+          <section className="grid">
             {/* ProgressLine */}
             <div
               className="drop-shadow-highlight h-96 w-1 place-self-center rounded-t-full drop-shadow-lg"
@@ -485,7 +485,7 @@ export default function Timeline() {
               }}
             />
             {/* Checkpoint */}
-            <div className="relative">
+            <div className="relative grid">
               {/* Outline Circle */}
               <div className="border-glow drop-shadow-highlight h-10 w-10 place-self-center rounded-full border-4 bg-transparent drop-shadow-lg" />
               <motion.div
@@ -537,11 +537,11 @@ export default function Timeline() {
             </div>
           </section>
           {/* Second Section: Freshman and Sophomore Year (Right Side)*/}
-          <section>
+          <section className="grid">
             {/* ProgressLine */}
             <div className="bg-glow drop-shadow-highlight h-96 w-1 place-self-center drop-shadow-lg" />
             {/* Checkpoint */}
-            <div className="relative">
+            <div className="relative grid">
               {/* Outline Circle */}
               <div className="border-glow drop-shadow-highlight h-10 w-10 place-self-center rounded-full border-4 bg-transparent drop-shadow-lg" />
               <motion.div
@@ -595,11 +595,11 @@ export default function Timeline() {
             </div>
           </section>
           {/* Third Section: Junior Year (Left Side)*/}
-          <section>
+          <section className="grid">
             {/* ProgressLine */}
             <div className="bg-glow drop-shadow-highlight h-96 w-1 place-self-center drop-shadow-lg" />
             {/* Checkpoint */}
-            <div className="relative">
+            <div className="relative grid">
               {/* Outline Circle */}
               <div className="border-glow drop-shadow-highlight h-10 w-10 place-self-center rounded-full border-4 bg-transparent drop-shadow-lg" />
               <motion.div
@@ -653,11 +653,11 @@ export default function Timeline() {
             </div>
           </section>
           {/* Fourth Section: Senior Year: Internship (Right Side)*/}
-          <section>
+          <section className="grid">
             {/* ProgressLine */}
             <div className="bg-glow drop-shadow-highlight h-96 w-1 place-self-center drop-shadow-lg" />
             {/* Checkpoint */}
-            <div className="relative">
+            <div className="relative grid">
               {/* Outline Circle */}
               <div className="border-glow drop-shadow-highlight h-10 w-10 place-self-center rounded-full border-4 bg-transparent drop-shadow-lg" />
               <motion.div
@@ -710,11 +710,11 @@ export default function Timeline() {
             </div>
           </section>
           {/* Fifth Section: Senior Year: Thesis (Left Side)*/}
-          <section>
+          <section className="grid">
             {/* ProgressLine */}
             <div className="bg-glow drop-shadow-highlight h-96 w-1 place-self-center drop-shadow-lg" />
             {/* Checkpoint */}
-            <div className="relative">
+            <div className="relative grid">
               {/* Outline Circle */}
               <div className="border-glow drop-shadow-highlight h-10 w-10 place-self-center rounded-full border-4 bg-transparent drop-shadow-lg" />
               <motion.div
@@ -767,11 +767,11 @@ export default function Timeline() {
             </div>
           </section>
           {/* Sixth Section: Graduation and Working in a Startup (Right Side)*/}
-          <section>
+          <section className="grid">
             {/* ProgressLine */}
             <div className="bg-glow drop-shadow-highlight h-96 w-1 place-self-center drop-shadow-lg" />
             {/* Checkpoint */}
-            <div className="relative">
+            <div className="relative grid">
               {/* Outline Circle */}
               <div className="border-glow drop-shadow-highlight h-10 w-10 place-self-center rounded-full border-4 bg-transparent drop-shadow-lg" />
               <motion.div
@@ -824,7 +824,7 @@ export default function Timeline() {
             </div>
           </section>
           {/* Last Section: Continuing my journey */}
-          <section>
+          <section className="grid">
             {/* Dotted Progress Line signifying present time and unknown future */}
             <div
               className="drop-shadow-highlight h-56 place-self-center border-l-4 border-dashed drop-shadow-lg"
