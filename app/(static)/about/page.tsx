@@ -76,7 +76,7 @@ export default function About() {
       {/* 2. History Section */}
       <section className="flex flex-col items-center justify-center gap-20">
         <TypewriterText label="code:journey" animated={false} />
-        <div className="w-full min-w-4xl">
+        <div className="w-full min-w-xs lg:min-w-4xl">
           <Timeline />
         </div>
       </section>
