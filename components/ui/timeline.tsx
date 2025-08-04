@@ -93,11 +93,16 @@ export default function Timeline() {
             {/* First Section: Senior High School (Left Side)*/}
             <section>
               {/* ProgressLine */}
-              <div className="bg-highlight h-96 w-1 -translate-x-4.5 place-self-end rounded-t-full" />
+              <div className="drop-shadow-highlight h-96 w-1 -translate-x-4.5 place-self-end rounded-t-full drop-shadow-lg"
+                style={{
+                  background:
+                    "linear-gradient(to bottom, transparent 0%, var(--color-glow) 100%)",
+                }}
+              />
               {/* Checkpoint */}
               <div className="relative">
                 {/* Outline Circle */}
-                <div className="border-highlight h-10 w-10 place-self-end rounded-full border-4 bg-transparent" />
+                <div className="border-glow drop-shadow-highlight h-10 w-10 place-self-end rounded-full border-4 bg-transparent drop-shadow-lg" />
                 <motion.div
                   className="relative -translate-y-10"
                   ref={firstCheckpointLineRef}
@@ -112,11 +117,11 @@ export default function Timeline() {
                 >
                   {/* Curve Horizontal Line */}
                   <div className="relative translate-x-14">
-                    <div className="border-highlight absolute top-0 left-20 box-content h-5 w-10 rounded-bl-[32px] border-b-4 border-l-4" />
-                    <div className="bg-highlight absolute top-5 left-30 h-1 w-[36%]" />
+                    <div className="border-glow drop-shadow-highlight absolute top-0 left-20 box-content h-5 w-10 rounded-bl-[32px] border-b-4 border-l-4 drop-shadow-lg" />
+                    <div className="bg-glow drop-shadow-highlight absolute top-5 left-30 h-1 w-[36%] drop-shadow-lg" />
                   </div>
                   {/* Circle */}
-                  <div className="bg-highlight absolute top-5 right-0 h-6 w-6 -translate-x-2 -translate-y-1/2 place-self-end rounded-full" />
+                  <div className="bg-glow drop-shadow-highlight absolute top-5 right-0 h-6 w-6 -translate-x-2 -translate-y-1/2 place-self-end rounded-full drop-shadow-lg" />
                 </motion.div>
                 <motion.div
                   className="absolute -top-34 left-0 max-w-[17rem] -translate-y-1/2"
@@ -149,11 +154,11 @@ export default function Timeline() {
             {/* Second Section: Freshman and Sophomore Year (Right Side)*/}
             <section>
               {/* ProgressLine */}
-              <div className="bg-highlight h-96 w-1 -translate-x-4.5 place-self-end" />
+              <div className="bg-glow drop-shadow-highlight h-96 w-1 -translate-x-4.5 place-self-end rounded-t-full drop-shadow-lg" />
               {/* Checkpoint */}
               <div className="relative">
                 {/* Outline Circle */}
-                <div className="border-highlight h-10 w-10 place-self-end rounded-full border-4 bg-transparent" />
+                <div className="border-glow drop-shadow-highlight h-10 w-10 place-self-end rounded-full border-4 bg-transparent drop-shadow-lg" />
                 <motion.div
                   className="relative -translate-y-10"
                   ref={secondCheckpointLineRef}
@@ -168,11 +173,11 @@ export default function Timeline() {
                 >
                   {/* Curve Horizontal Line */}
                   <div className="relative translate-x-14">
-                    <div className="border-highlight absolute top-0 left-20 box-content h-5 w-10 rounded-bl-[32px] border-b-4 border-l-4" />
-                    <div className="bg-highlight absolute top-5 left-30 h-1 w-[36%]" />
+                    <div className="border-glow drop-shadow-highlight absolute top-0 left-20 box-content h-5 w-10 rounded-bl-[32px] border-b-4 border-l-4 drop-shadow-lg" />
+                    <div className="bg-glow drop-shadow-highlight absolute top-5 left-30 h-1 w-[36%] drop-shadow-lg" />
                   </div>
                   {/* Circle */}
-                  <div className="bg-highlight absolute top-5 right-0 h-6 w-6 -translate-x-2 -translate-y-1/2 place-self-end rounded-full" />
+                  <div className="bg-glow drop-shadow-highlight absolute top-5 right-0 h-6 w-6 -translate-x-2 -translate-y-1/2 place-self-end rounded-full drop-shadow-lg" />
                 </motion.div>
                 <motion.div
                   className="absolute -top-34 left-0 max-w-[17rem] -translate-y-1/2"
@@ -207,11 +212,11 @@ export default function Timeline() {
             {/* Third Section: Junior Year (Left Side)*/}
             <section>
               {/* ProgressLine */}
-              <div className="bg-highlight h-96 w-1 -translate-x-4.5 place-self-end" />
+              <div className="bg-glow drop-shadow-highlight h-96 w-1 -translate-x-4.5 place-self-end rounded-t-full drop-shadow-lg" />
               {/* Checkpoint */}
               <div className="relative">
                 {/* Outline Circle */}
-                <div className="border-highlight h-10 w-10 place-self-end rounded-full border-4 bg-transparent" />
+                <div className="border-glow drop-shadow-highlight h-10 w-10 place-self-end rounded-full border-4 bg-transparent drop-shadow-lg" />
                 <motion.div
                   className="relative -translate-y-10"
                   ref={thirdCheckpointLineRef}
@@ -226,11 +231,11 @@ export default function Timeline() {
                 >
                   {/* Curve Horizontal Line */}
                   <div className="relative translate-x-14">
-                    <div className="border-highlight absolute top-0 left-20 box-content h-5 w-10 rounded-bl-[32px] border-b-4 border-l-4" />
-                    <div className="bg-highlight absolute top-5 left-30 h-1 w-[36%]" />
+                    <div className="border-glow drop-shadow-highlight absolute top-0 left-20 box-content h-5 w-10 rounded-bl-[32px] border-b-4 border-l-4 drop-shadow-lg" />
+                    <div className="bg-glow drop-shadow-highlight absolute top-5 left-30 h-1 w-[36%] drop-shadow-lg" />
                   </div>
                   {/* Circle */}
-                  <div className="bg-highlight absolute top-5 right-0 h-6 w-6 -translate-x-2 -translate-y-1/2 place-self-end rounded-full" />
+                  <div className="bg-glow drop-shadow-highlight absolute top-5 right-0 h-6 w-6 -translate-x-2 -translate-y-1/2 place-self-end rounded-full drop-shadow-lg" />
                 </motion.div>
                 <motion.div
                   className="absolute -top-42 left-0 max-w-[17rem] -translate-y-1/2"
@@ -265,11 +270,11 @@ export default function Timeline() {
             {/* Fourth Section: Senior Year: Internship (Right Side)*/}
             <section>
               {/* ProgressLine */}
-              <div className="bg-highlight h-96 w-1 -translate-x-4.5 place-self-end" />
+              <div className="bg-glow drop-shadow-highlight h-96 w-1 -translate-x-4.5 place-self-end rounded-t-full drop-shadow-lg" />
               {/* Checkpoint */}
               <div className="relative">
                 {/* Outline Circle */}
-                <div className="border-highlight h-10 w-10 place-self-end rounded-full border-4 bg-transparent" />
+                <div className="border-glow drop-shadow-highlight h-10 w-10 place-self-end rounded-full border-4 bg-transparent drop-shadow-lg" />
                 <motion.div
                   className="relative -translate-y-10"
                   ref={fourthCheckpointLineRef}
@@ -284,11 +289,11 @@ export default function Timeline() {
                 >
                   {/* Curve Horizontal Line */}
                   <div className="relative translate-x-14">
-                    <div className="border-highlight absolute top-0 left-20 box-content h-5 w-10 rounded-bl-[32px] border-b-4 border-l-4" />
-                    <div className="bg-highlight absolute top-5 left-30 h-1 w-[36%]" />
+                    <div className="border-glow drop-shadow-highlight absolute top-0 left-20 box-content h-5 w-10 rounded-bl-[32px] border-b-4 border-l-4 drop-shadow-lg" />
+                    <div className="bg-glow drop-shadow-highlight absolute top-5 left-30 h-1 w-[36%] drop-shadow-lg" />
                   </div>
                   {/* Circle */}
-                  <div className="bg-highlight absolute top-5 right-0 h-6 w-6 -translate-x-2 -translate-y-1/2 place-self-end rounded-full" />
+                  <div className="bg-glow drop-shadow-highlight absolute top-5 right-0 h-6 w-6 -translate-x-2 -translate-y-1/2 place-self-end rounded-full drop-shadow-lg" />
                 </motion.div>
                 <motion.div
                   className="absolute -top-34 left-0 max-w-[17rem] -translate-y-1/2"
@@ -320,11 +325,11 @@ export default function Timeline() {
             {/* Fifth Section: Senior Year: Thesis (Left Side)*/}
             <section>
               {/* ProgressLine */}
-              <div className="bg-highlight h-96 w-1 -translate-x-4.5 place-self-end" />
+              <div className="bg-glow drop-shadow-highlight h-96 w-1 -translate-x-4.5 place-self-end rounded-t-full drop-shadow-lg" />
               {/* Checkpoint */}
               <div className="relative">
                 {/* Outline Circle */}
-                <div className="border-highlight h-10 w-10 place-self-end rounded-full border-4 bg-transparent" />
+                <div className="border-glow drop-shadow-highlight h-10 w-10 place-self-end rounded-full border-4 bg-transparent drop-shadow-lg" />
                 <motion.div
                   className="relative -translate-y-10"
                   ref={fifthCheckpointLineRef}
@@ -339,11 +344,11 @@ export default function Timeline() {
                 >
                   {/* Curve Horizontal Line */}
                   <div className="relative translate-x-14">
-                    <div className="border-highlight absolute top-0 left-20 box-content h-5 w-10 rounded-bl-[32px] border-b-4 border-l-4" />
-                    <div className="bg-highlight absolute top-5 left-30 h-1 w-[36%]" />
+                    <div className="border-glow drop-shadow-highlight absolute top-0 left-20 box-content h-5 w-10 rounded-bl-[32px] border-b-4 border-l-4 drop-shadow-lg" />
+                    <div className="bg-glow drop-shadow-highlight absolute top-5 left-30 h-1 w-[36%] drop-shadow-lg" />
                   </div>
                   {/* Circle */}
-                  <div className="bg-highlight absolute top-5 right-0 h-6 w-6 -translate-x-2 -translate-y-1/2 place-self-end rounded-full" />
+                  <div className="bg-glow drop-shadow-highlight absolute top-5 right-0 h-6 w-6 -translate-x-2 -translate-y-1/2 place-self-end rounded-full drop-shadow-lg" />
                 </motion.div>
                 <motion.div
                   className="absolute -top-42 left-0 max-w-[17rem] -translate-y-1/2"
@@ -377,11 +382,11 @@ export default function Timeline() {
             {/* Sixth Section: Graduation and Working in a Startup (Right Side)*/}
             <section>
               {/* ProgressLine */}
-              <div className="bg-highlight h-96 w-1 -translate-x-4.5 place-self-end" />
+              <div className="bg-glow drop-shadow-highlight h-96 w-1 -translate-x-4.5 place-self-end rounded-t-full drop-shadow-lg" />
               {/* Checkpoint */}
               <div className="relative">
                 {/* Outline Circle */}
-                <div className="border-highlight h-10 w-10 place-self-end rounded-full border-4 bg-transparent" />
+                <div className="border-glow drop-shadow-highlight h-10 w-10 place-self-end rounded-full border-4 bg-transparent drop-shadow-lg" />
                 <motion.div
                   className="relative -translate-y-10"
                   ref={sixthCheckpointLineRef}
@@ -396,11 +401,11 @@ export default function Timeline() {
                 >
                   {/* Curve Horizontal Line */}
                   <div className="relative translate-x-14">
-                    <div className="border-highlight absolute top-0 left-20 box-content h-5 w-10 rounded-bl-[32px] border-b-4 border-l-4" />
-                    <div className="bg-highlight absolute top-5 left-30 h-1 w-[36%]" />
+                    <div className="border-glow drop-shadow-highlight absolute top-0 left-20 box-content h-5 w-10 rounded-bl-[32px] border-b-4 border-l-4 drop-shadow-lg" />
+                    <div className="bg-glow drop-shadow-highlight absolute top-5 left-30 h-1 w-[36%] drop-shadow-lg" />
                   </div>
                   {/* Circle */}
-                  <div className="bg-highlight absolute top-5 right-0 h-6 w-6 -translate-x-2 -translate-y-1/2 place-self-end rounded-full" />
+                  <div className="bg-glow drop-shadow-highlight absolute top-5 right-0 h-6 w-6 -translate-x-2 -translate-y-1/2 place-self-end rounded-full drop-shadow-lg" />
                 </motion.div>
                 <motion.div
                   className="absolute -top-38 left-0 max-w-[17rem] -translate-y-1/2"
@@ -435,7 +440,13 @@ export default function Timeline() {
             {/* Last Section: Continuing my journey */}
             <section>
               {/* Dotted Progress Line signifying present time and unknown future */}
-              <div className="border-highlight h-56 -translate-x-4.5 place-self-end border-l-4 border-dashed" />
+              <div
+                className="drop-shadow-highlight h-56 -translate-x-4.5 place-self-end border-l-4 border-dashed drop-shadow-lg"
+                style={{
+                  borderColor:
+                    "linear-gradient(to top, transparent 0%, var(--color-glow) 100%) 1",
+                }}
+              />
             </section>
           </motion.div>
         </div>
@@ -466,13 +477,19 @@ export default function Timeline() {
           {/* First Section: Senior High School (Left Side)*/}
           <section>
             {/* ProgressLine */}
-            <div className="bg-highlight h-96 w-1 place-self-center rounded-t-full" />
+            <div
+              className="drop-shadow-highlight h-96 w-1 place-self-center rounded-t-full drop-shadow-lg"
+              style={{
+                background:
+                  "linear-gradient(to bottom, transparent 0%, var(--color-glow) 100%)",
+              }}
+            />
             {/* Checkpoint */}
             <div className="relative">
               {/* Outline Circle */}
-              <div className="border-highlight h-10 w-10 place-self-center rounded-full border-4 bg-transparent" />
+              <div className="border-glow drop-shadow-highlight h-10 w-10 place-self-center rounded-full border-4 bg-transparent drop-shadow-lg" />
               <motion.div
-                className="relative -translate-y-10"
+                className="relative -z-50 -translate-y-10"
                 ref={firstCheckpointLineRef}
                 initial={{ opacity: 0 }}
                 animate={{
@@ -485,11 +502,11 @@ export default function Timeline() {
               >
                 {/* Curve Horizontal Line */}
                 <div className="relative -translate-x-32 md:-translate-x-26 lg:-translate-x-0">
-                  <div className="border-highlight absolute top-0 left-20 box-content h-5 w-10 rounded-bl-[32px] border-b-4 border-l-4" />
-                  <div className="bg-highlight absolute top-5 left-30 h-1 w-[36%]" />
+                  <div className="border-glow drop-shadow-highlight absolute top-0 left-20 box-content h-5 w-10 rounded-bl-[32px] border-b-4 border-l-4 drop-shadow-lg" />
+                  <div className="bg-glow drop-shadow-highlight absolute top-5 left-30 h-1 w-[36%] drop-shadow-lg" />
                 </div>
                 {/* Circle */}
-                <div className="bg-highlight absolute top-5 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 place-self-center rounded-full" />
+                <div className="bg-glow drop-shadow-highlight absolute top-5 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 place-self-center rounded-full drop-shadow-lg" />
               </motion.div>
               <motion.div
                 className="absolute -top-30 left-0 max-w-[26rem] -translate-y-1/2"
@@ -522,13 +539,13 @@ export default function Timeline() {
           {/* Second Section: Freshman and Sophomore Year (Right Side)*/}
           <section>
             {/* ProgressLine */}
-            <div className="bg-highlight h-96 w-1 place-self-center" />
+            <div className="bg-glow drop-shadow-highlight h-96 w-1 place-self-center drop-shadow-lg" />
             {/* Checkpoint */}
             <div className="relative">
               {/* Outline Circle */}
-              <div className="border-highlight h-10 w-10 place-self-center rounded-full border-4 bg-transparent" />
+              <div className="border-glow drop-shadow-highlight h-10 w-10 place-self-center rounded-full border-4 bg-transparent drop-shadow-lg" />
               <motion.div
-                className="relative -translate-y-10"
+                className="relative -z-50 -translate-y-10"
                 ref={secondCheckpointLineRef}
                 initial={{ opacity: 0 }}
                 animate={{
@@ -541,11 +558,11 @@ export default function Timeline() {
               >
                 {/* Curve Horizontal Line */}
                 <div className="relative -translate-x-32 md:-translate-x-26 lg:-translate-x-0">
-                  <div className="border-highlight absolute top-0 right-20 box-content h-5 w-10 rounded-br-[32px] border-r-4 border-b-4" />
-                  <div className="bg-highlight absolute top-5 right-30 h-1 w-[36%]" />
+                  <div className="border-glow drop-shadow-highlight absolute top-0 right-20 box-content h-5 w-10 rounded-br-[32px] border-r-4 border-b-4 drop-shadow-lg" />
+                  <div className="bg-glow drop-shadow-highlight absolute top-5 right-30 h-1 w-[36%] drop-shadow-lg" />
                 </div>
                 {/* Circle */}
-                <div className="bg-highlight absolute top-5 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 place-self-center rounded-full" />
+                <div className="bg-glow drop-shadow-highlight absolute top-5 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 place-self-center rounded-full drop-shadow-lg" />
               </motion.div>
               <motion.div
                 className="absolute -top-30 right-0 max-w-[26rem] -translate-y-1/2"
@@ -580,13 +597,13 @@ export default function Timeline() {
           {/* Third Section: Junior Year (Left Side)*/}
           <section>
             {/* ProgressLine */}
-            <div className="bg-highlight h-96 w-1 place-self-center" />
+            <div className="bg-glow drop-shadow-highlight h-96 w-1 place-self-center drop-shadow-lg" />
             {/* Checkpoint */}
             <div className="relative">
               {/* Outline Circle */}
-              <div className="border-highlight h-10 w-10 place-self-center rounded-full border-4 bg-transparent" />
+              <div className="border-glow drop-shadow-highlight h-10 w-10 place-self-center rounded-full border-4 bg-transparent drop-shadow-lg" />
               <motion.div
-                className="relative -translate-y-10"
+                className="relative -z-50 -translate-y-10"
                 ref={thirdCheckpointLineRef}
                 initial={{ opacity: 0 }}
                 animate={{
@@ -599,11 +616,11 @@ export default function Timeline() {
               >
                 {/* Curve Horizontal Line */}
                 <div className="relative -translate-x-32 md:-translate-x-26 lg:-translate-x-0">
-                  <div className="border-highlight absolute top-0 left-20 box-content h-5 w-10 rounded-bl-[32px] border-b-4 border-l-4" />
-                  <div className="bg-highlight absolute top-5 left-30 h-1 w-[36%]" />
+                  <div className="border-glow drop-shadow-highlight absolute top-0 left-20 box-content h-5 w-10 rounded-bl-[32px] border-b-4 border-l-4 drop-shadow-lg" />
+                  <div className="bg-glow drop-shadow-highlight absolute top-5 left-30 h-1 w-[36%] drop-shadow-lg" />
                 </div>
                 {/* Circle */}
-                <div className="bg-highlight absolute top-5 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 place-self-center rounded-full" />
+                <div className="bg-glow drop-shadow-highlight absolute top-5 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 place-self-center rounded-full drop-shadow-lg" />
               </motion.div>
               <motion.div
                 className="absolute -top-40 left-0 max-w-[26rem] -translate-y-1/2"
@@ -638,13 +655,13 @@ export default function Timeline() {
           {/* Fourth Section: Senior Year: Internship (Right Side)*/}
           <section>
             {/* ProgressLine */}
-            <div className="bg-highlight h-96 w-1 place-self-center" />
+            <div className="bg-glow drop-shadow-highlight h-96 w-1 place-self-center drop-shadow-lg" />
             {/* Checkpoint */}
             <div className="relative">
               {/* Outline Circle */}
-              <div className="border-highlight h-10 w-10 place-self-center rounded-full border-4 bg-transparent" />
+              <div className="border-glow drop-shadow-highlight h-10 w-10 place-self-center rounded-full border-4 bg-transparent drop-shadow-lg" />
               <motion.div
-                className="relative -translate-y-10"
+                className="relative -z-50 -translate-y-10"
                 ref={fourthCheckpointLineRef}
                 initial={{ opacity: 0 }}
                 animate={{
@@ -657,11 +674,11 @@ export default function Timeline() {
               >
                 {/* Curve Horizontal Line */}
                 <div className="relative -translate-x-32 md:-translate-x-26 lg:-translate-x-0">
-                  <div className="border-highlight absolute top-0 right-20 box-content h-5 w-10 rounded-br-[32px] border-r-4 border-b-4" />
-                  <div className="bg-highlight absolute top-5 right-30 h-1 w-[36%]" />
+                  <div className="border-glow drop-shadow-highlight absolute top-0 right-20 box-content h-5 w-10 rounded-br-[32px] border-r-4 border-b-4 drop-shadow-lg" />
+                  <div className="bg-glow drop-shadow-highlight absolute top-5 right-30 h-1 w-[36%] drop-shadow-lg" />
                 </div>
                 {/* Circle */}
-                <div className="bg-highlight absolute top-5 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 place-self-center rounded-full" />
+                <div className="bg-glow drop-shadow-highlight absolute top-5 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 place-self-center rounded-full drop-shadow-lg" />
               </motion.div>
               <motion.div
                 className="absolute -top-30 right-0 max-w-[26rem] -translate-y-1/2"
@@ -695,13 +712,13 @@ export default function Timeline() {
           {/* Fifth Section: Senior Year: Thesis (Left Side)*/}
           <section>
             {/* ProgressLine */}
-            <div className="bg-highlight h-96 w-1 place-self-center" />
+            <div className="bg-glow drop-shadow-highlight h-96 w-1 place-self-center drop-shadow-lg" />
             {/* Checkpoint */}
             <div className="relative">
               {/* Outline Circle */}
-              <div className="border-highlight h-10 w-10 place-self-center rounded-full border-4 bg-transparent" />
+              <div className="border-glow drop-shadow-highlight h-10 w-10 place-self-center rounded-full border-4 bg-transparent drop-shadow-lg" />
               <motion.div
-                className="relative -translate-y-10"
+                className="relative -z-50 -translate-y-10"
                 ref={fifthCheckpointLineRef}
                 initial={{ opacity: 0 }}
                 animate={{
@@ -714,11 +731,11 @@ export default function Timeline() {
               >
                 {/* Curve Horizontal Line */}
                 <div className="relative -translate-x-32 md:-translate-x-26 lg:-translate-x-0">
-                  <div className="border-highlight absolute top-0 left-20 box-content h-5 w-10 rounded-bl-[32px] border-b-4 border-l-4" />
-                  <div className="bg-highlight absolute top-5 left-30 h-1 w-[36%]" />
+                  <div className="border-glow drop-shadow-highlight absolute top-0 left-20 box-content h-5 w-10 rounded-bl-[32px] border-b-4 border-l-4 drop-shadow-lg" />
+                  <div className="bg-glow drop-shadow-highlight absolute top-5 left-30 h-1 w-[36%] drop-shadow-lg" />
                 </div>
                 {/* Circle */}
-                <div className="bg-highlight absolute top-5 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 place-self-center rounded-full" />
+                <div className="bg-glow drop-shadow-highlight absolute top-5 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 place-self-center rounded-full drop-shadow-lg" />
               </motion.div>
               <motion.div
                 className="absolute -top-36 left-0 max-w-[26rem] -translate-y-1/2"
@@ -752,13 +769,13 @@ export default function Timeline() {
           {/* Sixth Section: Graduation and Working in a Startup (Right Side)*/}
           <section>
             {/* ProgressLine */}
-            <div className="bg-highlight h-96 w-1 place-self-center" />
+            <div className="bg-glow drop-shadow-highlight h-96 w-1 place-self-center drop-shadow-lg" />
             {/* Checkpoint */}
             <div className="relative">
               {/* Outline Circle */}
-              <div className="border-highlight h-10 w-10 place-self-center rounded-full border-4 bg-transparent" />
+              <div className="border-glow drop-shadow-highlight h-10 w-10 place-self-center rounded-full border-4 bg-transparent drop-shadow-lg" />
               <motion.div
-                className="relative -translate-y-10"
+                className="relative -z-50 -translate-y-10"
                 ref={sixthCheckpointLineRef}
                 initial={{ opacity: 0 }}
                 animate={{
@@ -771,11 +788,11 @@ export default function Timeline() {
               >
                 {/* Curve Horizontal Line */}
                 <div className="relative -translate-x-32 md:-translate-x-26 lg:-translate-x-0">
-                  <div className="border-highlight absolute top-0 right-20 box-content h-5 w-10 rounded-br-[32px] border-r-4 border-b-4" />
-                  <div className="bg-highlight absolute top-5 right-30 h-1 w-[36%]" />
+                  <div className="border-glow drop-shadow-highlight absolute top-0 right-20 box-content h-5 w-10 rounded-br-[32px] border-r-4 border-b-4 drop-shadow-lg" />
+                  <div className="bg-glow drop-shadow-highlight absolute top-5 right-30 h-1 w-[36%] drop-shadow-lg" />
                 </div>
                 {/* Circle */}
-                <div className="bg-highlight absolute top-5 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 place-self-center rounded-full" />
+                <div className="bg-glow drop-shadow-highlight absolute top-5 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 place-self-center rounded-full drop-shadow-lg" />
               </motion.div>
               <motion.div
                 className="absolute -top-30 right-0 max-w-[26rem] -translate-y-1/2"
@@ -809,7 +826,13 @@ export default function Timeline() {
           {/* Last Section: Continuing my journey */}
           <section>
             {/* Dotted Progress Line signifying present time and unknown future */}
-            <div className="border-highlight h-56 place-self-center border-l-4 border-dashed" />
+            <div
+              className="drop-shadow-highlight h-56 place-self-center border-l-4 border-dashed drop-shadow-lg"
+              style={{
+                borderColor:
+                  "linear-gradient(to top, transparent 0%, var(--color-glow) 100%) 1",
+              }}
+            />
           </section>
         </motion.div>
       </div>
