@@ -83,7 +83,7 @@
         "title": "SmileCare",
         "description": "A Web-based Appointment System built using Laravel.",
         "longDescription": "Donna Mae Jorge-Hollman Dental Clinic is web-based appointment scheduling for a local dental clinic. Patients are able to select appointment schedules that are created by the assistant doctor.",
-        "thumbnail": "AppointmentSystem",
+        "thumbnail": "SmileCare",
         "technologies": [
             "Laravel",
             "PHP",

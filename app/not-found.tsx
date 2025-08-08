@@ -1,7 +1,7 @@
-import SiteLink from "@/components/link/site-link";
+import SiteLink from "@/components/ui/link/SiteLink";
 import { Home } from "lucide-react";
-import CursorFollower from "@/components/ui/cursor-follower";
-import FloatingMenuBar from "@/components/ui/floating-menu-bar";
+import CursorFollower from "@/components/ui/CursorFollower";
+import FloatingMenuBar from "@/components/ui/FloatingMenuBar";
 
 export default function NotFound() {
   return (

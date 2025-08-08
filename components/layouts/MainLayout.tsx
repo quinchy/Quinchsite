@@ -1,0 +1,83 @@
+"use client";
+
+import { ReactNode, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import SplashScreen from "@/components/ui/SplashScreen";
+import ScanLineOverlay from "@/components/ui/ScanLineOverlay";
+import CursorFollower from "@/components/ui/CursorFollower";
+import Footer from "@/components/ui/Footer";
+
+import dynamic from "next/dynamic";
+
+const Navbar = dynamic(() => import("@/components/ui/NavBar"), {
+  ssr: false,
+});
+
+const HOME_IMAGE_SRCS = [
+  "/images/appointment_system.png",
+  "/images/aniquinch_ecommerce.png",
+  "/images/banking_system.png",
+  "/images/huefit_web.png",
+  "/images/peer_to_peer_delivery_system.png",
+  "/images/zentry_hris.png",
+];
+
+// Simple image preloader utility
+function preloadImages(srcs: string[]): Promise<void[]> {
+  if (typeof window === "undefined") return Promise.resolve([]);
+  return Promise.all(
+    srcs.map(
+      (src) =>
+        new Promise<void>((resolve) => {
+          const img = new window.Image();
+          img.onload = () => resolve();
+          img.onerror = () => resolve();
+          img.src = src;
+        }),
+    ),
+  );
+}
+
+export default function MainLayout({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
+  const inRoot = pathname === "/";
+
+  const [showSplash, setShowSplash] = useState(inRoot);
+  const [assetsReady, setAssetsReady] = useState(!inRoot);
+
+  useEffect(() => {
+    if (!inRoot) {
+      setShowSplash(false);
+      setAssetsReady(true);
+      return;
+    }
+
+    let isMounted = true;
+    async function loadAssets() {
+      // Wait a tick for hydration
+      await new Promise((r) => setTimeout(r, 80));
+      await preloadImages(HOME_IMAGE_SRCS);
+      if (isMounted) setAssetsReady(true);
+    }
+    loadAssets();
+    return () => {
+      isMounted = false;
+    };
+  }, [inRoot]);
+
+  // Show splash if we're on root ("/") and not done prepping assets yet
+  if (showSplash || !assetsReady) {
+    return <SplashScreen onSlideEnd={() => setShowSplash(false)} />;
+  }
+
+  // Main app/page children
+  return (
+    <>
+      <Navbar />
+      <CursorFollower />
+      <ScanLineOverlay />
+      {children}
+      <Footer />
+    </>
+  );
+}

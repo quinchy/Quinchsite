@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
-import LenisScrollProvider from "@/providers/lenis-provider";
-import FloatingMenuBar from "@/components/ui/floating-menu-bar";
+import LenisScrollProvider from "@/providers/LenisProvider";
+import FloatingMenuBar from "@/components/ui/FloatingMenuBar";
 
 export const metadata: Metadata = {
   title: "Quinch - Software Developer Portfolio",
@@ -86,6 +86,11 @@ export default function RootLayout({
           as="image"
         />
         <link rel="preload" href="/images/zentry_hris.png" as="image" />
+        <link
+          rel="preload"
+          href="/videos/animated-quinch-logo.webm"
+          as="video"
+        />
       </head>
       <body
         className={`${GeistMono.className} flex flex-col items-center justify-center`}

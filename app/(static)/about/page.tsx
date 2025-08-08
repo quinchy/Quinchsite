@@ -1,8 +1,8 @@
 import { Metadata } from "next";
-import ProfilePicture from "@/components/ui/profile-picture";
-import SocialMediaList from "@/components/ui/social-media-list";
-import TypewriterText from "@/components/ui/typewriter-text";
-import Timeline from "@/components/ui/timeline";
+import ProfilePicture from "@/components/ui/ProfilePicture";
+import SocialMediaList from "@/components/ui/MediaList";
+import TypewriterText from "@/components/ui/TypewriterText";
+import Timeline from "@/features/about/components/Timeline";
 
 export const metadata: Metadata = {
   title: "About - Cyril James De Guzman | Quinch",

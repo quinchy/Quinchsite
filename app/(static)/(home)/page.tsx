@@ -1,10 +1,10 @@
 import { Metadata } from "next";
-import ProfilePicture from "@/components/ui/profile-picture";
-import SocialMediaList from "@/components/ui/social-media-list";
-import MoveToProjectButton from "@/components/button/move-to-project-button";
-import TypewriterText from "@/components/ui/typewriter-text";
-import ProjectCard from "@/components/ui/project-card";
-import ViewMoreProjectsLink from "@/components/link/view-more-projects-link";
+import ProfilePicture from "@/components/ui/ProfilePicture";
+import SocialMediaList from "@/components/ui/MediaList";
+import MoveToProjectButton from "@/features/home/components/MoveToProjectButton";
+import TypewriterText from "@/components/ui/TypewriterText";
+import ProjectCard from "@/components/ui/ProjectCard";
+import ViewMoreProjectsLink from "@/components/ui/link/ViewMoreProjectsLink";
 
 import ProjectData from "@/data/projects.json";
 import { Project } from "@/lib/types";
