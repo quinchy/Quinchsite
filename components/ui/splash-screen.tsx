@@ -67,7 +67,7 @@ export default function SplashScreen({ onSlideEnd }: SplashScreenProps) {
         }}
       >
         <video
-          src="/videos/AnimatedQuinchLogo.webm"
+          src="/videos/animated-quinch-logo.webm"
           autoPlay
           loop
           muted
