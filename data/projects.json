@@ -23,26 +23,6 @@
         "type": "company"
     },
     {
-        "title": "Zentry",
-        "description": "An Human Resource Information System to manage employees built using Next.js",
-        "longDescription": "Zentry is a platform  designed to simplify employee check-ins and check-outs, enhance team communication through real-time chat, and streamline scheduling for teams of any size.",
-        "thumbnail": "Zentry",
-        "technologies": [
-            "Next.js",
-            "Supabase",
-            "Prisma",
-            "TailwindCSS",
-            "Shadcn",
-            "Zod",
-            "Jest",
-            "TanStack Query",
-            "React Hook Form"
-        ],
-        "githubLink": "https://github.com/Quinchy/Zentry",
-        "websiteLink": "https://zentry-solutions.vercel.app/",
-        "type": "personal"
-    },
-    {
         "title": "HueFit",
         "description": "A Men's Apparel Shop with Outfit Recommendation System built using Next.js, FastAPI, and React Native Expo.",
         "longDescription": "HueFit consist of web and mobile platform, where the web-based platform handles inventory and order management and mobile-based platform handles the e-commerce platform with ai-powered outfit recommendation and virtual fitting technology.",

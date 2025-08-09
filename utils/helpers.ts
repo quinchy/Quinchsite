@@ -8,7 +8,6 @@ import AniQuinch from "@/public/images/thumbnails/AniQuinch.webp";
 import BankingSystem from "@/public/images/thumbnails/OnlyFunds.webp";
 import HueFit from "@/public/images/thumbnails/HueFitWeb.webp";
 import PeerToPeerDeliverySystem from "@/public/images/thumbnails/Pasabuy.webp";
-import Zentry from "@/public/images/thumbnails/Zentry.webp";
 import Thryve from "@/public/images/thumbnails/Thryve.webp";
 
 // Shared thumbnail mapping
@@ -18,7 +17,6 @@ export const thumbnails: Record<string, StaticImageData> = {
   BankingSystem,
   HueFit,
   PeerToPeerDeliverySystem,
-  Zentry,
   Thryve,
 };
 

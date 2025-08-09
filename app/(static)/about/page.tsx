@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import ProfilePicture from "@/components/ui/ProfilePicture";
-import SocialMediaList from "@/components/ui/MediaList";
+import SocialMediaList from "@/components/ui/media/MediaList";
 import TypewriterText from "@/components/ui/TypewriterText";
 import Timeline from "@/features/about/components/Timeline";
 

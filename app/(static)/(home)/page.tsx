@@ -1,14 +1,14 @@
 import { Metadata } from "next";
 import ProfilePicture from "@/components/ui/ProfilePicture";
-import SocialMediaList from "@/components/ui/MediaList";
+import SocialMediaList from "@/components/ui/media/MediaList";
 import MoveToProjectButton from "@/features/home/components/MoveToProjectButton";
 import TypewriterText from "@/components/ui/TypewriterText";
 import ProjectCard from "@/components/ui/ProjectCard";
 import ViewMoreProjectsLink from "@/components/ui/link/ViewMoreProjectsLink";
 
 import ProjectData from "@/data/projects.json";
-import { Project } from "@/lib/types";
-import { thumbnails } from "@/lib/utils";
+import { Project } from "@/features/projects/types";
+import { thumbnails } from "@/utils/helpers";
 
 export const metadata: Metadata = {
   title: "Quinch - Software Developer Portfolio",

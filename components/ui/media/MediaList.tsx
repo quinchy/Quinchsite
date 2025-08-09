@@ -2,7 +2,7 @@
 
 import React from "react";
 import SocialMediaLink from "@/components/ui/link/SocialMediaLink";
-import ResumeDialog from "@/components/ui/ResumeDialog";
+import ResumeDialog from "@/components/ui/media/ResumeDialog";
 import {
   Tooltip,
   TooltipContent,

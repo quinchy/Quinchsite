@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import ProjectCard from "@/components/ui/ProjectCard";
 import ProjectData from "@/data/projects.json";
-import { Project } from "@/lib/types";
-import { thumbnails } from "@/lib/utils";
+import { Project } from "@/features/projects/types";
+import { thumbnails } from "@/utils/helpers";
 import TypewriterText from "@/components/ui/TypewriterText";
 import {
   Tooltip,

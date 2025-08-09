@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/Dialog";
 import { Badge } from "@/components/ui/Badge";
 import SiteLink from "@/components/ui/link/SiteLink";
-import { Project } from "@/lib/types";
+import { Project } from "@/features/projects/types";
 
 interface ProjectCardProps {
   thumbnail: string | StaticImageData;
