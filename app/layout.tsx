@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
-import LenisScrollProvider from "@/providers/LenisProvider";
+import LenisScrollProvider from "@/providers/lenis-provider";
 import FloatingMenuBar from "@/components/ui/floating-menu-bar";
 
 export const metadata: Metadata = {
