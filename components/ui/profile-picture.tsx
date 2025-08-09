@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import FrontImage from "@/public/images/personal/ProfilePicture.webp";
-import BackImage from "@/public/images/personal/Avatar.webp";
+import FrontImage from "@/public/images/personal/profile-picture.webp";
+import BackImage from "@/public/images/personal/avatar.webp";
 
 export default function ProfilePicture() {
   const [flipped, setFlipped] = useState(false);

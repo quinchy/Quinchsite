@@ -9,12 +9,12 @@ import Footer from "@/components/ui/footer";
 import Navbar from "@/components/ui/nav-bar";
 
 const HOME_IMAGE_SRCS = [
-  "/images/thumbnails/AniQuinch.webp",
-  "/images/thumbnails/OnlyFunds.webp",
-  "/images/thumbnails/HueFitWeb.webp",
-  "/images/thumbnails/Pasabuy.webp",
-  "/images/thumbnails/Thryve.webp",
-  "/images/thumbnails/SmileCare.webp",
+  "/images/thumbnails/ani-quinch.webp",
+  "/images/thumbnails/only-funds.webp",
+  "/images/thumbnails/hue-fit-web.webp",
+  "/images/thumbnails/pasabuy.webp",
+  "/images/thumbnails/thryve.webp",
+  "/images/thumbnails/smile-care.webp",
 ];
 
 // Simple image preloader utility

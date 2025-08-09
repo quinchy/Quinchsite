@@ -74,31 +74,31 @@ export default function RootLayout({
         {/* Preload critical resources */}
         <link
           rel="preload"
-          href="/images/personal/ProfilePicture.webp"
+          href="/images/personal/profile-picture.webp"
           as="image"
         />
-        <link rel="preload" href="/images/personal/Avatar.webp" as="image" />
+        <link rel="preload" href="/images/personal/avatar.webp" as="image" />
         <link rel="preload" href="/images/noise.webp" as="image" />
         <link
           rel="preload"
-          href="/images/thumbnails/AniQuinch.webp"
+          href="/images/thumbnails/ani-quinch.webp"
           as="image"
         />
         <link
           rel="preload"
-          href="/images/thumbnails/OnlyFunds.webp"
+          href="/images/thumbnails/only-funds.webp"
           as="image"
         />
         <link
           rel="preload"
-          href="/images/thumbnails/HueFitWeb.webp"
+          href="/images/thumbnails/hue-fit-web.webp"
           as="image"
         />
-        <link rel="preload" href="/images/thumbnails/Pasabuy.webp" as="image" />
-        <link rel="preload" href="/images/thumbnails/Thryve.webp" as="image" />
+        <link rel="preload" href="/images/thumbnails/pasabuy.webp" as="image" />
+        <link rel="preload" href="/images/thumbnails/thryve.webp" as="image" />
         <link
           rel="preload"
-          href="/images/thumbnails/SmileCare.webp"
+          href="/images/thumbnails/smile-care.webp"
           as="image"
         />
       </head>

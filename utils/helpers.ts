@@ -3,12 +3,12 @@ import { twMerge } from "tailwind-merge";
 import { StaticImageData } from "next/image";
 
 // Import all thumbnails
-import SmileCare from "@/public/images/thumbnails/SmileCare.webp";
-import AniQuinch from "@/public/images/thumbnails/AniQuinch.webp";
-import BankingSystem from "@/public/images/thumbnails/OnlyFunds.webp";
-import HueFit from "@/public/images/thumbnails/HueFitWeb.webp";
-import PeerToPeerDeliverySystem from "@/public/images/thumbnails/Pasabuy.webp";
-import Thryve from "@/public/images/thumbnails/Thryve.webp";
+import SmileCare from "@/public/images/thumbnails/smile-care.webp";
+import AniQuinch from "@/public/images/thumbnails/ani-quinch.webp";
+import BankingSystem from "@/public/images/thumbnails/only-funds.webp";
+import HueFit from "@/public/images/thumbnails/hue-fit-web.webp";
+import PeerToPeerDeliverySystem from "@/public/images/thumbnails/pasabuy.webp";
+import Thryve from "@/public/images/thumbnails/thryve.webp";
 
 // Shared thumbnail mapping
 export const thumbnails: Record<string, StaticImageData> = {
