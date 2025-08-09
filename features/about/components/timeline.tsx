@@ -502,14 +502,14 @@ export default function Timeline() {
               >
                 {/* Curve Horizontal Line */}
                 <div className="relative -translate-x-32 md:-translate-x-26 lg:-translate-x-0">
-                  <div className="border-glow drop-shadow-highlight absolute top-0 left-20 box-content h-5 w-10 rounded-bl-[32px] border-b-4 border-l-4 drop-shadow-lg" />
-                  <div className="bg-glow drop-shadow-highlight absolute top-5 left-30 h-1 w-[36%] drop-shadow-lg" />
+                  <div className="border-glow drop-shadow-highlight absolute top-0 left-29 box-content h-5 w-10 rounded-bl-[32px] border-b-4 border-l-4 drop-shadow-lg" />
+                  <div className="bg-glow drop-shadow-highlight absolute top-5 left-40 h-1 w-[36%] drop-shadow-lg" />
                 </div>
                 {/* Circle */}
                 <div className="bg-glow drop-shadow-highlight absolute top-5 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 place-self-center rounded-full drop-shadow-lg" />
               </motion.div>
               <motion.div
-                className="absolute -top-30 left-0 max-w-[26rem] -translate-y-1/2"
+                className="absolute -top-30 left-24 max-w-[26rem] -translate-y-1/2"
                 ref={firstSectionTextRef}
                 initial={{ opacity: 0, x: -50 }}
                 animate={{
@@ -558,14 +558,14 @@ export default function Timeline() {
               >
                 {/* Curve Horizontal Line */}
                 <div className="relative -translate-x-32 md:-translate-x-26 lg:-translate-x-0">
-                  <div className="border-glow drop-shadow-highlight absolute top-0 right-20 box-content h-5 w-10 rounded-br-[32px] border-r-4 border-b-4 drop-shadow-lg" />
-                  <div className="bg-glow drop-shadow-highlight absolute top-5 right-30 h-1 w-[36%] drop-shadow-lg" />
+                  <div className="border-glow drop-shadow-highlight absolute top-0 right-29 box-content h-5 w-10 rounded-br-[32px] border-r-4 border-b-4 drop-shadow-lg" />
+                  <div className="bg-glow drop-shadow-highlight absolute top-5 right-40 h-1 w-[36%] drop-shadow-lg" />
                 </div>
                 {/* Circle */}
                 <div className="bg-glow drop-shadow-highlight absolute top-5 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 place-self-center rounded-full drop-shadow-lg" />
               </motion.div>
               <motion.div
-                className="absolute -top-30 right-0 max-w-[26rem] -translate-y-1/2"
+                className="absolute -top-30 right-24 max-w-[26rem] -translate-y-1/2"
                 ref={secondSectionTextRef}
                 initial={{ opacity: 0, x: 50 }}
                 animate={{
@@ -616,14 +616,14 @@ export default function Timeline() {
               >
                 {/* Curve Horizontal Line */}
                 <div className="relative -translate-x-32 md:-translate-x-26 lg:-translate-x-0">
-                  <div className="border-glow drop-shadow-highlight absolute top-0 left-20 box-content h-5 w-10 rounded-bl-[32px] border-b-4 border-l-4 drop-shadow-lg" />
-                  <div className="bg-glow drop-shadow-highlight absolute top-5 left-30 h-1 w-[36%] drop-shadow-lg" />
+                  <div className="border-glow drop-shadow-highlight absolute top-0 left-29 box-content h-5 w-10 rounded-bl-[32px] border-b-4 border-l-4 drop-shadow-lg" />
+                  <div className="bg-glow drop-shadow-highlight absolute top-5 left-40 h-1 w-[36%] drop-shadow-lg" />
                 </div>
                 {/* Circle */}
                 <div className="bg-glow drop-shadow-highlight absolute top-5 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 place-self-center rounded-full drop-shadow-lg" />
               </motion.div>
               <motion.div
-                className="absolute -top-40 left-0 max-w-[26rem] -translate-y-1/2"
+                className="absolute -top-40 left-24 max-w-[26rem] -translate-y-1/2"
                 ref={thirdSectionTextRef}
                 initial={{ opacity: 0, x: -50 }}
                 animate={{
@@ -674,14 +674,14 @@ export default function Timeline() {
               >
                 {/* Curve Horizontal Line */}
                 <div className="relative -translate-x-32 md:-translate-x-26 lg:-translate-x-0">
-                  <div className="border-glow drop-shadow-highlight absolute top-0 right-20 box-content h-5 w-10 rounded-br-[32px] border-r-4 border-b-4 drop-shadow-lg" />
-                  <div className="bg-glow drop-shadow-highlight absolute top-5 right-30 h-1 w-[36%] drop-shadow-lg" />
+                  <div className="border-glow drop-shadow-highlight absolute top-0 right-29 box-content h-5 w-10 rounded-br-[32px] border-r-4 border-b-4 drop-shadow-lg" />
+                  <div className="bg-glow drop-shadow-highlight absolute top-5 right-40 h-1 w-[36%] drop-shadow-lg" />
                 </div>
                 {/* Circle */}
                 <div className="bg-glow drop-shadow-highlight absolute top-5 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 place-self-center rounded-full drop-shadow-lg" />
               </motion.div>
               <motion.div
-                className="absolute -top-30 right-0 max-w-[26rem] -translate-y-1/2"
+                className="absolute -top-30 right-24 max-w-[26rem] -translate-y-1/2"
                 ref={fourthSectionTextRef}
                 initial={{ opacity: 0, x: 50 }}
                 animate={{
@@ -731,14 +731,14 @@ export default function Timeline() {
               >
                 {/* Curve Horizontal Line */}
                 <div className="relative -translate-x-32 md:-translate-x-26 lg:-translate-x-0">
-                  <div className="border-glow drop-shadow-highlight absolute top-0 left-20 box-content h-5 w-10 rounded-bl-[32px] border-b-4 border-l-4 drop-shadow-lg" />
-                  <div className="bg-glow drop-shadow-highlight absolute top-5 left-30 h-1 w-[36%] drop-shadow-lg" />
+                  <div className="border-glow drop-shadow-highlight absolute top-0 left-29 box-content h-5 w-10 rounded-bl-[32px] border-b-4 border-l-4 drop-shadow-lg" />
+                  <div className="bg-glow drop-shadow-highlight absolute top-5 left-40 h-1 w-[36%] drop-shadow-lg" />
                 </div>
                 {/* Circle */}
                 <div className="bg-glow drop-shadow-highlight absolute top-5 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 place-self-center rounded-full drop-shadow-lg" />
               </motion.div>
               <motion.div
-                className="absolute -top-36 left-0 max-w-[26rem] -translate-y-1/2"
+                className="absolute -top-36 left-24 max-w-[26rem] -translate-y-1/2"
                 ref={fifthSectionTextRef}
                 initial={{ opacity: 0, x: -50 }}
                 animate={{
@@ -788,14 +788,14 @@ export default function Timeline() {
               >
                 {/* Curve Horizontal Line */}
                 <div className="relative -translate-x-32 md:-translate-x-26 lg:-translate-x-0">
-                  <div className="border-glow drop-shadow-highlight absolute top-0 right-20 box-content h-5 w-10 rounded-br-[32px] border-r-4 border-b-4 drop-shadow-lg" />
-                  <div className="bg-glow drop-shadow-highlight absolute top-5 right-30 h-1 w-[36%] drop-shadow-lg" />
+                  <div className="border-glow drop-shadow-highlight absolute top-0 right-29 box-content h-5 w-10 rounded-br-[32px] border-r-4 border-b-4 drop-shadow-lg" />
+                  <div className="bg-glow drop-shadow-highlight absolute top-5 right-40 h-1 w-[36%] drop-shadow-lg" />
                 </div>
                 {/* Circle */}
                 <div className="bg-glow drop-shadow-highlight absolute top-5 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 place-self-center rounded-full drop-shadow-lg" />
               </motion.div>
               <motion.div
-                className="absolute -top-30 right-0 max-w-[26rem] -translate-y-1/2"
+                className="absolute -top-30 right-24 max-w-[26rem] -translate-y-1/2"
                 ref={sixthSectionTextRef}
                 initial={{ opacity: 0, x: 50 }}
                 animate={{

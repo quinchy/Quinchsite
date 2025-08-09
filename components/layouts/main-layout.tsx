@@ -4,6 +4,8 @@ import { ReactNode, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import SplashScreen from "@/components/ui/splash-screen";
 import ScanLineOverlay from "@/components/ui/scan-line-overlay";
+import VignetteOverlay from "@/components/ui/vignette-overlay";
+import TimelineCinematicOverlay from "@/components/ui/timeline-cinematic-overlay";
 import CursorFollower from "@/components/ui/cursor-follower";
 import Footer from "@/components/ui/footer";
 import Navbar from "@/components/ui/nav-bar";
@@ -71,6 +73,8 @@ export default function MainLayout({ children }: { children: ReactNode }) {
       <Navbar />
       <CursorFollower />
       <ScanLineOverlay />
+      <VignetteOverlay />
+      <TimelineCinematicOverlay />
       {children}
       <Footer />
     </>

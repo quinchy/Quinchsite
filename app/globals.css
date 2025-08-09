@@ -9,11 +9,11 @@
   --color-muted: #1f282b;
   --color-nav: #1b2226;
   --color-glow: #baffea;
-  --color-palette-1: #4EB69C;
-  --color-palette-2: #7BCBC2;
-  --color-palette-3: #338A74;
-  --color-palette-4: #64B4AB;
-  --color-palette-5: #81E7DB;
+  --color-palette-1: #4eb69c;
+  --color-palette-2: #7bcbc2;
+  --color-palette-3: #338a74;
+  --color-palette-4: #64b4ab;
+  --color-palette-5: #81e7db;
 
   @keyframes fadeIn {
     from {
@@ -358,6 +358,18 @@
   }
   body[data-scroll-locked] {
     margin-right: 0 !important;
+  }
+  /* Hide page scrollbar (keep scroll functionality) */
+  html,
+  body {
+    -ms-overflow-style: none; /* IE 10+ */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    width: 0px; /* Safari and Chrome */
+    height: 0px;
   }
 }
 

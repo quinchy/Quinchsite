@@ -23,7 +23,7 @@ const FloatingMenuBar: React.FC = () => {
   };
 
   return (
-    <div className="fixed right-6 bottom-6 z-50">
+    <div className="fixed right-6 bottom-6 z-9999">
       {/* Settings Button */}
       <button
         onClick={handleSettingsClick}
