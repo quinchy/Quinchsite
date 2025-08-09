@@ -10,28 +10,28 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import HTML from "@/public/images/tech/HTML";
-import CSS from "@/public/images/tech/CSS";
-import NextJS from "@/public/images/tech/NextJS";
-import AndroidStudio from "@/public/images/tech/AndroidStudio";
-import CSharp from "@/public/images/tech/CSharp";
-import Cursor from "@/public/images/tech/Cursor";
-import FastAPI from "@/public/images/tech/FastAPI";
-import Figma from "@/public/images/tech/Figma";
-import Firebase from "@/public/images/tech/Firebase";
-import Heroku from "@/public/images/tech/Heroku";
-import Java from "@/public/images/tech/Java";
-import JavaScript from "@/public/images/tech/Javascript";
-import Laravel from "@/public/images/tech/Laravel";
-import MySQL from "@/public/images/tech/MySQL";
-import PHP from "@/public/images/tech/PHP";
-import Python from "@/public/images/tech/Python";
-import React from "@/public/images/tech/React";
-import Supabase from "@/public/images/tech/Supabase";
-import Tailwind from "@/public/images/tech/Tailwind";
-import TypeScript from "@/public/images/tech/Typescript";
-import Vercel from "@/public/images/tech/Vercel";
-import VSCode from "@/public/images/tech/VSCode";
+import HTML from "@/public/images/tech/html";
+import CSS from "@/public/images/tech/css";
+import NextJS from "@/public/images/tech/nextjs";
+import AndroidStudio from "@/public/images/tech/android-studio";
+import CSharp from "@/public/images/tech/csharp";
+import Cursor from "@/public/images/tech/cursor";
+import FastAPI from "@/public/images/tech/fastapi";
+import Figma from "@/public/images/tech/figma";
+import Firebase from "@/public/images/tech/firebase";
+import Heroku from "@/public/images/tech/heroku";
+import Java from "@/public/images/tech/java";
+import JavaScript from "@/public/images/tech/javascript";
+import Laravel from "@/public/images/tech/laravel";
+import MySQL from "@/public/images/tech/mysql";
+import PHP from "@/public/images/tech/php";
+import Python from "@/public/images/tech/python";
+import React from "@/public/images/tech/react";
+import Supabase from "@/public/images/tech/supabase";
+import Tailwind from "@/public/images/tech/tailwind";
+import TypeScript from "@/public/images/tech/typescript";
+import Vercel from "@/public/images/tech/vercel";
+import VSCode from "@/public/images/tech/vscode";
 
 export const metadata: Metadata = {
   title: "Projects - Cyril James De Guzman | Quinch",

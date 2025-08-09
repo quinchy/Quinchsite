@@ -7,7 +7,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
+} from "@/components/ui/tooltip"; 
 
 const ResumeDialog: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
