@@ -72,25 +72,15 @@ export default function RootLayout({
           content="YDK4FKni0aKlcMhI_s7VjJAznskAxoUjmBTAEODRLNA"
         />
         {/* Preload critical resources */}
-        <link rel="preload" href="/images/me.png" as="image" />
-        <link rel="preload" href="/images/noise2.png" as="image" />
-        <link rel="preload" href="/images/aniquinch_ecommerce.png" as="image" />
-        <link rel="preload" href="/images/appointment_system.png" as="image" />
-        <link rel="preload" href="/images/banking_system.png" as="image" />
-        <link rel="preload" href="/images/dating_site.png" as="image" />
-        <link rel="preload" href="/images/huefit_mobile.png" as="image" />
-        <link rel="preload" href="/images/huefit_web.png" as="image" />
-        <link
-          rel="preload"
-          href="/images/peer_to_peer_delivery_system.png"
-          as="image"
-        />
-        <link rel="preload" href="/images/zentry_hris.png" as="image" />
-        <link
-          rel="preload"
-          href="/videos/animated-quinch-logo.webm"
-          as="video"
-        />
+        <link rel="preload" href="/images/personal/ProfilePicture.webp" as="image" />
+        <link rel="preload" href="/images/personal/Avatar.webp" as="image" />
+        <link rel="preload" href="/images/noise.webp" as="image" />
+        <link rel="preload" href="/images/thumbnails/AniQuinch.webp" as="image" />
+        <link rel="preload" href="/images/thumbnails/OnlyFunds.webp" as="image" />
+        <link rel="preload" href="/images/thumbnails/HueFitWeb.webp" as="image" />
+        <link rel="preload" href="/images/thumbnails/Pasabuy.webp" as="image" />
+        <link rel="preload" href="/images/thumbnails/Thryve.webp" as="image" />
+        <link rel="preload" href="/images/thumbnails/SmileCare.webp" as="image" />
       </head>
       <body
         className={`${GeistMono.className} flex flex-col items-center justify-center`}

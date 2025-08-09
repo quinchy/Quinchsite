@@ -6,20 +6,15 @@ import SplashScreen from "@/components/ui/SplashScreen";
 import ScanLineOverlay from "@/components/ui/ScanLineOverlay";
 import CursorFollower from "@/components/ui/CursorFollower";
 import Footer from "@/components/ui/Footer";
-
-import dynamic from "next/dynamic";
-
-const Navbar = dynamic(() => import("@/components/ui/NavBar"), {
-  ssr: false,
-});
+import Navbar from "@/components/ui/NavBar";
 
 const HOME_IMAGE_SRCS = [
-  "/images/appointment_system.png",
-  "/images/aniquinch_ecommerce.png",
-  "/images/banking_system.png",
-  "/images/huefit_web.png",
-  "/images/peer_to_peer_delivery_system.png",
-  "/images/zentry_hris.png",
+  "/images/thumbnails/AniQuinch.webp",
+  "/images/thumbnails/OnlyFunds.webp",
+  "/images/thumbnails/HueFitWeb.webp",
+  "/images/thumbnails/Pasabuy.webp",
+  "/images/thumbnails/Thryve.webp",
+  "/images/thumbnails/SmileCare.webp",
 ];
 
 // Simple image preloader utility
