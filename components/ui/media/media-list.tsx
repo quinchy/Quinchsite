@@ -1,14 +1,14 @@
 "use client";
 
 import React from "react";
-import SocialMediaLink from "@/components/ui/link/SocialMediaLink";
-import ResumeDialog from "@/components/ui/media/ResumeDialog";
+import SocialMediaLink from "@/components/ui/link/social-media-link";
+import ResumeDialog from "@/components/ui/media/resume-dialog";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/Tooltip";
+} from "@/components/ui/tooltip";
 
 const MediaList: React.FC = () => {
   return (

@@ -2,11 +2,11 @@
 
 import { ReactNode, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import SplashScreen from "@/components/ui/SplashScreen";
-import ScanLineOverlay from "@/components/ui/ScanLineOverlay";
-import CursorFollower from "@/components/ui/CursorFollower";
-import Footer from "@/components/ui/Footer";
-import Navbar from "@/components/ui/NavBar";
+import SplashScreen from "@/components/ui/splash-screen";
+import ScanLineOverlay from "@/components/ui/scan-line-overlay";
+import CursorFollower from "@/components/ui/cursor-follower";
+import Footer from "@/components/ui/footer";
+import Navbar from "@/components/ui/nav-bar";
 
 const HOME_IMAGE_SRCS = [
   "/images/thumbnails/AniQuinch.webp",

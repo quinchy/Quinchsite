@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import LenisScrollProvider from "@/providers/LenisProvider";
-import FloatingMenuBar from "@/components/ui/FloatingMenuBar";
+import FloatingMenuBar from "@/components/ui/floating-menu-bar";
 
 export const metadata: Metadata = {
   title: "Quinch - Software Developer Portfolio",
@@ -72,15 +72,35 @@ export default function RootLayout({
           content="YDK4FKni0aKlcMhI_s7VjJAznskAxoUjmBTAEODRLNA"
         />
         {/* Preload critical resources */}
-        <link rel="preload" href="/images/personal/ProfilePicture.webp" as="image" />
+        <link
+          rel="preload"
+          href="/images/personal/ProfilePicture.webp"
+          as="image"
+        />
         <link rel="preload" href="/images/personal/Avatar.webp" as="image" />
         <link rel="preload" href="/images/noise.webp" as="image" />
-        <link rel="preload" href="/images/thumbnails/AniQuinch.webp" as="image" />
-        <link rel="preload" href="/images/thumbnails/OnlyFunds.webp" as="image" />
-        <link rel="preload" href="/images/thumbnails/HueFitWeb.webp" as="image" />
+        <link
+          rel="preload"
+          href="/images/thumbnails/AniQuinch.webp"
+          as="image"
+        />
+        <link
+          rel="preload"
+          href="/images/thumbnails/OnlyFunds.webp"
+          as="image"
+        />
+        <link
+          rel="preload"
+          href="/images/thumbnails/HueFitWeb.webp"
+          as="image"
+        />
         <link rel="preload" href="/images/thumbnails/Pasabuy.webp" as="image" />
         <link rel="preload" href="/images/thumbnails/Thryve.webp" as="image" />
-        <link rel="preload" href="/images/thumbnails/SmileCare.webp" as="image" />
+        <link
+          rel="preload"
+          href="/images/thumbnails/SmileCare.webp"
+          as="image"
+        />
       </head>
       <body
         className={`${GeistMono.className} flex flex-col items-center justify-center`}

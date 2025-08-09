@@ -7,9 +7,9 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/Dialog";
-import { Badge } from "@/components/ui/Badge";
-import SiteLink from "@/components/ui/link/SiteLink";
+} from "@/components/ui/dialog";
+import { Badge } from "@/components/ui/badge";
+import SiteLink from "@/components/ui/link/site-link";
 import { Project } from "@/features/projects/types";
 
 interface ProjectCardProps {

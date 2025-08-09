@@ -28,7 +28,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "components/ui/ScanLineOverlay.tsx"
+    "components/ui/scan-line-overlay.tsx"
   ],
   "exclude": ["node_modules"]
 }

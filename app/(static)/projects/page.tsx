@@ -1,15 +1,15 @@
 import { Metadata } from "next";
-import ProjectCard from "@/components/ui/ProjectCard";
+import ProjectCard from "@/components/ui/project-card";
 import ProjectData from "@/data/projects.json";
 import { Project } from "@/features/projects/types";
 import { thumbnails } from "@/utils/helpers";
-import TypewriterText from "@/components/ui/TypewriterText";
+import TypewriterText from "@/components/ui/typewriter-text";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/Tooltip";
+} from "@/components/ui/tooltip";
 import HTML from "@/public/images/tech/HTML";
 import CSS from "@/public/images/tech/CSS";
 import NextJS from "@/public/images/tech/NextJS";

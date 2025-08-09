@@ -1,5 +1,5 @@
 import React from "react";
-import SocialMediaList from "@/components/ui/media/MediaList";
+import SocialMediaList from "@/components/ui/media/media-list";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
