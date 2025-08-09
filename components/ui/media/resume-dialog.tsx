@@ -174,7 +174,7 @@ const ResumeDialog: React.FC = () => {
               <button
                 onClick={() => {
                   const link = document.createElement("a");
-                  link.href = "/documents/DeGuzmanResume.pdf";
+                  link.href = "/documents/de-guzman-resume.pdf";
                   link.download = "Cyril_James_De_Guzman_Resume.pdf";
                   document.body.appendChild(link);
                   link.click();
@@ -238,7 +238,7 @@ const ResumeDialog: React.FC = () => {
                   }}
                 >
                   <Image
-                    src="/images/personal/DeGuzmanResume.svg"
+                    src="/images/personal/de-guzman-resume.svg"
                     alt="Cyril James De Guzman Resume"
                     width={800}
                     height={1000}
