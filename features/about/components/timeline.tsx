@@ -19,20 +19,22 @@ export default function Timeline() {
   const sixthCheckpointLineRef = useRef(null);
 
   const [isMobile, setIsMobile] = useState(false);
+  const [isLaptopHeight, setIsLaptopHeight] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => {
+    const checkViewport = () => {
       setIsMobile(window.innerWidth < 1024); // lg breakpoint
+      setIsLaptopHeight(window.innerHeight < 700); // laptop height breakpoint
     };
 
     // Check on mount
-    checkMobile();
+    checkViewport();
 
     // Add resize listener
-    window.addEventListener("resize", checkMobile);
+    window.addEventListener("resize", checkViewport);
 
     // Cleanup
-    return () => window.removeEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkViewport);
   }, []);
 
   const { scrollYProgress } = useScroll({
@@ -42,7 +44,16 @@ export default function Timeline() {
 
   // Animate image translateY from 0% to -90% based on scroll progress
   const imageTranslateY = useTransform(scrollYProgress, [0, 1], [0, -1900]);
-  const imageTranslateYMobile = useTransform(scrollYProgress, [0, 1], [0, -2200]);
+  const imageTranslateYLaptop = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, -2150],
+  );
+  const imageTranslateYMobile = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, -2200],
+  );
 
   // Check if checkpoint lines are in view
   const isFirstCheckpointInView = useInView(firstCheckpointLineRef, {
@@ -93,7 +104,8 @@ export default function Timeline() {
             {/* First Section: Senior High School (Left Side)*/}
             <section className="grid">
               {/* ProgressLine */}
-              <div className="drop-shadow-highlight h-96 w-1 -translate-x-4.5 place-self-end rounded-t-full drop-shadow-lg"
+              <div
+                className="drop-shadow-highlight h-96 w-1 -translate-x-4.5 place-self-end rounded-t-full drop-shadow-lg"
                 style={{
                   background:
                     "linear-gradient(to bottom, transparent 0%, var(--color-glow) 100%)",
@@ -470,7 +482,9 @@ export default function Timeline() {
             top: "0",
             width: "100%",
             height: "100%",
-            translateY: imageTranslateY,
+            translateY: isLaptopHeight
+              ? imageTranslateYLaptop
+              : imageTranslateY,
             minHeight: "1000vh",
           }}
         >
