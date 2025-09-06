@@ -68,7 +68,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <DialogContent className="flex h-[70vh] flex-col overflow-hidden lg:min-w-[40rem]">
           <DialogHeader>
             <DialogTitle asChild>
-              <div className="text-highlight flex flex-col items-start gap-4 text-base lg:flex-row lg:items-center">
+              <div className="text-highlight flex flex-col items-start gap-4 text-xs translate-y-0.5 lg:translate-y-0 lg:text-base lg:flex-row lg:items-center">
                 {type && (
                   <>
                     PS C:Users\Quinch\Projects\

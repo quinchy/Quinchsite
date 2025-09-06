@@ -4,6 +4,7 @@ import ProjectData from "@/data/projects.json";
 import { Project } from "@/features/projects/types";
 import { thumbnails } from "@/utils/helpers";
 import TypewriterText from "@/components/ui/typewriter-text";
+import FadeInSection from "@/components/ui/fade-in-section";
 import {
   Tooltip,
   TooltipContent,
@@ -56,7 +57,7 @@ export const metadata: Metadata = {
 export default function Projects() {
   return (
     <>
-      <section className="grid grid-cols-1 justify-items-center gap-5 lg:grid-cols-2 xl:grid-cols-3">
+      <FadeInSection className="grid grid-cols-1 justify-items-center gap-5 lg:grid-cols-2 xl:grid-cols-3">
         {(ProjectData as Project[]).map((project, index) => (
           <ProjectCard
             key={index}
@@ -71,8 +72,8 @@ export default function Projects() {
             type={project.type}
           />
         ))}
-      </section>
-      <section className="flex flex-col gap-10">
+      </FadeInSection>
+      <FadeInSection className="flex flex-col gap-10">
         <TypewriterText label="tech:used" />
         <TooltipProvider>
           <div className="border-border flex flex-col rounded-2xl border-[1px]">
@@ -338,7 +339,7 @@ export default function Projects() {
             </section>
           </div>
         </TooltipProvider>
-      </section>
+      </FadeInSection>
     </>
   );
 }

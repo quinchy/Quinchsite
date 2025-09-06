@@ -3,6 +3,7 @@ import ProfilePicture from "@/components/ui/profile-picture";
 import SocialMediaList from "@/components/ui/media/media-list";
 import TypewriterText from "@/components/ui/typewriter-text";
 import Timeline from "@/features/about/components/timeline";
+import FadeInSection from "@/components/ui/fade-in-section";
 
 export const metadata: Metadata = {
   title: "About - Cyril James De Guzman | Quinch",
@@ -28,7 +29,7 @@ export default function About() {
   return (
     <>
       {/* 1. Hero Section */}
-      <section className="flex items-center gap-5 md:items-start">
+      <FadeInSection className="flex items-center gap-5 md:items-start">
         <div className="flex flex-col items-center gap-10 lg:items-start">
           <figure className="flex flex-col items-center gap-4 md:flex-row md:items-start lg:gap-8 xl:gap-8">
             <ProfilePicture />
@@ -71,7 +72,7 @@ export default function About() {
             </p>
           </article>
         </div>
-      </section>
+      </FadeInSection>
 
       {/* 2. History Section */}
       <section className="flex flex-col items-center justify-center gap-20">
