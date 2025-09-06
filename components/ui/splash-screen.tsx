@@ -1,8 +1,9 @@
 // components/ui/splash-screen.tsx
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface SplashScreenProps {
   /** Called after the slide-up animation finishes */
@@ -10,8 +11,8 @@ interface SplashScreenProps {
 }
 
 export default function SplashScreen({ onSlideEnd }: SplashScreenProps) {
-  const gifDuration = 3500;
-  const slideDuration = 700;
+  const gifDuration =4000;
+  const slideDuration = 1000;
   const highlightDelayOffset = 0.05;
   // once GIF + slide have run, tell parent to unmount
   useEffect(() => {
@@ -66,19 +67,14 @@ export default function SplashScreen({ onSlideEnd }: SplashScreenProps) {
           bounce: 0.75,
         }}
       >
-        <video
-          src="/videos/animated-quinch-logo.webm"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          style={{
-            width: "200px",
-            height: "200px",
-            objectFit: "contain",
-            willChange: "transform",
-          }}
+        <Image
+          src="/gifs/animated-quinch-logo.gif"
+          alt="Animated Quinch logo"
+          width={200}
+          height={200}
+          unoptimized
+          priority
+          className="w-[200px] h-[200px] object-contain will-change-transform"
         />
       </motion.div>
     </>

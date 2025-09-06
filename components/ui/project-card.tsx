@@ -11,9 +11,12 @@ import {
 import { Badge } from "@/components/ui/badge";
 import SiteLink from "@/components/ui/link/site-link";
 import { Project } from "@/features/projects/types";
+import ThumbnailViewer from "@/components/ui/thumbnail-viewer";
+import { projectGalleries } from "@/utils/helpers";
 
 interface ProjectCardProps {
   thumbnail: string | StaticImageData;
+  thumbnailKey: string;
   title: string;
   description: string;
   longDescription: string;
@@ -25,6 +28,7 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
   thumbnail,
+  thumbnailKey,
   title,
   description,
   longDescription,
@@ -44,23 +48,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <Image
           src={thumbnail}
           alt={title}
-          width={300}
-          height={300}
+          width={1280}
+          height={607}
           fetchPriority="high"
           priority={true}
           quality={100}
-          className="rounded-xl transition-all duration-500 ease-in-out group-hover:scale-105"
+          className="border-border/50 max-h-[140px] min-h-[140px] rounded-lg border-[1px] transition-all duration-500 ease-in-out group-hover:scale-105"
         />
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col items-start gap-2">
           <div className="flex items-center gap-2">
-            <p className="text-highlight text-lg font-bold">{title}</p>
-            {type && (
-              <Badge className="bg-highlight/10 text-highlight border-highlight/30 text-xs">
-                {type === "company" ? "Company" : "Personal"}
-              </Badge>
-            )}
+            <p className="text-highlight text-base font-bold">{title}</p>
           </div>
-          <p>{description}</p>
+          <p className="h-28 text-sm">{description}</p>
+          <div className="self-end text-xs">{">"} click to expand_</div>
         </div>
       </div>
 
@@ -69,14 +69,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           <DialogHeader>
             <DialogTitle asChild>
               <div className="text-highlight flex flex-col items-start gap-4 text-base lg:flex-row lg:items-center">
-                <div className="flex items-center gap-2">
-                  {title}
-                  {type && (
-                    <Badge className="bg-highlight/10 text-highlight border-highlight/30 text-xs">
-                      {type === "company" ? "Company" : "Personal"}
-                    </Badge>
-                  )}
-                </div>
+                {type && (
+                  <>
+                    PS C:Users\Quinch\Projects\
+                    {type === "company" ? "Company" : "Personal"}\{title}
+                  </>
+                )}
               </div>
             </DialogTitle>
           </DialogHeader>
@@ -85,31 +83,65 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             className="custom-scrollbar flex flex-col gap-4 overflow-y-auto"
           >
             <div className="px-5 pt-5">
-              <Image
-                src={thumbnail}
-                alt={title}
-                width={600}
-                height={400}
-                quality={100}
-                priority={true}
-                className="border-border h-auto w-full rounded-xl border-[1px]"
-              />
-            </div>
-            <div className="flex flex-row gap-2 px-5">
-              {githubLink && <SiteLink href={githubLink}>Github</SiteLink>}
-              {websiteLink && <SiteLink href={websiteLink}>Website</SiteLink>}
+              {projectGalleries[thumbnailKey] ? (
+                <ThumbnailViewer
+                  title={title}
+                  gallery={projectGalleries[thumbnailKey]}
+                />
+              ) : (
+                <Image
+                  src={thumbnail}
+                  alt={title}
+                  width={600}
+                  height={400}
+                  quality={100}
+                  priority={true}
+                  className="border-border h-auto w-full rounded-lg border-[1px]"
+                />
+              )}
             </div>
             <div className="mb-10 flex flex-col gap-4 px-5">
-              <p className="text-base">{longDescription}</p>
-              <div className="flex flex-wrap gap-2">
-                {technologies.map((tech, index) => (
-                  <Badge
-                    key={index}
-                    className="bg-muted text-foreground hover:bg-highlight hover:text-background transition-all duration-500 ease-in-out"
-                  >
-                    {tech}
-                  </Badge>
-                ))}
+              <div className="flex flex-col gap-2">
+                <h1 className="text-highlight font-mono text-xs lowercase">
+                  ├─ {`${title}.description`}:
+                </h1>
+                <p className="ml-5 text-base">{longDescription}</p>
+              </div>
+              <div className="flex flex-col gap-2">
+                <h1 className="text-highlight font-mono text-xs lowercase">
+                  ├─ {`${title}.technologies`}:
+                </h1>
+                <div className="mt-2 ml-5 flex flex-wrap gap-2">
+                  {technologies.map((tech, index) => (
+                    <Badge
+                      key={index}
+                      className="bg-muted text-foreground hover:bg-highlight hover:text-background transition-all duration-500 ease-in-out"
+                    >
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+              <div className="flex flex-col gap-2">
+                {(githubLink || websiteLink) && (                  
+                  <h1 className="text-highlight font-mono text-xs lowercase">
+                    ├─ {`${title}.links`}:
+                  </h1>
+                )}
+                <div className="flex flex-row gap-2 px-5 mt-2">
+                  {githubLink && (
+                    <SiteLink href={githubLink}>
+                      <div className="bg-highlight mr-2 h-2 w-2 animate-pulse rounded-full" />
+                      Github
+                    </SiteLink>
+                  )}
+                  {websiteLink && (
+                    <SiteLink href={websiteLink}>
+                      <div className="bg-highlight mr-2 h-2 w-2 animate-pulse rounded-full" />
+                      Website
+                    </SiteLink>
+                  )}
+                </div>
               </div>
             </div>
           </div>

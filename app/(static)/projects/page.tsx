@@ -61,6 +61,7 @@ export default function Projects() {
           <ProjectCard
             key={index}
             thumbnail={thumbnails[project.thumbnail]}
+            thumbnailKey={project.thumbnail}
             title={project.title}
             description={project.description}
             longDescription={project.longDescription}

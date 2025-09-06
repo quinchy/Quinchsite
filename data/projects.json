@@ -1,8 +1,31 @@
 [
     {
+        "title": "Sales-Agent",
+        "description": "An AI Sales Agent that helps salesperson by doing the calls for them and providing updates.",
+        "longDescription": "An AI-powered Sales Agent embedded in the CRM that enables sales representatives to offload routine quotation discussions and customer interactions by summarizing quotes, surfacing updates, conducting client calls with a voice agent, and automatically capturing full conversation transcripts—reducing manual effort and allowing reps to focus on high-value closing activities.",
+        "thumbnail": "SalesAgent",
+        "technologies": [
+            "Next.js",
+            "Supabase",
+            "Prisma",
+            "TailwindCSS",
+            "Framer Motion",
+            "Shadcn",
+            "Zod",
+            "TanStack Query",
+            "React Hook Form",
+            "OpenAI",
+            "ElevenLabs",
+            "Twilio"
+        ],
+        "githubLink": "",
+        "websiteLink": "https://roccohub.com",
+        "type": "company"
+    },
+    {
         "title": "Thryve",
-        "description": "An intentional dating site for successful men and attractive, empowered women built using Next.js and Supabase",
-        "longDescription": "Thryve is an intentional dating site where growth-driven relationships between successful men and attractive, empowered women. ",
+        "description": "A Dating Site with gender-based matching, realtime messaging, and video calls.",
+        "longDescription": "Thryve is an intentional dating site for successful men and commited women. It has features like gender-based matching, like profiles, realtime messaging, and video calls.",
         "thumbnail": "Thryve",
         "technologies": [
             "Next.js",
@@ -24,7 +47,7 @@
     },
     {
         "title": "HueFit",
-        "description": "A Men's Apparel Shop with Outfit Recommendation System built using Next.js, FastAPI, and React Native Expo.",
+        "description": "An E-commerce App with Skin-Tone Based Outfit Recommendation System and Virtual Fitting Technology.",
         "longDescription": "HueFit consist of web and mobile platform, where the web-based platform handles inventory and order management and mobile-based platform handles the e-commerce platform with ai-powered outfit recommendation and virtual fitting technology.",
         "thumbnail": "HueFit",
         "technologies": [
@@ -48,7 +71,7 @@
     },
     {
         "title": "PasaBuy",
-        "description": "A Mobile Community Delivery App built using Android Studio.",
+        "description": "A Mobile Community Delivery App that connects users with individuals who can help purchase and bring specific products home.",
         "longDescription": "PasaBuy is an Android mobile app inspired by the Filipino concept of \"PasaBuy.\" It's a community-driven delivery platform that connects users with individuals—often from abroad or different areas—who can help purchase and bring specific products home.",
         "thumbnail": "PeerToPeerDeliverySystem",
         "technologies": [
@@ -61,7 +84,7 @@
     },
     {
         "title": "SmileCare",
-        "description": "A Web-based Appointment System built using Laravel.",
+        "description": "A Web-based Appointment System for a local dental clinic.",
         "longDescription": "Donna Mae Jorge-Hollman Dental Clinic is web-based appointment scheduling for a local dental clinic. Patients are able to select appointment schedules that are created by the assistant doctor.",
         "thumbnail": "SmileCare",
         "technologies": [
@@ -77,7 +100,7 @@
     },
     {
         "title": "OnlyFunds",
-        "description": "A Mock-up Desktop Banking System App built using C# Windows Form.",
+        "description": "A Mock-up Desktop Banking System App that mimics a real banking system.",
         "longDescription": "OnlyFunds is a mock-up desktop banking system built using C# Windows Form. This project was made in my second year college in subject - Object Oriented Programming.",
         "thumbnail": "BankingSystem",
         "technologies": [
@@ -90,7 +113,7 @@
     },
     {
         "title": "AniQuinch",
-        "description": "A Mock-up E-commerce Website made only using HTML, CSS, and JavaScript.",
+        "description": "A Mock-up E-commerce Website that mimics a real e-commerce website.",
         "longDescription": "AniQuinch is an anime merchandise store simulating how an e-commerce look only using HTML, CSS, and JavaScript. This project was made in my first year college in subject - Computer Fundamental.",
         "thumbnail": "AniQuinch",
         "technologies": [

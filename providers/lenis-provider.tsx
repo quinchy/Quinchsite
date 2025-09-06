@@ -13,7 +13,7 @@ const LenisScrollProvider = ({ children }: LenisScrollProviderProps) => {
   useEffect(() => {
     lenisRef.current = new Lenis({
       duration: 1,
-      easing: (t) => 1 - Math.pow(1 - t, 5),
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       infinite: false,
       lerp: 1,
     });

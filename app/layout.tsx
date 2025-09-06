@@ -103,7 +103,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${GeistMono.className} flex flex-col items-center justify-center`}
+        className={`${GeistMono.className} flex flex-col items-center justify-center !font-mono`}
       >
         <LenisScrollProvider>{children}</LenisScrollProvider>
         <FloatingMenuBar />

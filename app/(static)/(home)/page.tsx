@@ -5,6 +5,7 @@ import MoveToProjectButton from "@/features/home/components/move-to-project-butt
 import TypewriterText from "@/components/ui/typewriter-text";
 import ProjectCard from "@/components/ui/project-card";
 import ViewMoreProjectsLink from "@/components/ui/link/view-more-projects-link";
+import FadeInSection from "@/components/ui/fade-in-section";
 
 import ProjectData from "@/data/projects.json";
 import { Project } from "@/features/projects/types";
@@ -34,7 +35,7 @@ export default function Home() {
   return (
     <>
       {/* 1. Hero Section */}
-      <section className="flex items-center gap-5 md:items-start">
+      <FadeInSection className="flex items-center gap-5 md:items-start">
         <div className="flex flex-col items-center gap-10 lg:items-start">
           <figure className="flex flex-col items-center gap-4 md:flex-row md:items-start lg:gap-8 xl:gap-8">
             <ProfilePicture />
@@ -74,9 +75,9 @@ export default function Home() {
           </article>
           <MoveToProjectButton />
         </div>
-      </section>
+      </FadeInSection>
       {/* 2. Projects Section */}
-      <section
+      <FadeInSection
         id="projects-section"
         className="flex w-full scroll-mt-40 flex-col items-center gap-5"
       >
@@ -86,6 +87,7 @@ export default function Home() {
             <ProjectCard
               key={index}
               thumbnail={thumbnails[project.thumbnail]}
+              thumbnailKey={project.thumbnail}
               title={project.title}
               description={project.description}
               longDescription={project.longDescription}
@@ -97,7 +99,7 @@ export default function Home() {
           ))}
         </div>
         <ViewMoreProjectsLink href="/projects" label="View more projects" />
-      </section>
+      </FadeInSection>
     </>
   );
 }

@@ -65,7 +65,7 @@ function DialogContent({
         {...props}
       >
         {children}
-        <DialogPrimitive.Close className="translate-y-1 hover:bg-muted hover:text-highlight absolute top-2 right-2 -translate-x-1 rounded-lg p-2 opacity-70 transition-all duration-500 hover:opacity-100 disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4">
+        <DialogPrimitive.Close className="hover:bg-muted hover:text-highlight absolute top-2 right-2 -translate-x-1 rounded-lg p-2 opacity-70 transition-all duration-500 hover:opacity-100 disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4">
           <X className="scale-150" />
           <span className="sr-only">Close</span>
         </DialogPrimitive.Close>
