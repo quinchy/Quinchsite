@@ -2,6 +2,7 @@
 
 @theme {
   --color-border: #8abeae50;
+  --color-scanlines: #8abeae05;
   --color-background: #13171d;
   --color-shadow: #080e12;
   --color-foreground: #8abeae;
@@ -326,6 +327,17 @@
 
   ::selection {
     background-color: var(--color-muted);
+  }
+
+  .scan-lines {
+    background: linear-gradient(
+      180deg,
+      transparent 50%,
+      var(--color-scanlines) 100%
+    );
+    background-size: 100% 4px;
+    height: 100%;
+    width: 100%;
   }
 
   .slide-in {

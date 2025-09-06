@@ -43,8 +43,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     <>
       <div
         onClick={() => setIsOpen(true)}
-        className="group border-border bg-background hover:border-highlight hover:bg-muted flex h-96 w-80 flex-col gap-5 rounded-3xl border-[1px] p-7 duration-500 ease-in-out"
+        className="group border-border bg-background hover:border-highlight hover:bg-muted relative flex h-96 w-80 flex-col gap-5 overflow-hidden rounded-3xl border-[1px] p-7 duration-500 ease-in-out"
       >
+        <div className="pointer-events-none absolute inset-0">
+          <div className="scan-lines"></div>
+        </div>
         <Image
           src={thumbnail}
           alt={title}
@@ -53,7 +56,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           fetchPriority="high"
           priority={true}
           quality={100}
-          className="border-border/50 max-h-[140px] min-h-[140px] rounded-lg border-[1px] transition-all duration-500 ease-in-out group-hover:scale-105"
+          className="border-border/50 max-h-[140px] min-h-[140px] rounded-lg border-[1px] transition-all duration-500 ease-in-out group-hover:scale-99"
         />
         <div className="flex flex-col items-start gap-2">
           <div className="flex items-center gap-2">
@@ -68,7 +71,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <DialogContent className="flex h-[70vh] flex-col overflow-hidden lg:min-w-[40rem]">
           <DialogHeader>
             <DialogTitle asChild>
-              <div className="text-highlight flex flex-col items-start gap-4 text-xs translate-y-0.5 lg:translate-y-0 lg:text-base lg:flex-row lg:items-center">
+              <div className="text-highlight flex translate-y-0.5 flex-col items-start gap-4 text-xs lg:translate-y-0 lg:flex-row lg:items-center lg:text-base">
                 {type && (
                   <>
                     PS C:Users\Quinch\Projects\
@@ -123,12 +126,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 </div>
               </div>
               <div className="flex flex-col gap-2">
-                {(githubLink || websiteLink) && (                  
+                {(githubLink || websiteLink) && (
                   <h1 className="text-highlight font-mono text-xs lowercase">
                     ├─ {`${title}.links`}:
                   </h1>
                 )}
-                <div className="flex flex-row gap-2 px-5 mt-2">
+                <div className="mt-2 flex flex-row gap-2 px-5">
                   {githubLink && (
                     <SiteLink href={githubLink}>
                       <div className="bg-highlight mr-2 h-2 w-2 animate-pulse rounded-full" />
@@ -144,6 +147,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 </div>
               </div>
             </div>
+          </div>
+          <div className="pointer-events-none absolute inset-0">
+            <div className="scan-lines"></div>
           </div>
         </DialogContent>
       </Dialog>

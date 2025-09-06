@@ -3,6 +3,7 @@ import { useCallback } from "react";
 // Default colors (your original theme)
 const defaultColors = {
   border: "#8abeae50",
+  scanlines: "#8abeae10",
   background: "#13171d",
   shadow: "#080e12",
   foreground: "#8abeae",
@@ -129,6 +130,10 @@ export const useTheme = () => {
       rotateHue(defaultColors.border, hueOffset),
     );
     root.style.setProperty(
+      "--color-scanlines",
+      rotateHue(defaultColors.scanlines, hueOffset),
+    );
+    root.style.setProperty(
       "--color-background",
       rotateHue(defaultColors.background, hueOffset),
     );
@@ -180,6 +185,7 @@ export const useTheme = () => {
   const resetTheme = useCallback(() => {
     const root = document.documentElement;
     root.style.setProperty("--color-border", defaultColors.border);
+    root.style.setProperty("--color-scanlines", defaultColors.scanlines);
     root.style.setProperty("--color-background", defaultColors.background);
     root.style.setProperty("--color-shadow", defaultColors.shadow);
     root.style.setProperty("--color-foreground", defaultColors.foreground);

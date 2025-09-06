@@ -46,7 +46,7 @@ export default function Navbar() {
 
   return (
     <div
-      className={`fixed top-0 left-1/2 z-10 max-w-[20rem] -translate-x-1/2 rounded-2xl py-2 transition-all duration-500 ease-in-out select-none sm:max-w-[28rem] md:max-w-[35rem] lg:max-w-[40rem] ${
+      className={`fixed top-0 left-1/2 z-50 max-w-[20rem] -translate-x-1/2 rounded-2xl py-2 transition-all duration-500 ease-in-out select-none sm:max-w-[28rem] md:max-w-[35rem] lg:max-w-[40rem] ${
         timelineActive
           ? "pointer-events-none -translate-y-4 opacity-0"
           : scrolled
