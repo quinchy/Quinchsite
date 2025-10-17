@@ -1,24 +1,12 @@
-// components/ui/splash-screen.tsx
 "use client";
 
-import React, { useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Image from "next/image";
 
-interface SplashScreenProps {
-  /** Called after the slide-up animation finishes */
-  onSlideEnd: () => void;
-}
-
-export default function SplashScreen({ onSlideEnd }: SplashScreenProps) {
+export default function SplashScreen() {
   const gifDuration =4000;
   const slideDuration = 1000;
   const highlightDelayOffset = 0.05;
-  // once GIF + slide have run, tell parent to unmount
-  useEffect(() => {
-    const timer = setTimeout(onSlideEnd, gifDuration + slideDuration);
-    return () => clearTimeout(timer);
-  }, [onSlideEnd]);
 
   return (
     <>

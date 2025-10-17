@@ -9,14 +9,16 @@ import BankingSystem from "@/public/images/thumbnails/only-funds/only-funds.webp
 import HueFit from "@/public/images/thumbnails/hue-fit/hue-fit.webp";
 import PeerToPeerDeliverySystem from "@/public/images/thumbnails/pasabuy/pasabuy.webp";
 import Thryve from "@/public/images/thumbnails/thryve/thryve.webp";
-import SalesAgent from "@/public/images/thumbnails/sales-agent/sales-agent.webp";
+import Superproxy from "@/public/images/thumbnails/superproxy/superproxy.webp";
 
 // Import per-project gallery PNGs
-// SalesAgent
-import SA1 from "@/public/images/thumbnails/sales-agent/sales-agent-1.png";
-import SA2 from "@/public/images/thumbnails/sales-agent/sales-agent-2.png";
-import SA3 from "@/public/images/thumbnails/sales-agent/sales-agent-3.png";
-import SA4 from "@/public/images/thumbnails/sales-agent/sales-agent-4.png";
+// Superproxy
+import SP1 from "@/public/images/thumbnails/superproxy/superproxy-1.png";
+import SP2 from "@/public/images/thumbnails/superproxy/superproxy-2.png"
+import SP3 from "@/public/images/thumbnails/superproxy/superproxy-3.png";
+import SP4 from "@/public/images/thumbnails/superproxy/superproxy-4.png";
+import SP5 from "@/public/images/thumbnails/superproxy/superproxy-5.png";
+import SP6 from "@/public/images/thumbnails/superproxy/superproxy-6.png";
 // Thryve
 import TH1 from "@/public/images/thumbnails/thryve/thryve-1.png";
 import TH2 from "@/public/images/thumbnails/thryve/thryve-2.png";
@@ -56,7 +58,7 @@ export const thumbnails: Record<string, StaticImageData> = {
   HueFit,
   PeerToPeerDeliverySystem,
   Thryve,
-  SalesAgent,
+  Superproxy,
 };
 
 export type ProjectGallery = {
@@ -65,7 +67,7 @@ export type ProjectGallery = {
 };
 
 export const projectGalleries: Record<string, ProjectGallery> = {
-  SalesAgent: { thumbnail: SalesAgent, images: [SA1, SA2, SA3, SA4] },
+  Superproxy: { thumbnail: Superproxy, images: [SP1, SP2, SP3, SP4, SP5, SP6] },
   Thryve: { thumbnail: Thryve, images: [TH1, TH2, TH3, TH4] },
   HueFit: { thumbnail: HueFit, images: [HF1, HF2, HF3, HF4, HF5, HF6] },
   PeerToPeerDeliverySystem: {

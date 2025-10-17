@@ -341,11 +341,11 @@
   }
 
   .slide-in {
-    animation: slide-in 250ms cubic-bezier(0.16, 1, 0.3, 1);
+    animation: slide-in 50ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .slide-out {
-    animation: slide-out 250ms cubic-bezier(0.16, 1, 0.3, 1);
+    animation: slide-out 50ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .fade-in {

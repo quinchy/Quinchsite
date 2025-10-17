@@ -1,19 +1,20 @@
 [
     {
-        "title": "Sales-Agent",
-        "description": "An AI Sales Agent that helps salesperson by doing the calls for them and providing updates.",
-        "longDescription": "An AI-powered Sales Agent embedded in the CRM that enables sales representatives to offload routine quotation discussions and customer interactions by summarizing quotes, surfacing updates, conducting client calls with a voice agent, and automatically capturing full conversation transcripts—reducing manual effort and allowing reps to focus on high-value closing activities.",
-        "thumbnail": "SalesAgent",
+        "title": "Superproxy",
+        "description": "Superproxy is an AI-powered CRM that offers salesperson a Conversational AI that does their calls.",
+        "longDescription": "Superproxy is an AI-powered CRM that offers salesperson a Conversational AI that does their calls. It enables sales representatives to offload routine quotation discussions and customer interactions by summarizing quotes, surfacing updates, conducting client calls with a voice agent, and automatically capturing full conversation transcripts—reducing manual effort and allowing reps to focus on high-value closing activities.",
+        "thumbnail": "Superproxy",
         "technologies": [
             "Next.js",
             "Supabase",
             "Prisma",
             "TailwindCSS",
             "Framer Motion",
-            "Shadcn",
+            "ShadcnUI",
             "Zod",
             "TanStack Query",
             "React Hook Form",
+            "Zustand",
             "OpenAI",
             "ElevenLabs",
             "Twilio"
@@ -25,7 +26,7 @@
     {
         "title": "Thryve",
         "description": "A Dating Site with gender-based matching, realtime messaging, and video calls.",
-        "longDescription": "Thryve is an intentional dating site for successful men and commited women. It has features like gender-based matching, like profiles, realtime messaging, and video calls.",
+        "longDescription": "Thryve is a dating site that allows users to find matches based on their gender and interests. It has features like gender-based matching, like profiles, realtime messaging, and video calls.",
         "thumbnail": "Thryve",
         "technologies": [
             "Next.js",
@@ -33,7 +34,7 @@
             "Prisma",
             "TailwindCSS",
             "Framer Motion",
-            "Shadcn",
+            "ShadcnUI",
             "Zod",
             "TanStack Query",
             "React Hook Form",
@@ -42,7 +43,7 @@
             "WebRTC"
         ],
         "githubLink": "",
-        "websiteLink": "https://thryvenow.com",
+        "websiteLink": "",
         "type": "company"
     },
     {
@@ -61,7 +62,7 @@
             "NextAuth",
             "Formik",
             "SWR",
-            "Shadcn",
+            "ShadcnUI",
             "TensorFlow",
             "Scikit-learn"
         ],

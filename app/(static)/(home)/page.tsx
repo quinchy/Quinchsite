@@ -35,7 +35,7 @@ export default function Home() {
   return (
     <>
       {/* 1. Hero Section */}
-      <FadeInSection className="flex items-center gap-5 md:items-start">
+      <section className="flex items-center gap-5 md:items-start">
         <div className="flex flex-col items-center gap-10 lg:items-start">
           <figure className="flex flex-col items-center gap-4 md:flex-row md:items-start lg:gap-8 xl:gap-8">
             <ProfilePicture />
@@ -75,7 +75,7 @@ export default function Home() {
           </article>
           <MoveToProjectButton />
         </div>
-      </FadeInSection>
+      </section>
       {/* 2. Projects Section */}
       <FadeInSection
         id="projects-section"
