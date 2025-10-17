@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
 import SplashScreen from "@/components/ui/splash-screen";
 import VignetteOverlay from "@/components/ui/vignette-overlay";
-import TimelineCinematicOverlay from "@/components/ui/timeline-cinematic-overlay";
 import CursorFollower from "@/components/ui/cursor-follower";
 import Footer from "@/components/ui/footer";
 import Navbar from "@/components/ui/nav-bar";
