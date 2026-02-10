@@ -73,7 +73,7 @@ export default function Hero() {
           <LinkedinIcon className="size-5" />
           LinkedIn
         </Link>
-        <Link
+        <a
           href="/cyril-james-resume.pdf"
           target="_blank"
           aria-label="Download Cyril James Resume PDF"
@@ -82,7 +82,7 @@ export default function Hero() {
         >
           <ResumeIcon className="size-5" />
           Resume
-        </Link>
+        </a>
       </nav>
     </header>
   );
