@@ -21,11 +21,21 @@ export default function ThemeMenu() {
         setIsOpen(false);
       }
     };
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+
     if (isOpen) {
       document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("keydown", handleEscape);
     }
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscape);
     };
   }, [isOpen]);
 
@@ -48,15 +58,24 @@ export default function ThemeMenu() {
     <div className="relative" ref={menuRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+        aria-haspopup="true"
+        aria-label={`Color theme: ${theme}. Click to change.`}
         className="cursor-pointer hover:bg-muted px-2 duration-300 transition-all"
       >
         Theme
       </button>
       {isOpen && (
-        <div className="absolute top-full right-0 bg-background border border-foreground min-w-30 overflow-hidden">
+        <div
+          className="absolute top-full right-0 bg-background border border-foreground min-w-30 overflow-hidden"
+          role="menu"
+          aria-label="Color theme options"
+        >
           <button
             onClick={() => handleThemeChange("default")}
-            className="w-full px-4 py-2 text-left border-none cursor-pointer"
+            role="menuitem"
+            aria-current={theme === "default" ? "true" : undefined}
+            className="w-full px-4 py-2 text-left border-none cursor-pointer hover:bg-muted transition-colors"
             style={{
               background:
                 theme === "default" ? "var(--primary)" : "transparent",
@@ -68,7 +87,9 @@ export default function ThemeMenu() {
           </button>
           <button
             onClick={() => handleThemeChange("teal")}
-            className="w-full px-4 py-2 text-left border-none cursor-pointer"
+            role="menuitem"
+            aria-current={theme === "teal" ? "true" : undefined}
+            className="w-full px-4 py-2 text-left border-none cursor-pointer hover:bg-muted transition-colors"
             style={{
               background: theme === "teal" ? "var(--primary)" : "transparent",
               color:

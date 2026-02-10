@@ -100,7 +100,9 @@ export default function Experiences() {
       </section>
       <ul className="flex gap-2 flex-wrap">
         {experience.technologies.map((tech, index) => (
-          <Badge key={index} name={tech} />
+          <li key={index}>
+            <Badge name={tech} />
+          </li>
         ))}
       </ul>
     </article>

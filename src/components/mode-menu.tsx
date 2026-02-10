@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState, useRef } from "react";
 
 type Mode = "light" | "dark" | "system";
@@ -23,12 +22,20 @@ export default function ModeMenu() {
       }
     };
 
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+
     if (isOpen) {
       document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("keydown", handleEscape);
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscape);
     };
   }, [isOpen]);
 
@@ -45,25 +52,36 @@ export default function ModeMenu() {
       );
     }
   };
+
   const handleModeChange = (newMode: Mode) => {
     setMode(newMode);
     localStorage.setItem("theme", newMode);
     applyMode(newMode);
     setIsOpen(false);
   };
+
   return (
     <div className="relative" ref={menuRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+        aria-haspopup="true"
+        aria-label={`Color mode: ${mode}. Click to change.`}
         className="cursor-pointer hover:bg-muted px-2 duration-300 transition-all"
       >
         Mode
       </button>
       {isOpen && (
-        <div className="absolute top-full right-0 bg-background border border-foreground min-w-30 overflow-hidden">
+        <div
+          className="absolute top-full right-0 bg-background border border-foreground min-w-30 overflow-hidden"
+          role="menu"
+          aria-label="Color mode options"
+        >
           <button
             onClick={() => handleModeChange("light")}
-            className="w-full px-4 py-2 text-left border-none cursor-pointer"
+            role="menuitem"
+            aria-current={mode === "light" ? "true" : undefined}
+            className="w-full px-4 py-2 text-left border-none cursor-pointer hover:bg-muted transition-colors"
             style={{
               background: mode === "light" ? "var(--primary)" : "transparent",
               color:
@@ -74,7 +92,9 @@ export default function ModeMenu() {
           </button>
           <button
             onClick={() => handleModeChange("dark")}
-            className="w-full px-4 py-2 text-left border-none cursor-pointer"
+            role="menuitem"
+            aria-current={mode === "dark" ? "true" : undefined}
+            className="w-full px-4 py-2 text-left border-none cursor-pointer hover:bg-muted transition-colors"
             style={{
               background: mode === "dark" ? "var(--primary)" : "transparent",
               color:
@@ -85,7 +105,9 @@ export default function ModeMenu() {
           </button>
           <button
             onClick={() => handleModeChange("system")}
-            className="w-full px-4 py-2 text-left border-none cursor-pointer"
+            role="menuitem"
+            aria-current={mode === "system" ? "true" : undefined}
+            className="w-full px-4 py-2 text-left border-none cursor-pointer hover:bg-muted transition-colors"
             style={{
               background: mode === "system" ? "var(--primary)" : "transparent",
               color:
