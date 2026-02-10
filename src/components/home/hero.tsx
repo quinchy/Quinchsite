@@ -20,8 +20,8 @@ export default function Hero() {
       <div className="flex items-center gap-6">
         <Image
           src="/profile-picture.png"
-          width={75}
-          height={75}
+          width={85}
+          height={85}
           alt="Cyril James - Software Engineer"
           priority
         />
