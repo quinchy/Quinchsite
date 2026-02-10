@@ -78,6 +78,7 @@ export default function Hero() {
           target="_blank"
           aria-label="Download Cyril James Resume PDF"
           className="flex gap-2 items-center border px-2 py-1"
+          rel="noopener noreferrer"
         >
           <ResumeIcon className="size-5" />
           Resume
