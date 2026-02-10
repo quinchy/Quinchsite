@@ -1,26 +1,65 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #ffffff;
+    --foreground: #171717;
+    --primary: #000000;
+    --muted: #17171725;
+    --border: #17171735;
+}
+
+:root.dark {
+    --background: #0a0a0a;
+    --foreground: #cbcbcb;
+    --primary: #ededed;
+    --muted: #cbcbcb50;
+    --border: #cbcbcb35;
+}
+
+:root.teal {
+    --background: #e4eaf2;
+    --foreground: #1d857d;
+    --primary: #006156;
+    --muted: #00615625;
+    --border: #00615650;
+}
+
+:root.teal.dark {
+    --background: #0a0c0f;
+    --foreground: #8abeae;
+    --primary: #baffea;
+    --muted: #1f282b;
+    --border: #83ffc035;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-primary: var(--primary);
+    --color-muted: var(--muted);
+    --color-border: var(--border);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+::selection {
+    background-color: var(--muted);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    opacity: 0.5;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--muted);
+    border-radius: 0px;
 }
