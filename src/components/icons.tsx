@@ -90,3 +90,71 @@ export function SuitcaseIcon({ className }: { className?: string }) {
     </svg>
   );
 }
+
+export function UniversityIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      className={className}
+    >
+      <path
+        fill="currentColor"
+        d="M30.47 7.61h-1.52v3.05H25.9v1.53h-3.05v1.52h3.05v4.57h-1.52v1.53h1.52v3.04h1.52V12.19h1.53V25.9h-1.53V32H32v-6.1h-1.53zM25.9 6.09h3.05v1.52H25.9Z"
+        stroke="currentColor"
+      />
+      <path
+        fill="currentColor"
+        d="M24.38 22.85h1.52v1.53h-1.52ZM19.8 9.14h6.1v1.52h-6.1Zm3.05-4.57h3.05v1.52h-3.05Zm-1.52 19.81h3.05v1.52h-3.05Zm0-4.57h3.05v1.52h-3.05Zm-1.53-6.1h3.05v1.52H19.8Zm0-10.67h3.05v1.53H19.8ZM9.14 25.9h12.19v1.52H9.14Zm0-4.57h12.19v1.52H9.14Zm7.62-6.1h3.04v1.53h-3.04Zm-3.05-7.62h6.09v1.53h-6.09Zm3.05-6.09h3.04v1.52h-3.04ZM13.71 0h3.05v1.52h-3.05Zm0 16.76h3.05v1.52h-3.05ZM10.66 1.52h3.05v1.52h-3.05Zm0 13.71h3.05v1.53h-3.05ZM7.61 3.04h3.05v1.53H7.61ZM6.09 24.38h3.05v1.52H6.09Zm0-4.57h3.05v1.52H6.09Zm1.52-6.1h3.05v1.52H7.61ZM4.57 4.57h3.04v1.52H4.57Zm0 18.28h1.52v1.53H4.57Zm1.52-3.04v-1.53H4.57v-4.57h3.04v-1.52H4.57v-1.53H1.52v1.53h1.52v10.66h1.53v-3.04zM1.52 6.09h3.05v1.52H1.52ZM0 7.61h1.52v3.05H0Z"
+        stroke="currentColor"
+      />
+    </svg>
+  );
+}
+
+export function CompanyIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      className={className}
+    >
+      <path
+        fill="currentColor"
+        d="M2 2h14v4h6v16H2zm18 6h-4v2h2v2h-2v2h2v2h-2v2h2v2h2zm-6-4H4v16h2v-2h6v2h2zM6 6h2v2H6zm6 0h-2v2h2zm-6 4h2v2H6zm6 0h-2v2h2zm-6 4h2v2H6zm6 0h-2v2h2z"
+      />
+    </svg>
+  );
+}
+
+export function PersonalIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      className={className}
+    >
+      <path
+        fill="currentColor"
+        d="M30.47 26.665H1.52v-3.05H0v4.57h1.52v1.53h28.95v-1.53H32v-4.57h-1.53z"
+        stroke="currentColor"
+      />
+      <path
+        fill="currentColor"
+        d="M28.95 20.565h1.52v3.05h-1.52Zm-10.67-9.14h1.53v1.52h-1.53Zm-4.57 12.19h4.57v1.52h-4.57Zm1.53-12.19h1.52v1.52h-1.52Zm-3.05 0h1.52v1.52h-1.52Zm-7.62-9.14h22.86v1.52H4.57Z"
+        stroke="currentColor"
+      />
+      <path
+        fill="currentColor"
+        d="M28.95 20.565V3.805h-1.52v15.24H4.57V3.805H3.05v16.76zm-27.43 0h1.53v3.05H1.52Z"
+        stroke="currentColor"
+      />
+    </svg>
+  );
+}
