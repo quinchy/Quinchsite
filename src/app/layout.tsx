@@ -2,10 +2,8 @@ import type { Metadata } from "next";
 import { GeistPixelSquare } from "geist/font/pixel";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/theme-provider";
-import { TransitionProvider } from "@/providers/transition-provider";
 import NavBar from "@/components/navbar";
 import NoiseWrapper from "@/components/noise-wrapper";
-import TransitionWrapper from "@/components/transition-wrapper";
 
 export const metadata: Metadata = {
   title: "Cyril James - Portfolio",
@@ -56,13 +54,11 @@ export default function RootLayout({
         className={`${GeistPixelSquare.className} antialiased tracking-wide`}
       >
         <ThemeProvider>
-          <TransitionProvider>
-            <NavBar />
-            <main className="h-[calc(100dvh-38px)] pt-8 translate-y-9.5 overflow-y-auto overflow-x-hidden border-x border-b border-border">
-              <TransitionWrapper>{children}</TransitionWrapper>
-            </main>
-            <NoiseWrapper />
-          </TransitionProvider>
+          <NavBar />
+          <main className="h-[calc(100dvh-38px)] pt-8 translate-y-9.5 overflow-y-auto overflow-x-hidden border-x border-b border-border">
+            <div>{children}</div>
+          </main>
+          <NoiseWrapper />
         </ThemeProvider>
       </body>
     </html>

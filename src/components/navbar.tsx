@@ -1,10 +1,10 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import ModeMenu from "@/components/mode-menu";
 import PagesMenu from "@/components/pages-menu";
 import ThemesMenu from "@/components/theme-menu";
 import { useThemeContext } from "@/providers/theme-provider";
-import TransitionLink from "@/components/transition-link";
 import LogoLight from "@/../public/logo/logo-light.webp";
 import LogoDark from "@/../public/logo/logo-dark.webp";
 import LogoTeal from "@/../public/logo/logo-teal.webp";
@@ -103,7 +103,11 @@ export default function NavBar() {
       className="flex justify-between gap-2 fixed bg-background w-full py-1.5 px-4 border border-border z-10"
       aria-label="Main navigation"
     >
-      <TransitionLink href={"/"} className="flex items-center gap-2">
+      <Link
+        href={"/"}
+        aria-label="Home - Quinchy"
+        className="flex items-center gap-2"
+      >
         <span className="relative w-5 h-5 inline-block" aria-hidden="true">
           {prevLogo && (
             <Image
@@ -132,7 +136,7 @@ export default function NavBar() {
         </span>
 
         <span className="translate-y-px font-semibold">Quincy</span>
-      </TransitionLink>
+      </Link>
 
       <div className="flex gap-2" role="group" aria-label="Site controls">
         <PagesMenu />
