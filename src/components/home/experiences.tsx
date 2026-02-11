@@ -75,8 +75,8 @@ export default function Experiences() {
     <article className="space-y-8">
       <div className="flex gap-4 items-center">
         <Image
-          width={experience.companyLogo.width}
-          height={experience.companyLogo.height}
+          width={80}
+          height={80}
           src={experience.companyLogo}
           placeholder="blur"
           className="max-w-20"
@@ -122,11 +122,11 @@ export default function Experiences() {
       <header className="relative flex items-center">
         {/* STATIC TEXT: Layout anchor */}
         <h1
-          className={`leading-7 transition-opacity -translate-y-[2.5px] tracking-[0px] translate-x-px duration-300 ${
+          className={`leading-7 transition-opacity -translate-y-[2.5px] tracking-[-0.55px] translate-x-[0.5px] duration-300 ${
             isMounted ? "opacity-0" : "opacity-100"
           }`}
           style={{
-            fontSize: 30,
+            fontSize: 31,
             fontWeight: 900,
             color: primaryColor,
           }}

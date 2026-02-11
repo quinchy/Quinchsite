@@ -27,9 +27,8 @@ export default function Hero() {
       <div className="flex items-center gap-6">
         <Image
           src={ProfilePicture}
-          width={ProfilePicture.width}
-          height={ProfilePicture.height}
-          className="max-w-24"
+          width={96}
+          height={96}
           alt="Cyril James - Software Engineer"
           placeholder="blur"
           priority
