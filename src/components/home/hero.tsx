@@ -12,52 +12,61 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import { useGetCSSVariable } from "@/hooks/use-get-css-variable";
+import ProfilePicture from "@/../public/profile-picture.webp";
 
 export default function Hero() {
   const primaryColor = useGetCSSVariable("--primary");
-  const [showFuzzy, setShowFuzzy] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setShowFuzzy(true);
+    setIsMounted(true);
   }, []);
 
   return (
     <header className="flex flex-col items-start gap-6">
       <div className="flex items-center gap-6">
         <Image
-          src="/profile-picture.png"
-          width={85}
-          height={85}
+          src={ProfilePicture}
+          width={ProfilePicture.width}
+          height={ProfilePicture.height}
+          className="max-w-24"
           alt="Cyril James - Software Engineer"
+          placeholder="blur"
           priority
         />
 
         <div className="flex flex-col justify-center gap-2">
-          {showFuzzy ? (
-            <FuzzyText
-              baseIntensity={0.01}
-              hoverIntensity={0.05}
-              fuzzRange={100}
-              color={primaryColor}
-              fontSize={35}
-              fontFamily="inherit"
-              className="-ml-30.5"
-              enableHover
-            >
-              Cyril James
-            </FuzzyText>
-          ) : (
+          <div className="relative flex items-center">
             <h1
-              className="leading-8"
+              className={`leading-8 -translate-y-0.5 tracking-[-0.5px] translate-x-px  transition-opacity duration-300 ${
+                isMounted ? "opacity-0" : "opacity-100"
+              }`}
               style={{
-                fontSize: 35,
+                fontSize: 36,
                 fontWeight: 900,
                 color: primaryColor,
               }}
             >
               Cyril James
             </h1>
-          )}
+
+            {/* FUZZY TEXT: Overlaid absolutely */}
+            {isMounted && (
+              <div className="absolute left-0 -ml-30.5">
+                <FuzzyText
+                  baseIntensity={0.01}
+                  hoverIntensity={0.05}
+                  fuzzRange={100}
+                  color={primaryColor}
+                  fontSize={35}
+                  fontFamily="inherit"
+                  enableHover
+                >
+                  Cyril James
+                </FuzzyText>
+              </div>
+            )}
+          </div>
 
           <div className="flex flex-row items-center gap-4">
             <p className="flex gap-2">
