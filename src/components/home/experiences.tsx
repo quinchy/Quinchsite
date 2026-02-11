@@ -8,12 +8,15 @@ import { StaticImageData } from "next/image";
 import Kynatech from "@/../public/kynatech.webp";
 import AppQuant from "@/../public/appquant.webp";
 import { useEffect, useState } from "react";
+import { CompanyIcon } from "@/components/icons";
+import Link from "next/link";
 
 interface Experience {
   title: string;
   period: string;
   company: string;
-  companyLogo: StaticImageData;
+  companyLogo?: StaticImageData;
+  companyLink?: string;
   employmentType: string;
   location: string;
   workMode: string;
@@ -60,6 +63,7 @@ export default function Experiences() {
       period: "May 2025 - Feb 2026",
       company: "Kynatech",
       companyLogo: Kynatech,
+      companyLink: "https://kynatech.ph/",
       employmentType: "Internship",
       location: "Taguig City, Philippines",
       workMode: "Remote",
@@ -72,25 +76,43 @@ export default function Experiences() {
   ];
 
   const ExperienceItem = ({ experience }: { experience: Experience }) => (
-    <article className="space-y-8">
-      <div className="flex gap-4 items-center">
-        <Image
-          width={80}
-          height={80}
-          src={experience.companyLogo}
-          placeholder="blur"
-          className="max-w-20"
-          alt="Company Logo"
-          priority
-        />
-        <header className="border-border border-b border-dashed pb-4 w-full">
+    <article className="space-y-4 group">
+      <div className="flex gap-1.5 items-center">
+        {experience.companyLogo ? (
+          <Image
+            width={80}
+            height={80}
+            src={experience.companyLogo}
+            placeholder="blur"
+            draggable={false}
+            className="select-none border border-border outline-dashed outline group-hover:outline-border outline-offset-4 outline-border/0 transition-all duration-300"
+            alt="Company Logo"
+            priority
+          />
+        ) : (
+          <div className="min-w-20 min-h-20 bg-muted border border-border flex items-center justify-center">
+            <CompanyIcon className="text-primary/50 size-10" />
+          </div>
+        )}
+        <header className="pb-4 pl-4 border-border/0 group-hover:border-border border-b border-dashed w-full transtion-all duration-300">
           <div className="flex justify-between">
             <h2 className="text-primary font-semibold">{experience.title}</h2>
             <time className="text-primary">{experience.period}</time>
           </div>
           <div className="flex justify-between">
             <div className="flex gap-2">
-              <span className="text-primary">{experience.company}</span>
+              {experience.companyLink ? (
+                <Link
+                  href={experience.companyLink}
+                  className="text-primary underline underline-offset-2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {experience.company}
+                </Link>
+              ) : (
+                <span className="text-primary">{experience.company}</span>
+              )}
               <span>|</span>
               <span>{experience.employmentType}</span>
             </div>

@@ -3,5 +3,12 @@ interface BadgeProps {
 }
 
 export default function Badge({ name }: BadgeProps) {
-  return <p className="py-1 px-3 text-sm border border-border">{name}</p>;
+  return (
+    <p
+      className="py-1 px-3 text-sm border border-border select-none hover:bg-muted duration-300 transition-all"
+      title={name}
+    >
+      {name}
+    </p>
+  );
 }

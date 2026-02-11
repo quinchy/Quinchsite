@@ -54,7 +54,7 @@ export default function Projects() {
       images: [ThryveThumbnail],
     },
     {
-      title: "Huefit",
+      title: "HueFit",
       type: "University",
       description:
         "Modern E-commerce platform with web and mobile application, inventory system, order management for store owners, and shop, ai-powered recommendation for customers.",
@@ -78,11 +78,14 @@ export default function Projects() {
   ];
 
   const ProjectItem = ({ project }: { project: Project }) => (
-    <div className="flex gap-8">
+    <div className="flex gap-8 outline-dashed outline outline-border/0 hover:outline-border outline-offset-14 duration-300 transition-all">
       <div className="space-y-2">
-        <div className="flex justify-between">
+        <div className="flex items-center justify-between">
           <h2 className="text-primary font-semibold">{project.title}</h2>
-          <div className="flex items-center gap-2 bg-muted px-2 py-0.5">
+          <div
+            className="flex items-center gap-2 bg-muted px-2 py-0.5 select-none"
+            title={project.type}
+          >
             {projectTypeIconMap[project.type]}
             <span>{project.type}</span>
           </div>
@@ -100,7 +103,8 @@ export default function Projects() {
             width={384}
             height={174}
             src={project.images[0]}
-            className="max-w-96"
+            draggable={false}
+            className="select-none min-w-96"
             placeholder="blur"
             alt="Company Logo"
             priority

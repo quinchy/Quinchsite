@@ -79,7 +79,7 @@ export default function Skills() {
 
   const SkillCategoryItem = ({ category }: { category: SkillCategory }) => (
     <div className="border-dashed border-border border-x border-t">
-      <h2 className="border-dashed border-border border-b px-4 py-2">
+      <h2 className="border-dashed border-border border-b px-4 py-2 font-semibold">
         {category.title}
       </h2>
       <div className="flex gap-4 flex-wrap px-4 py-5">

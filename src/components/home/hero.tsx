@@ -29,6 +29,8 @@ export default function Hero() {
           src={ProfilePicture}
           width={96}
           height={96}
+          draggable={false}
+          className="select-none"
           alt="Cyril James - Software Engineer"
           placeholder="blur"
           priority

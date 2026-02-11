@@ -81,12 +81,7 @@ export default function ModeMenu() {
             onClick={() => handleModeChange("light")}
             role="menuitem"
             aria-current={mode === "light" ? "true" : undefined}
-            className="w-full px-4 py-2 text-left border-none cursor-pointer hover:bg-muted transition-colors"
-            style={{
-              background: mode === "light" ? "var(--primary)" : "transparent",
-              color:
-                mode === "light" ? "var(--background)" : "var(--foreground)",
-            }}
+            className={`w-full px-4 py-2 text-left border-none cursor-pointer hover:bg-muted transition-colors ${mode === "light" ? "bg-primary hover:bg-primary/75 text-background" : "bg-transparent"}`}
           >
             Light
           </button>
@@ -94,12 +89,7 @@ export default function ModeMenu() {
             onClick={() => handleModeChange("dark")}
             role="menuitem"
             aria-current={mode === "dark" ? "true" : undefined}
-            className="w-full px-4 py-2 text-left border-none cursor-pointer hover:bg-muted transition-colors"
-            style={{
-              background: mode === "dark" ? "var(--primary)" : "transparent",
-              color:
-                mode === "dark" ? "var(--background)" : "var(--foreground)",
-            }}
+            className={`w-full px-4 py-2 text-left border-none cursor-pointer hover:bg-muted transition-colors ${mode === "dark" ? "bg-primary hover:bg-primary/75 text-background" : "bg-transparent"}`}
           >
             Dark
           </button>
@@ -107,12 +97,7 @@ export default function ModeMenu() {
             onClick={() => handleModeChange("system")}
             role="menuitem"
             aria-current={mode === "system" ? "true" : undefined}
-            className="w-full px-4 py-2 text-left border-none cursor-pointer hover:bg-muted transition-colors"
-            style={{
-              background: mode === "system" ? "var(--primary)" : "transparent",
-              color:
-                mode === "system" ? "var(--background)" : "var(--foreground)",
-            }}
+            className={`w-full px-4 py-2 text-left border-none cursor-pointer hover:bg-muted transition-colors ${mode === "system" ? "bg-primary hover:bg-primary/75 text-background" : "bg-transparent"}`}
           >
             System
           </button>
