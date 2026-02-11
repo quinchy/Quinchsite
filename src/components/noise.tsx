@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 interface NoiseProps {
   patternSize?: number;
@@ -10,13 +10,11 @@ interface NoiseProps {
 }
 
 const Noise: React.FC<NoiseProps> = ({
-  patternSize = 250,
-  patternScaleX = 1,
-  patternScaleY = 1,
-  patternRefreshInterval = 3, // Increased from 2 to reduce CPU usage
+  patternRefreshInterval = 3,
   patternAlpha = 15,
 }) => {
   const grainRef = useRef<HTMLCanvasElement | null>(null);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     const canvas = grainRef.current;
@@ -29,7 +27,7 @@ const Noise: React.FC<NoiseProps> = ({
 
     let frame = 0;
     let animationId: number;
-    const canvasSize = 1024; // Reduced from 1024 for better performance
+    const canvasSize = 1024;
 
     const resize = () => {
       if (!canvas) return;
@@ -59,6 +57,12 @@ const Noise: React.FC<NoiseProps> = ({
     };
 
     resize();
+
+    // Draw the static frame immediately for the "first paint"
+    drawGrain();
+
+    // Start the animation loop after the first paint
+    setIsAnimating(true);
     loop();
 
     return () => {
@@ -67,14 +71,17 @@ const Noise: React.FC<NoiseProps> = ({
   }, [patternRefreshInterval, patternAlpha]);
 
   return (
-    <canvas
-      className="pointer-events-none fixed inset-0 w-full h-full"
-      ref={grainRef}
-      style={{
-        imageRendering: "pixelated",
-      }}
-      aria-hidden="true"
-    />
+    <div className="fixed inset-0 pointer-events-none" aria-hidden="true">
+      <canvas
+        ref={grainRef}
+        className={`absolute inset-0 w-full h-full transition-opacity duration-500 ${
+          isAnimating ? "opacity-100" : "opacity-0"
+        }`}
+        style={{
+          imageRendering: "pixelated",
+        }}
+      />
+    </div>
   );
 };
 

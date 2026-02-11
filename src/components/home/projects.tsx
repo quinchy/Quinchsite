@@ -3,10 +3,10 @@
 import FuzzyText from "@/components/fuzzy-text";
 import { useGetCSSVariable } from "@/hooks/use-get-css-variable";
 import { StaticImageData } from "next/image";
-import SuperproxyThumbnail from "@/../public/superproxy/superproxy-1.png";
-import ThryveThumbnail from "@/../public/thryve/thryve-1.png";
-import HuefitThumbnail from "@/../public/huefit/huefit-1.png";
-import PasabuyThumbnail from "@/../public/pasabuy/pasabuy-1.png";
+import SuperproxyThumbnail from "@/../public/superproxy/superproxy-1.webp";
+import ThryveThumbnail from "@/../public/thryve/thryve-1.webp";
+import HuefitThumbnail from "@/../public/huefit/huefit-1.webp";
+import PasabuyThumbnail from "@/../public/pasabuy/pasabuy-1.webp";
 import Badge from "@/components/badge";
 import Image from "next/image";
 import { CompanyIcon, UniversityIcon, PersonalIcon } from "@/components/icons";
@@ -30,10 +30,10 @@ const projectTypeIconMap: Record<ProjectType, React.ReactNode> = {
 
 export default function Projects() {
   const primaryColor = useGetCSSVariable("--primary");
-  const [showFuzzy, setShowFuzzy] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setShowFuzzy(true);
+    setIsMounted(true);
   }, []);
 
   const projects: Project[] = [
@@ -101,6 +101,7 @@ export default function Projects() {
             height={project.images[0].height}
             src={project.images[0]}
             className="max-w-96"
+            placeholder="blur"
             alt="Company Logo"
             priority
           />
@@ -111,22 +112,12 @@ export default function Projects() {
 
   return (
     <section className="space-y-8">
-      {showFuzzy ? (
-        <FuzzyText
-          baseIntensity={0.01}
-          hoverIntensity={0.2}
-          fuzzRange={30}
-          color={primaryColor}
-          fontSize={30}
-          fontFamily="inherit"
-          className="-ml-13.5"
-          enableHover
-        >
-          Projects
-        </FuzzyText>
-      ) : (
+      <header className="relative flex items-center">
+        {/* STATIC TEXT: Anchor */}
         <h1
-          className="leading-6"
+          className={`leading-6 transition-opacity duration-300 ${
+            isMounted ? "opacity-0" : "opacity-100"
+          }`}
           style={{
             fontSize: 30,
             fontWeight: 900,
@@ -135,7 +126,25 @@ export default function Projects() {
         >
           Projects
         </h1>
-      )}
+
+        {/* FUZZY TEXT: Overlay */}
+        {isMounted && (
+          <div className="absolute left-0 -ml-13.5">
+            <FuzzyText
+              baseIntensity={0.01}
+              hoverIntensity={0.2}
+              fuzzRange={30}
+              color={primaryColor}
+              fontSize={30}
+              fontFamily="inherit"
+              enableHover
+            >
+              Projects
+            </FuzzyText>
+          </div>
+        )}
+      </header>
+
       <div className="space-y-8">
         {projects.map((project, index) => (
           <ProjectItem key={index} project={project} />

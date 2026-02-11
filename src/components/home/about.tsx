@@ -6,41 +6,47 @@ import { useEffect, useState } from "react";
 
 export default function About() {
   const primaryColor = useGetCSSVariable("--primary");
-  const [showFuzzy, setShowFuzzy] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setShowFuzzy(true);
+    setIsMounted(true);
   }, []);
 
   return (
     <article className="space-y-8">
-      <header>
-        {showFuzzy ? (
-          <FuzzyText
-            baseIntensity={0.01}
-            hoverIntensity={0.2}
-            fuzzRange={30}
-            fontSize={30}
-            fontFamily="inherit"
-            color={primaryColor}
-            className="-ml-13.5"
-            enableHover
-          >
-            About
-          </FuzzyText>
-        ) : (
-          <h1
-            className="leading-6"
-            style={{
-              fontSize: 30,
-              fontWeight: 900,
-              color: primaryColor,
-            }}
-          >
-            About
-          </h1>
+      <header className="relative flex items-center">
+        {/* STATIC TEXT: Keeps the layout stable and accessible */}
+        <h1
+          className={`leading-6 transition-opacity tracking-[-0.5px] -translate-x-px duration-300 ${
+            isMounted ? "opacity-0" : "opacity-100"
+          }`}
+          style={{
+            fontSize: 31,
+            fontWeight: 900,
+            color: primaryColor,
+          }}
+        >
+          About
+        </h1>
+
+        {/* FUZZY TEXT: Overlaid absolutely to prevent the single-frame flicker */}
+        {isMounted && (
+          <div className="absolute left-0 -ml-13.5">
+            <FuzzyText
+              baseIntensity={0.01}
+              hoverIntensity={0.2}
+              fuzzRange={30}
+              fontSize={30}
+              fontFamily="inherit"
+              color={primaryColor}
+              enableHover
+            >
+              About
+            </FuzzyText>
+          </div>
         )}
       </header>
+
       <div className="space-y-2">
         <p>
           Software Engineer focused on building full scale products, from

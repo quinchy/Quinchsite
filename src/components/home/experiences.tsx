@@ -5,8 +5,8 @@ import { useGetCSSVariable } from "@/hooks/use-get-css-variable";
 import Badge from "@/components/badge";
 import Image from "next/image";
 import { StaticImageData } from "next/image";
-import Kynatech from "@/../public/kynatech.png";
-import AppQuant from "@/../public/appquant.png";
+import Kynatech from "@/../public/kynatech.webp";
+import AppQuant from "@/../public/appquant.webp";
 import { useEffect, useState } from "react";
 
 interface Experience {
@@ -23,10 +23,10 @@ interface Experience {
 
 export default function Experiences() {
   const primaryColor = useGetCSSVariable("--primary");
-  const [showFuzzy, setShowFuzzy] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setShowFuzzy(true);
+    setIsMounted(true);
   }, []);
 
   const experiences: Experience[] = [
@@ -75,9 +75,11 @@ export default function Experiences() {
     <article className="space-y-8">
       <div className="flex gap-4 items-center">
         <Image
-          width={75}
-          height={75}
+          width={experience.companyLogo.width}
+          height={experience.companyLogo.height}
           src={experience.companyLogo}
+          placeholder="blur"
+          className="max-w-20"
           alt="Company Logo"
           priority
         />
@@ -117,22 +119,12 @@ export default function Experiences() {
 
   return (
     <section className="space-y-8">
-      {showFuzzy ? (
-        <FuzzyText
-          baseIntensity={0.01}
-          hoverIntensity={0.2}
-          fuzzRange={30}
-          color={primaryColor}
-          fontSize={30}
-          fontFamily="inherit"
-          className="-ml-13.5"
-          enableHover
-        >
-          Experiences
-        </FuzzyText>
-      ) : (
+      <header className="relative flex items-center">
+        {/* STATIC TEXT: Layout anchor */}
         <h1
-          className="leading-7"
+          className={`leading-7 transition-opacity -translate-y-[2.5px] tracking-[0px] translate-x-px duration-300 ${
+            isMounted ? "opacity-0" : "opacity-100"
+          }`}
           style={{
             fontSize: 30,
             fontWeight: 900,
@@ -141,7 +133,25 @@ export default function Experiences() {
         >
           Experiences
         </h1>
-      )}
+
+        {/* FUZZY TEXT: Absolute overlay */}
+        {isMounted && (
+          <div className="absolute left-0 -ml-13.5">
+            <FuzzyText
+              baseIntensity={0.01}
+              hoverIntensity={0.2}
+              fuzzRange={30}
+              color={primaryColor}
+              fontSize={30}
+              fontFamily="inherit"
+              enableHover
+            >
+              Experiences
+            </FuzzyText>
+          </div>
+        )}
+      </header>
+
       <div className="space-y-10">
         {experiences.map((experience, index) => (
           <ExperienceItem key={index} experience={experience} />
