@@ -83,7 +83,7 @@ export default function Projects() {
         <div className="flex items-center justify-between">
           <h2 className="text-primary font-semibold">{project.title}</h2>
           <div
-            className="flex items-center gap-2 bg-muted px-2 py-0.5 select-none"
+            className="flex items-center gap-2 bg-muted px-2 py-0.5 text-sm select-none"
             title={project.type}
           >
             {projectTypeIconMap[project.type]}

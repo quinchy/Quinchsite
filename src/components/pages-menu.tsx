@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
+import TransitionLink from "@/components/transition-link";
 
 export default function PagesMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,28 +33,28 @@ export default function PagesMenu() {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full right-0 bg-background border border-foreground min-w-30 overflow-hidden">
-          <Link
+        <div className="absolute top-full right-0 bg-background border border-border min-w-30 overflow-hidden">
+          <TransitionLink
             href="/"
             onClick={() => setIsOpen(false)}
             className="block w-full px-4 py-2 text-left text-foreground no-underline hover:bg-muted duration-300 transition-all"
           >
             Home
-          </Link>
-          <Link
+          </TransitionLink>
+          <TransitionLink
             href="/about"
             onClick={() => setIsOpen(false)}
             className="block w-full px-4 py-2 text-left text-foreground no-underline hover:bg-muted duration-300 transition-all"
           >
             About
-          </Link>
-          <Link
+          </TransitionLink>
+          <TransitionLink
             href="/projects"
             onClick={() => setIsOpen(false)}
             className="block w-full px-4 py-2 text-left text-foreground no-underline hover:bg-muted duration-300 transition-all"
           >
             Projects
-          </Link>
+          </TransitionLink>
         </div>
       )}
     </div>

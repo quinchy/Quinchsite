@@ -1,19 +1,13 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
+import { useThemeContext } from "@/providers/theme-provider";
 
 type Mode = "light" | "dark" | "system";
 
 export default function ModeMenu() {
-  const [mode, setMode] = useState<Mode>("system");
+  const { mode, setMode } = useThemeContext();
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") as Mode | null;
-    const initialTheme = savedTheme || "system";
-    setMode(initialTheme);
-    applyMode(initialTheme);
-  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -39,24 +33,26 @@ export default function ModeMenu() {
     };
   }, [isOpen]);
 
-  const applyMode = (selectedMode: Mode) => {
-    if (selectedMode === "system") {
-      const prefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)",
-      ).matches;
-      document.documentElement.classList.toggle("dark", prefersDark);
-    } else {
-      document.documentElement.classList.toggle(
-        "dark",
-        selectedMode === "dark",
-      );
-    }
-  };
+  useEffect(() => {
+    const applyMode = (selectedMode: Mode) => {
+      if (selectedMode === "system") {
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+        document.documentElement.classList.toggle("dark", prefersDark);
+      } else {
+        document.documentElement.classList.toggle(
+          "dark",
+          selectedMode === "dark",
+        );
+      }
+    };
+
+    applyMode(mode);
+  }, [mode]);
 
   const handleModeChange = (newMode: Mode) => {
     setMode(newMode);
-    localStorage.setItem("theme", newMode);
-    applyMode(newMode);
     setIsOpen(false);
   };
 
@@ -73,7 +69,7 @@ export default function ModeMenu() {
       </button>
       {isOpen && (
         <div
-          className="absolute top-full right-0 bg-background border border-foreground min-w-30 overflow-hidden"
+          className="absolute top-full right-0 bg-background border border-border min-w-30 overflow-hidden"
           role="menu"
           aria-label="Color mode options"
         >

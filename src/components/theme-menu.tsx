@@ -1,19 +1,13 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
+import { useThemeContext } from "@/providers/theme-provider";
 
 type Theme = "default" | "teal";
 
 export default function ThemeMenu() {
-  const [theme, setTheme] = useState<Theme>("default");
+  const { theme, setTheme } = useThemeContext();
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("color-theme") as Theme | null;
-    const initialTheme = savedTheme || "default";
-    setTheme(initialTheme);
-    applyTheme(initialTheme);
-  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -39,18 +33,21 @@ export default function ThemeMenu() {
     };
   }, [isOpen]);
 
-  const applyTheme = (selectedTheme: Theme) => {
-    if (selectedTheme === "teal") {
-      document.documentElement.classList.add("teal");
-    } else {
-      document.documentElement.classList.remove("teal");
-    }
-  };
+  // Apply theme to documentElement for compatibility with layout/styles
+  useEffect(() => {
+    const applyTheme = (selectedTheme: Theme) => {
+      if (selectedTheme === "teal") {
+        document.documentElement.classList.add("teal");
+      } else {
+        document.documentElement.classList.remove("teal");
+      }
+    };
+
+    applyTheme(theme);
+  }, [theme]);
 
   const handleThemeChange = (newTheme: Theme) => {
     setTheme(newTheme);
-    localStorage.setItem("color-theme", newTheme);
-    applyTheme(newTheme);
     setIsOpen(false);
   };
 
@@ -67,7 +64,7 @@ export default function ThemeMenu() {
       </button>
       {isOpen && (
         <div
-          className="absolute top-full right-0 bg-background border border-foreground min-w-30 overflow-hidden"
+          className="absolute top-full right-0 bg-background border border-border min-w-30 overflow-hidden"
           role="menu"
           aria-label="Color theme options"
         >
