@@ -1,21 +1,19 @@
-import Hero from "@/components/home/hero";
-import About from "@/components/home/about";
-import Experiences from "@/components/home/experiences";
-import Projects from "@/components/home/projects";
-import Skills from "@/components/home/skills";
+import Hero from "@/components/sections/hero";
+import About from "@/components/sections/about";
+import Experiences from "@/components/sections/experiences";
+import Projects from "@/components/sections/projects";
+import Skills from "@/components/sections/skills";
 import Footer from "@/components/footer";
 
 export default function Home() {
   return (
-    <main className="h-[calc(100dvh-38px)] pt-8 translate-y-9.5 overflow-y-auto overflow-x-hidden border-x border-b border-border">
-      <div className="max-w-4xl mx-auto flex flex-col gap-16 p-4">
-        <Hero />
-        <About />
-        <Experiences />
-        <Projects />
-        <Skills />
-        <Footer />
-      </div>
-    </main>
+    <div className="max-w-4xl mx-auto flex flex-col gap-16 p-4">
+      <Hero />
+      <About />
+      <Experiences />
+      <Projects />
+      <Skills />
+      <Footer />
+    </div>
   );
 }

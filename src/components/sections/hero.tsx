@@ -90,7 +90,7 @@ export default function Hero() {
           href="https://github.com/quinchy"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex gap-2 items-center border px-2 py-1"
+          className="flex gap-2 items-center border px-2 py-1 font-semibold hover:bg-primary hover:text-background"
         >
           <GithubIcon className="size-5" />
           GitHub
@@ -100,7 +100,7 @@ export default function Hero() {
           href="https://www.linkedin.com/in/quinchy"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex gap-2 items-center border px-2 py-1"
+          className="flex gap-2 items-center border px-2 py-1 font-semibold hover:bg-primary hover:text-background"
         >
           <LinkedinIcon className="size-5" />
           LinkedIn
@@ -110,7 +110,7 @@ export default function Hero() {
           href="/cyril-james-resume.pdf"
           target="_blank"
           aria-label="Download Cyril James Resume PDF"
-          className="flex gap-2 items-center border px-2 py-1"
+          className="flex gap-2 items-center border px-2 py-1 font-semibold hover:bg-primary hover:text-background"
           rel="noopener noreferrer"
         >
           <ResumeIcon className="size-5" />
