@@ -7,6 +7,7 @@ import Image from "next/image";
 import { StaticImageData } from "next/image";
 import Kynatech from "@/../public/kynatech.png";
 import AppQuant from "@/../public/appquant.png";
+import { useEffect, useState } from "react";
 
 interface Experience {
   title: string;
@@ -22,6 +23,11 @@ interface Experience {
 
 export default function Experiences() {
   const primaryColor = useGetCSSVariable("--primary");
+  const [showFuzzy, setShowFuzzy] = useState(false);
+
+  useEffect(() => {
+    setShowFuzzy(true);
+  }, []);
 
   const experiences: Experience[] = [
     {
@@ -73,6 +79,7 @@ export default function Experiences() {
           height={75}
           src={experience.companyLogo}
           alt="Company Logo"
+          priority
         />
         <header className="border-border border-b border-dashed pb-4 w-full">
           <div className="flex justify-between">
@@ -110,18 +117,31 @@ export default function Experiences() {
 
   return (
     <section className="space-y-8">
-      <FuzzyText
-        baseIntensity={0.01}
-        hoverIntensity={0.2}
-        fuzzRange={30}
-        color={primaryColor}
-        fontSize={30}
-        fontFamily="inherit"
-        className="-ml-13.5"
-        enableHover
-      >
-        Experiences
-      </FuzzyText>
+      {showFuzzy ? (
+        <FuzzyText
+          baseIntensity={0.01}
+          hoverIntensity={0.2}
+          fuzzRange={30}
+          color={primaryColor}
+          fontSize={30}
+          fontFamily="inherit"
+          className="-ml-13.5"
+          enableHover
+        >
+          Experiences
+        </FuzzyText>
+      ) : (
+        <h1
+          className="leading-7"
+          style={{
+            fontSize: 30,
+            fontWeight: 900,
+            color: primaryColor,
+          }}
+        >
+          Experiences
+        </h1>
+      )}
       <div className="space-y-10">
         {experiences.map((experience, index) => (
           <ExperienceItem key={index} experience={experience} />
