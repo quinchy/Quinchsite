@@ -78,7 +78,7 @@ export default function Projects() {
   ];
 
   const ProjectItem = ({ project }: { project: Project }) => (
-    <div className="flex gap-8 outline-dashed outline outline-border/0 hover:outline-border outline-offset-14 duration-300 transition-all">
+    <div className="flex flex-col lg:flex-row gap-8 outline-dashed outline outline-border/0 hover:outline-border outline-offset-14 duration-300 transition-all">
       <div className="space-y-2">
         <div className="flex items-center justify-between">
           <h2 className="text-primary font-semibold">{project.title}</h2>

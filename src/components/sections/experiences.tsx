@@ -77,7 +77,7 @@ export default function Experiences() {
 
   const ExperienceItem = ({ experience }: { experience: Experience }) => (
     <article className="space-y-4 group">
-      <div className="flex gap-1.5 items-center">
+      <div className="flex flex-col lg:flex-row gap-1.5 lg:items-center">
         {experience.companyLogo ? (
           <Image
             width={80}
@@ -94,12 +94,12 @@ export default function Experiences() {
             <CompanyIcon className="text-primary/50 size-10" />
           </div>
         )}
-        <header className="pb-4 pl-4 border-border/0 group-hover:border-border border-b border-dashed w-full transtion-all duration-300">
-          <div className="flex justify-between">
+        <header className="pb-4 lg:pl-4 border-border/0 group-hover:border-border border-b border-dashed w-full transtion-all duration-300">
+          <div className="flex flex-col lg:flex-row justify-between">
             <h2 className="text-primary font-semibold">{experience.title}</h2>
             <time className="text-primary">{experience.period}</time>
           </div>
-          <div className="flex justify-between">
+          <div className="flex flex-col lg:flex-row justify-between">
             <div className="flex gap-2">
               {experience.companyLink ? (
                 <Link

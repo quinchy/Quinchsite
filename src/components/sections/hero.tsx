@@ -23,7 +23,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <header className="flex flex-col items-start gap-6">
+    <header className="flex flex-col items-start gap-2 lg:gap-6">
       <div className="flex items-center gap-6">
         <Image
           src={ProfilePicture}
@@ -69,7 +69,7 @@ export default function Hero() {
             )}
           </div>
 
-          <div className="flex flex-row items-center gap-4">
+          <div className="flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-4">
             <p className="flex gap-2">
               <SuitcaseIcon className="size-5" />
               Software Engineer
