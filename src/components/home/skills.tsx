@@ -2,6 +2,7 @@
 import FuzzyText from "@/components/fuzzy-text";
 import { useGetCSSVariable } from "@/hooks/use-get-css-variable";
 import Badge from "@/components/badge";
+import { useEffect, useState } from "react";
 
 interface SkillCategory {
   title: string;
@@ -10,6 +11,11 @@ interface SkillCategory {
 
 export default function Skills() {
   const primaryColor = useGetCSSVariable("--primary");
+  const [showFuzzy, setShowFuzzy] = useState(false);
+
+  useEffect(() => {
+    setShowFuzzy(true);
+  }, []);
 
   const skillCategories: SkillCategory[] = [
     {
@@ -85,18 +91,31 @@ export default function Skills() {
 
   return (
     <section className="space-y-8">
-      <FuzzyText
-        baseIntensity={0.01}
-        hoverIntensity={0.2}
-        fuzzRange={30}
-        color={primaryColor}
-        fontSize={30}
-        fontFamily="inherit"
-        className="-ml-13.5"
-        enableHover
-      >
-        Skills
-      </FuzzyText>
+      {showFuzzy ? (
+        <FuzzyText
+          baseIntensity={0.01}
+          hoverIntensity={0.2}
+          fuzzRange={30}
+          color={primaryColor}
+          fontSize={30}
+          fontFamily="inherit"
+          className="-ml-13.5"
+          enableHover
+        >
+          Skills
+        </FuzzyText>
+      ) : (
+        <h1
+          className="leading-6"
+          style={{
+            fontSize: 30,
+            fontWeight: 900,
+            color: primaryColor,
+          }}
+        >
+          Skills
+        </h1>
+      )}
       <div className="border-dashed border-b border-border">
         {skillCategories.map((category, index) => (
           <SkillCategory key={index} category={category} />

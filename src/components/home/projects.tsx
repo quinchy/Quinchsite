@@ -10,6 +10,7 @@ import PasabuyThumbnail from "@/../public/pasabuy/pasabuy-1.png";
 import Badge from "@/components/badge";
 import Image from "next/image";
 import { CompanyIcon, UniversityIcon, PersonalIcon } from "@/components/icons";
+import { useEffect, useState } from "react";
 
 type ProjectType = "Company" | "University" | "Personal";
 
@@ -29,6 +30,11 @@ const projectTypeIconMap: Record<ProjectType, React.ReactNode> = {
 
 export default function Projects() {
   const primaryColor = useGetCSSVariable("--primary");
+  const [showFuzzy, setShowFuzzy] = useState(false);
+
+  useEffect(() => {
+    setShowFuzzy(true);
+  }, []);
 
   const projects: Project[] = [
     {
@@ -96,6 +102,7 @@ export default function Projects() {
             src={project.images[0]}
             className="max-w-96"
             alt="Company Logo"
+            priority
           />
         )}
       </div>
@@ -104,18 +111,31 @@ export default function Projects() {
 
   return (
     <section className="space-y-8">
-      <FuzzyText
-        baseIntensity={0.01}
-        hoverIntensity={0.2}
-        fuzzRange={30}
-        color={primaryColor}
-        fontSize={30}
-        fontFamily="inherit"
-        className="-ml-13.5"
-        enableHover
-      >
-        Projects
-      </FuzzyText>
+      {showFuzzy ? (
+        <FuzzyText
+          baseIntensity={0.01}
+          hoverIntensity={0.2}
+          fuzzRange={30}
+          color={primaryColor}
+          fontSize={30}
+          fontFamily="inherit"
+          className="-ml-13.5"
+          enableHover
+        >
+          Projects
+        </FuzzyText>
+      ) : (
+        <h1
+          className="leading-6"
+          style={{
+            fontSize: 30,
+            fontWeight: 900,
+            color: primaryColor,
+          }}
+        >
+          Projects
+        </h1>
+      )}
       <div className="space-y-8">
         {projects.map((project, index) => (
           <ProjectItem key={index} project={project} />

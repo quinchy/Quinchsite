@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import FuzzyText from "@/components/fuzzy-text";
 import {
   GithubIcon,
@@ -14,6 +15,11 @@ import { useGetCSSVariable } from "@/hooks/use-get-css-variable";
 
 export default function Hero() {
   const primaryColor = useGetCSSVariable("--primary");
+  const [showFuzzy, setShowFuzzy] = useState(false);
+
+  useEffect(() => {
+    setShowFuzzy(true);
+  }, []);
 
   return (
     <header className="flex flex-col items-start gap-6">
@@ -27,18 +33,32 @@ export default function Hero() {
         />
 
         <div className="flex flex-col justify-center gap-2">
-          <FuzzyText
-            baseIntensity={0.01}
-            hoverIntensity={0.05}
-            fuzzRange={100}
-            color={primaryColor}
-            fontSize={35}
-            fontFamily="inherit"
-            className="-ml-30.5"
-            enableHover
-          >
-            Cyril James
-          </FuzzyText>
+          {showFuzzy ? (
+            <FuzzyText
+              baseIntensity={0.01}
+              hoverIntensity={0.05}
+              fuzzRange={100}
+              color={primaryColor}
+              fontSize={35}
+              fontFamily="inherit"
+              className="-ml-30.5"
+              enableHover
+            >
+              Cyril James
+            </FuzzyText>
+          ) : (
+            <h1
+              className="leading-8"
+              style={{
+                fontSize: 35,
+                fontWeight: 900,
+                color: primaryColor,
+              }}
+            >
+              Cyril James
+            </h1>
+          )}
+
           <div className="flex flex-row items-center gap-4">
             <p className="flex gap-2">
               <SuitcaseIcon className="size-5" />
@@ -51,6 +71,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
       <nav
         className="flex flex-row gap-4 mt-4 md:mt-0"
         aria-label="Social and Resume links"
@@ -64,6 +85,7 @@ export default function Hero() {
           <GithubIcon className="size-5" />
           GitHub
         </Link>
+
         <Link
           href="https://www.linkedin.com/in/quinchy"
           target="_blank"
@@ -73,6 +95,7 @@ export default function Hero() {
           <LinkedinIcon className="size-5" />
           LinkedIn
         </Link>
+
         <a
           href="/cyril-james-resume.pdf"
           target="_blank"
