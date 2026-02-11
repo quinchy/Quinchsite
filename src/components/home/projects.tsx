@@ -97,8 +97,8 @@ export default function Projects() {
       <div>
         {project.images?.[0] && (
           <Image
-            width={project.images[0].width}
-            height={project.images[0].height}
+            width={384}
+            height={174}
             src={project.images[0]}
             className="max-w-96"
             placeholder="blur"
