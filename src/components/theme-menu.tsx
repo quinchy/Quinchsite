@@ -75,13 +75,7 @@ export default function ThemeMenu() {
             onClick={() => handleThemeChange("default")}
             role="menuitem"
             aria-current={theme === "default" ? "true" : undefined}
-            className="w-full px-4 py-2 text-left border-none cursor-pointer hover:bg-muted transition-colors"
-            style={{
-              background:
-                theme === "default" ? "var(--primary)" : "transparent",
-              color:
-                theme === "default" ? "var(--background)" : "var(--foreground)",
-            }}
+            className={`w-full px-4 py-2 text-left border-none cursor-pointer hover:bg-muted transition-colors ${theme === "default" ? "bg-primary hover:bg-primary/75 text-background" : "bg-transparent"}`}
           >
             Default
           </button>
@@ -89,12 +83,7 @@ export default function ThemeMenu() {
             onClick={() => handleThemeChange("teal")}
             role="menuitem"
             aria-current={theme === "teal" ? "true" : undefined}
-            className="w-full px-4 py-2 text-left border-none cursor-pointer hover:bg-muted transition-colors"
-            style={{
-              background: theme === "teal" ? "var(--primary)" : "transparent",
-              color:
-                theme === "teal" ? "var(--background)" : "var(--foreground)",
-            }}
+            className={`w-full px-4 py-2 text-left border-none cursor-pointer hover:bg-muted transition-colors ${theme === "teal" ? "bg-primary hover:bg-primary/75 text-background" : "bg-transparent"}`}
           >
             Teal
           </button>
