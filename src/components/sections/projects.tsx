@@ -7,10 +7,20 @@ import SuperproxyThumbnail from "@/../public/superproxy/superproxy-1.webp";
 import ThryveThumbnail from "@/../public/thryve/thryve-1.webp";
 import HuefitThumbnail from "@/../public/huefit/huefit-1.webp";
 import PasabuyThumbnail from "@/../public/pasabuy/pasabuy-1.webp";
+import SmilecareThumbnail from "@/../public/smilecare/smilecare-1.webp";
+import OnlyfundsThumbnail from "@/../public/onlyfunds/onlyfunds-1.webp";
+import AniquinchThumbnail from "@/../public/aniquinch/aniquinch-1.webp";
 import Badge from "@/components/badge";
 import Image from "next/image";
-import { CompanyIcon, UniversityIcon, PersonalIcon } from "@/components/icons";
+import {
+  CompanyIcon,
+  UniversityIcon,
+  PersonalIcon,
+  GithubIcon,
+  GlobeIcon,
+} from "@/components/icons";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 type ProjectType = "Company" | "University" | "Personal";
 
@@ -20,6 +30,12 @@ interface Project {
   description: string;
   technologies: string[];
   images?: StaticImageData[];
+  websiteLink?: string;
+  githubLink?: string;
+}
+
+interface ProjectsProps {
+  limit?: number;
 }
 
 const projectTypeIconMap: Record<ProjectType, React.ReactNode> = {
@@ -28,7 +44,7 @@ const projectTypeIconMap: Record<ProjectType, React.ReactNode> = {
   Personal: <PersonalIcon className="size-4 text-muted-foreground" />,
 };
 
-export default function Projects() {
+export default function Projects({ limit }: ProjectsProps = {}) {
   const primaryColor = useGetCSSVariable("--primary");
   const [isMounted, setIsMounted] = useState(false);
 
@@ -44,6 +60,7 @@ export default function Projects() {
         "Modern CRM with realtime analytics and currency, contacts, companies, and products inventory, quotation and invoice management, email composer, ai chatbot, and ai cold calling",
       technologies: ["Next.js", "Supabase", "Prisma"],
       images: [SuperproxyThumbnail],
+      websiteLink: "https://www.superproxy.com/",
     },
     {
       title: "Thryve",
@@ -66,6 +83,8 @@ export default function Projects() {
         "FastAPI",
       ],
       images: [HuefitThumbnail],
+      websiteLink: "https://hue-fit.quinchy.dev/",
+      githubLink: "https://github.com/quinchy/Hue-Fit",
     },
     {
       title: "PasaBuy",
@@ -74,6 +93,36 @@ export default function Projects() {
         "Android Application with location based pasabuy request posts, community platform, and ordering.",
       technologies: ["Android Studio", "Java", "Firebase"],
       images: [PasabuyThumbnail],
+      githubLink: "https://github.com/quinchy/Pasabuy",
+    },
+    {
+      title: "SmileCare",
+      type: "University",
+      description:
+        "Website for a local dental clinic with an appointment system dashboard.",
+      technologies: ["Laravel", "MySQL", "Heroku"],
+      images: [SmilecareThumbnail],
+      githubLink:
+        "https://github.com/quinchy/Donna-Mae-Jorge-Hollman-Dental-Clinic-Scheduling-System",
+    },
+    {
+      title: "OnlyFunds",
+      type: "University",
+      description:
+        "Basic mock-up of a Desktop Banking Application for OOP course.",
+      technologies: ["C#", "WinForms", "MySQL"],
+      images: [OnlyfundsThumbnail],
+      githubLink: "https://github.com/quinchy/BankingSystem",
+    },
+    {
+      title: "AniQuinch",
+      type: "University",
+      description:
+        "Basic Website built using HTML and CSS only mimicking an e-commerce website.",
+      technologies: ["HTML", "CSS"],
+      images: [AniquinchThumbnail],
+      websiteLink: "https://quinchx.github.io/AniQuinch/",
+      githubLink: "https://github.com/QuinchX/AniQuinch",
     },
   ];
 
@@ -81,7 +130,33 @@ export default function Projects() {
     <div className="flex flex-col lg:flex-row gap-8 outline-dashed outline outline-border/0 hover:outline-border outline-offset-14 duration-300 transition-all">
       <div className="space-y-2">
         <div className="flex items-center justify-between">
-          <h2 className="text-primary font-semibold">{project.title}</h2>
+          <h2 className="text-primary font-semibold flex gap-2 items-center">
+            {project.title}
+            {project.websiteLink && (
+              <Link
+                href={project.websiteLink}
+                aria-label={`${project.title} Link`}
+                title={`${project.title} Link`}
+                className="hover:text-foreground text-foreground/75 hover:scale-[105%] duration-300 transition-all"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <GlobeIcon className="size-4" />
+              </Link>
+            )}
+            {project.githubLink && (
+              <Link
+                href={project.githubLink}
+                aria-label={`${project.title} Github Link`}
+                title={`${project.title} Github Link`}
+                className="hover:text-foreground hover:scale-[105%] text-foreground/75 duration-300 transition-all"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <GithubIcon className="size-4" />
+              </Link>
+            )}
+          </h2>
           <div
             className="flex items-center gap-2 bg-muted px-2 py-0.5 text-sm select-none"
             title={project.type}
@@ -150,10 +225,21 @@ export default function Projects() {
       </header>
 
       <div className="space-y-8">
-        {projects.map((project, index) => (
+        {projects.slice(0, limit).map((project, index) => (
           <ProjectItem key={index} project={project} />
         ))}
       </div>
+
+      {limit && limit < projects.length && (
+        <div className="flex justify-center">
+          <Link
+            href="/projects"
+            className="text-primary border-dashed text-sm hover:bg-muted/50 hover:border-primary transition-all duration-300 border w-full text-center py-2.5 border-border"
+          >
+            View All Projects
+          </Link>
+        </div>
+      )}
     </section>
   );
 }
