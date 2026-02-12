@@ -8,13 +8,13 @@ import NoiseWrapper from "@/components/noise-wrapper";
 export const metadata: Metadata = {
   title: "Cyril James - Software Engineer",
   description:
-    "Software engineer with expertise in front-end and back-end development. Building fast, scalable web applications with modern technologies. View my portfolio and projects.",
+    "Software Engineer focused on systems design and scalable solutions across the full stack, with a goal of delivering highly performant, and reliable applications.",
   openGraph: {
-    title: "Cyril James - Software Engineer",
+    title: "Cyril James De Guzman",
     description:
-      "Software engineer specializing in modern web development. Explore my projects and get in touch.",
+      "Software Engineer focused on systems design and scalable solutions across the full stack, with a goal of delivering highly performant, and reliable applications.",
     url: "https://quinchy.dev",
-    siteName: "Cyril James - Portfolio",
+    siteName: "Cyril James - Software Engineer",
     images: [
       {
         url: "https://quinchy.dev/portfolio-thumbnail.png",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Cyril James - Software Engineer",
     description:
-      "Software engineer specializing in modern web development. Explore my projects and get in touch.",
+      "Software Engineer focused on systems design and scalable solutions across the full stack, with a goal of delivering highly performant, and reliable applications.",
     images: ["https://quinchy.dev/portfolio-thumbnail.png"],
   },
 };
