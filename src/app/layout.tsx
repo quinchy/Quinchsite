@@ -6,9 +6,33 @@ import NavBar from "@/components/navbar";
 import NoiseWrapper from "@/components/noise-wrapper";
 
 export const metadata: Metadata = {
-  title: "Cyril James - Portfolio",
+  title: "Cyril James - Software Engineer",
   description:
-    "Software Engineer focused on building full scale products from front-end to back-end",
+    "Software engineer with expertise in front-end and back-end development. Building fast, scalable web applications with modern technologies. View my portfolio and projects.",
+  openGraph: {
+    title: "Cyril James - Software Engineer",
+    description:
+      "Software engineer specializing in modern web development. Explore my projects and get in touch.",
+    url: "https://quinchy.dev",
+    siteName: "Cyril James - Portfolio",
+    images: [
+      {
+        url: "https://quinchy.dev/portfolio-thumbnail.png",
+        width: 1200,
+        height: 630,
+        alt: "Cyril James - Software Engineer",
+      },
+    ],
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Cyril James - Software Engineer",
+    description:
+      "Software engineer specializing in modern web development. Explore my projects and get in touch.",
+    images: ["https://quinchy.dev/portfolio-thumbnail.png"],
+  },
 };
 
 export default function RootLayout({
