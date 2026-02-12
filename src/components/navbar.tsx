@@ -135,7 +135,7 @@ export default function NavBar() {
           />
         </span>
 
-        <span className="translate-y-px font-semibold">Quincy</span>
+        <span className="translate-y-px font-semibold">Quinchy</span>
       </Link>
 
       <div className="flex gap-2" role="group" aria-label="Site controls">
