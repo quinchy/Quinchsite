@@ -14,15 +14,14 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [mode, setModeState] = useState<Mode>("system");
-  const [theme, setThemeState] = useState<Theme>("default");
+  const [mode, setModeState] = useState<Mode>("dark");
+  const [theme, setThemeState] = useState<Theme>("teal");
   const [isHydrated, setIsHydrated] = useState(false);
 
   // Initialize from localStorage on mount
   useEffect(() => {
-    const savedMode = (localStorage.getItem("theme") as Mode) || "system";
-    const savedTheme =
-      (localStorage.getItem("color-theme") as Theme) || "default";
+    const savedMode = (localStorage.getItem("theme") as Mode) || "dark";
+    const savedTheme = (localStorage.getItem("color-theme") as Theme) || "teal";
     setModeState(savedMode);
     setThemeState(savedTheme);
     setIsHydrated(true);
