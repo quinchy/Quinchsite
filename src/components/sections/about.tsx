@@ -49,14 +49,14 @@ export default function About() {
 
       <div className="space-y-2">
         <p>
-          Software Engineer focused on building full scale products, from
-          front-end to back-end, with goal to deliver scalable, and reliable
-          applications.
+          Software Engineer focused on systems design and scalable solutions
+          across the full stack, with a goal of delivering highly performant,
+          and reliable applications.
         </p>
         <p>
-          I enjoy solving problems and building infrastructure through
-          thoughtful design and clear structure, while continuously improving my
-          skills and learning better ways to build high quality software.
+          I enjoy solving problems and implementing solutions, while
+          continuously refining my skills and learning different ways to build
+          softwares.
         </p>
       </div>
     </article>
