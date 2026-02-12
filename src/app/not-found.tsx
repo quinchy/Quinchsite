@@ -1,21 +1,11 @@
 import Link from "next/link";
-import FuzzyText from "@/components/fuzzy-text";
 import { ArrowLeftIcon } from "@/components/icons";
 
 export default async function NotFound() {
   return (
     <div className="flex flex-col items-center justify-center max-w-xl mx-auto my-auto h-[80dvh] gap-8">
       <section className="flex flex-col items-center justify-center gap-2">
-        <FuzzyText
-          baseIntensity={0.05}
-          hoverIntensity={0.1}
-          fuzzRange={100}
-          fontSize={50}
-          fontFamily="inherit"
-          enableHover
-        >
-          404
-        </FuzzyText>
+        <h1 className="text-4xl font-black">404</h1>
         <h1 className="text-2xl font-bold">Page Not Found</h1>
         <p className="text-foreground/75 text-sm">
           The page you're looking for doesn't exist or has been moved.
