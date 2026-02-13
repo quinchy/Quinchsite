@@ -3,6 +3,7 @@ import About from "@/components/sections/about";
 import Experiences from "@/components/sections/experiences";
 import Projects from "@/components/sections/projects";
 import Skills from "@/components/sections/skills";
+import Contacts from "@/components/sections/contacts";
 import Footer from "@/components/footer";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <Experiences />
       <Projects limit={4} />
       <Skills />
+      <Contacts />
       <Footer />
     </div>
   );

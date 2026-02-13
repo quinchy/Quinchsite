@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { GeistPixelSquare } from "geist/font/pixel";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/theme-provider";
+import { QueryProvider } from "@/providers/query-provider";
 import NavBar from "@/components/navbar";
 import NoiseWrapper from "@/components/noise-wrapper";
+import Toast from "@/components/toast";
 
 export const metadata: Metadata = {
   title: "Cyril James - Software Engineer",
@@ -77,13 +79,16 @@ export default function RootLayout({
       <body
         className={`${GeistPixelSquare.className} antialiased tracking-wide`}
       >
-        <ThemeProvider>
-          <NavBar />
-          <main className="h-[calc(100dvh-38px)] pt-8 translate-y-9.5 overflow-y-auto overflow-x-hidden border-x border-b border-border">
-            <div>{children}</div>
-          </main>
-          <NoiseWrapper />
-        </ThemeProvider>
+        <QueryProvider>
+          <ThemeProvider>
+            <NavBar />
+            <main className="h-[calc(100dvh-38px)] pt-8 translate-y-9.5 overflow-y-auto overflow-x-hidden border-x border-b border-border">
+              <div>{children}</div>
+            </main>
+            <NoiseWrapper />
+            <Toast />
+          </ThemeProvider>
+        </QueryProvider>
       </body>
     </html>
   );

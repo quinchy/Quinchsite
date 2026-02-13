@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Hero from "@/components/sections/about";
 import Experiences from "@/components/sections/experiences";
+import Education from "@/components/sections/education";
 import Footer from "@/components/footer";
 import Image from "next/image";
 import AnimatedLogo from "@/../public/animated-quinch-logo.gif";
@@ -59,6 +60,7 @@ export default function About() {
 
       <Hero />
       <Experiences />
+      <Education />
       <Footer />
     </div>
   );
