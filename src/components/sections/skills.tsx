@@ -26,6 +26,8 @@ export default function Skills() {
     {
       title: "Backend",
       skills: [
+        "REST APIs",
+        "Redis",
         "Node JS",
         "Express JS",
         "Typescript",
@@ -50,7 +52,7 @@ export default function Skills() {
     },
     {
       title: "Framework",
-      skills: ["Next.js", "Laravel", "FastAPI"],
+      skills: ["Next.js", "Laravel", "FastAPI", "React Native Expo"],
     },
     {
       title: "Database",
@@ -65,6 +67,8 @@ export default function Skills() {
         "GPT",
         "Gemini",
         "Claude",
+        "v0",
+        "Docker",
         "Postman",
         "NPM",
         "Bun",
