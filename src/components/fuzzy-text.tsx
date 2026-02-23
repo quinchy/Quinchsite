@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 interface FuzzyTextProps {
   children: React.ReactNode;
@@ -24,6 +24,17 @@ interface FuzzyTextProps {
   className?: string;
 }
 
+// Detect mobile for adaptive FPS
+const getAdaptiveFPS = () => {
+  if (typeof window === "undefined") return 60;
+  // Use lower FPS on mobile
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent,
+  );
+  if (isMobile) return 30;
+  return 60;
+};
+
 const FuzzyText: React.FC<FuzzyTextProps> = ({
   children,
   fontSize = "clamp(2rem, 8vw, 8rem)",
@@ -34,7 +45,7 @@ const FuzzyText: React.FC<FuzzyTextProps> = ({
   baseIntensity = 0.18,
   hoverIntensity = 0.5,
   fuzzRange = 30,
-  fps = 60,
+  fps,
   direction = "horizontal",
   transitionDuration = 0,
   clickEffect = false,
@@ -48,8 +59,44 @@ const FuzzyText: React.FC<FuzzyTextProps> = ({
   const canvasRef = useRef<
     HTMLCanvasElement & { cleanupFuzzyText?: () => void }
   >(null);
+  const [isInView, setIsInView] = useState(true);
+  const [isVisible, setIsVisible] = useState(true);
+
+  // Use intersection observer to only animate when in viewport
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.1 },
+    );
+
+    observer.observe(canvas);
+    return () => observer.disconnect();
+  }, []);
+
+  // Pause animation when tab is hidden
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      setIsVisible(!document.hidden);
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
+
+  // Determine effective FPS
+  const effectiveFPS = fps ?? getAdaptiveFPS();
 
   useEffect(() => {
+    // Don't run animation if not in view or not visible
+    if (!isInView || !isVisible) return;
+
     let animationFrameId: number;
     let isCancelled = false;
     let glitchTimeoutId: ReturnType<typeof setTimeout>;
@@ -172,7 +219,7 @@ const FuzzyText: React.FC<FuzzyTextProps> = ({
       let currentIntensity = baseIntensity;
       let targetIntensity = baseIntensity;
       let lastFrameTime = 0;
-      const frameDuration = 1000 / fps;
+      const frameDuration = 1000 / effectiveFPS;
 
       const startGlitchLoop = () => {
         if (!glitchMode || isCancelled) return;
@@ -356,7 +403,7 @@ const FuzzyText: React.FC<FuzzyTextProps> = ({
     baseIntensity,
     hoverIntensity,
     fuzzRange,
-    fps,
+    effectiveFPS,
     direction,
     transitionDuration,
     clickEffect,
@@ -365,6 +412,8 @@ const FuzzyText: React.FC<FuzzyTextProps> = ({
     glitchDuration,
     gradient,
     letterSpacing,
+    isInView,
+    isVisible,
   ]);
 
   return <canvas ref={canvasRef} className={className} />;

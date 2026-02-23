@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import FuzzyText from "@/components/fuzzy-text";
+import dynamic from "next/dynamic";
 import {
   GithubIcon,
   LinkedinIcon,
@@ -12,10 +12,25 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import { useGetCSSVariable } from "@/hooks/use-get-css-variable";
+import { useIsMobile } from "@/hooks/use-is-mobile";
 import ProfilePicture from "@/../public/profile-picture.webp";
+import { StaticTitle } from "@/components/static-title";
+
+const FuzzyText = dynamic(() => import("@/components/fuzzy-text"), {
+  ssr: false,
+  loading: () => (
+    <StaticTitle
+      text="Cyril James"
+      translate="translate-x-[126px] -translate-y-[2.5px] scale-[102%]"
+      fontSize={35}
+      color="var(--primary)"
+    />
+  ),
+});
 
 export default function Hero() {
   const primaryColor = useGetCSSVariable("--primary");
+  const isMobile = useIsMobile();
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -39,20 +54,18 @@ export default function Hero() {
         <div className="flex flex-col justify-center gap-2">
           <div className="relative flex items-center">
             <h1
-              className={`leading-8 -translate-y-0.5 tracking-[-0.5px] translate-x-px  transition-opacity duration-300 ${
-                isMounted ? "opacity-0" : "opacity-100"
+              className={`leading-8 text-primary -translate-y-0.5 tracking-[-0.5px] translate-x-px  transition-opacity duration-300 ${
+                isMounted && !isMobile ? "opacity-0" : "opacity-100"
               }`}
               style={{
-                fontSize: 36,
+                fontSize: 35,
                 fontWeight: 900,
                 color: primaryColor,
               }}
             >
               Cyril James
             </h1>
-
-            {/* FUZZY TEXT: Overlaid absolutely */}
-            {isMounted && (
+            {isMounted && !isMobile && (
               <div className="absolute left-0 -ml-30.5">
                 <FuzzyText
                   baseIntensity={0.01}

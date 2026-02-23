@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import ModeMenu from "@/components/mode-menu";
@@ -35,9 +36,7 @@ export default function NavBar() {
     }
   };
 
-  // Determine logo variant from mode and theme
   const resolveLogoVariant = (): LogoVariant => {
-    // Resolve mode for system preference
     let effectiveMode = mode;
     if (mode === "system" && typeof window !== "undefined") {
       const prefersDark = window.matchMedia(
@@ -46,11 +45,6 @@ export default function NavBar() {
       effectiveMode = prefersDark ? "dark" : "light";
     }
 
-    // Map combinations:
-    // light + default = LogoDark
-    // light + teal = LogoTealDark
-    // dark + default = LogoLight
-    // dark + teal = LogoTeal
     if (effectiveMode === "light" && theme === "default") return "dark";
     if (effectiveMode === "light" && theme === "teal") return "teal-dark";
     if (effectiveMode === "dark" && theme === "default") return "light";
@@ -59,21 +53,18 @@ export default function NavBar() {
     return "light";
   };
 
-  // Update logo immediately when context changes
   useEffect(() => {
     const resolved = resolveLogoVariant();
 
     setLogo((current) => {
       if (current === resolved) return current;
 
-      // start crossfade
       setPrevLogo(current);
       setVisible(false);
 
       return resolved;
     });
 
-    // read styling class from layout script
     if (typeof document !== "undefined") {
       const attr =
         document.documentElement.getAttribute("data-logo-class") ||
@@ -82,13 +73,11 @@ export default function NavBar() {
     }
   }, [mode, theme]);
 
-  // Initial fade in
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 20);
     return () => clearTimeout(t);
   }, []);
 
-  // When image loads, fade in and cleanup prev
   const handleLoaded = () => {
     setVisible(true);
 
@@ -113,21 +102,20 @@ export default function NavBar() {
             <Image
               src={srcFor(prevLogo)}
               alt="Quinchy"
-              fill
-              sizes="20px"
+              width={100}
+              height={100}
               className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-300 ease-in-out ${
                 visible ? "opacity-0" : "opacity-100"
               } ${logoClass}`}
-              priority={false}
             />
           )}
 
           <Image
             src={srcFor(logo)}
             alt="Quinchy"
-            fill
-            sizes="20px"
-            onLoadingComplete={handleLoaded}
+            width={100}
+            height={100}
+            onLoad={handleLoaded}
             className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-300 ease-in-out ${
               visible ? "opacity-100" : "opacity-0"
             } ${logoClass}`}

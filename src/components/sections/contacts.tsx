@@ -1,7 +1,7 @@
 "use client";
 
-import FuzzyText from "@/components/fuzzy-text";
 import { useGetCSSVariable } from "@/hooks/use-get-css-variable";
+import { useIsMobile } from "@/hooks/use-is-mobile";
 import { useEffect, useState } from "react";
 import {
   GithubIcon,
@@ -11,10 +11,25 @@ import {
 } from "@/components/icons";
 import Link from "next/link";
 import ContactForm from "@/components/contact-form";
+import dynamic from "next/dynamic";
+import { StaticTitle } from "@/components/static-title";
+
+const FuzzyText = dynamic(() => import("@/components/fuzzy-text"), {
+  ssr: false,
+  loading: () => (
+    <StaticTitle
+      text="Contacts"
+      translate="translate-x-[54px] -translate-y-[3px]"
+      fontSize={31}
+      color="var(--primary)"
+    />
+  ),
+});
 
 export default function Contacts() {
   const primaryColor = useGetCSSVariable("--primary");
   const [isMounted, setIsMounted] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     setIsMounted(true);
@@ -23,10 +38,9 @@ export default function Contacts() {
   return (
     <section className="space-y-8">
       <header className="relative flex items-center">
-        {/* STATIC TEXT: Layout anchor */}
         <h1
-          className={`leading-7 transition-opacity -translate-y-[2.5px] tracking-[-0.55px] translate-x-[0.5px] duration-300 ${
-            isMounted ? "opacity-0" : "opacity-100"
+          className={`leading-7 text-primary transition-opacity -translate-y-[2.5px] tracking-[-0.55px] translate-x-[0.5px] duration-300 ${
+            isMounted && !isMobile ? "opacity-0" : "opacity-100"
           }`}
           style={{
             fontSize: 31,
@@ -37,8 +51,7 @@ export default function Contacts() {
           Contacts
         </h1>
 
-        {/* FUZZY TEXT: Absolute overlay */}
-        {isMounted && (
+        {isMounted && !isMobile && (
           <div className="absolute left-0 -ml-13.5">
             <FuzzyText
               baseIntensity={0.01}

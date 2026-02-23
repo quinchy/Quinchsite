@@ -14,10 +14,8 @@ export function useGetCSSVariable(
       setValue(cssValue || defaultValue);
     };
 
-    // Initial value
     updateValue();
 
-    // Listen for class changes on documentElement (when theme changes)
     const observer = new MutationObserver(updateValue);
     observer.observe(document.documentElement, {
       attributes: true,

@@ -11,7 +11,7 @@ const redis = new Redis({
 
 const ratelimit = new Ratelimit({
   redis,
-  limiter: Ratelimit.fixedWindow(5, "1 d"), // 5 requests per day
+  limiter: Ratelimit.fixedWindow(5, "1 d"),
 });
 
 export async function POST(request: NextRequest) {
@@ -33,7 +33,6 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const nodemailer = require("nodemailer");
 
-    // Validate request body using Zod schema
     const validatedData = contactValidation.parse(body);
     const emailSubject = validatedData.subject;
     const emailBody = validatedData.body;

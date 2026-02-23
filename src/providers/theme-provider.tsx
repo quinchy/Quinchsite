@@ -16,18 +16,14 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [mode, setModeState] = useState<Mode>("dark");
   const [theme, setThemeState] = useState<Theme>("teal");
-  const [isHydrated, setIsHydrated] = useState(false);
 
-  // Initialize from localStorage on mount
   useEffect(() => {
     const savedMode = (localStorage.getItem("theme") as Mode) || "dark";
     const savedTheme = (localStorage.getItem("color-theme") as Theme) || "teal";
     setModeState(savedMode);
     setThemeState(savedTheme);
-    setIsHydrated(true);
   }, []);
 
-  // Wrapper functions that update both state AND localStorage
   const setMode = (newMode: Mode) => {
     setModeState(newMode);
     localStorage.setItem("theme", newMode);
