@@ -29,11 +29,9 @@ export default function About() {
         newClass = "grayscale saturate-0 select-none";
       }
 
-      // Keep opacity-0 until mounted
       setLogoClass(`${newClass} ${mounted ? "opacity-100" : "opacity-0"}`);
     };
 
-    // mark as mounted after first render
     setMounted(true);
     updateLogoStyle();
 

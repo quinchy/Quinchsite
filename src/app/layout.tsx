@@ -1,6 +1,6 @@
+import "@/app/globals.css";
 import type { Metadata } from "next";
 import { GeistPixelSquare } from "geist/font/pixel";
-import "./globals.css";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { QueryProvider } from "@/providers/query-provider";
 import NavBar from "@/components/navbar";

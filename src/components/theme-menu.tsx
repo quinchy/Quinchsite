@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useState, useRef } from "react";
 import { useThemeContext } from "@/providers/theme-provider";
 
@@ -33,7 +34,6 @@ export default function ThemeMenu() {
     };
   }, [isOpen]);
 
-  // Apply theme to documentElement for compatibility with layout/styles
   useEffect(() => {
     const applyTheme = (selectedTheme: Theme) => {
       if (selectedTheme === "teal") {

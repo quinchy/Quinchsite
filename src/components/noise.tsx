@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useRef, useEffect, useState } from "react";
 
 interface NoiseProps {
@@ -57,11 +58,7 @@ const Noise: React.FC<NoiseProps> = ({
     };
 
     resize();
-
-    // Draw the static frame immediately for the "first paint"
     drawGrain();
-
-    // Start the animation loop after the first paint
     setIsAnimating(true);
     loop();
 
