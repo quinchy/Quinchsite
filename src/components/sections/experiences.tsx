@@ -7,6 +7,7 @@ import Image from "next/image";
 import { StaticImageData } from "next/image";
 import Kynatech from "@/../public/kynatech.webp";
 import AppQuant from "@/../public/appquant.webp";
+import PioneerDevAI from "@/../public/pioneer-dev-ai.webp";
 import { useEffect, useState } from "react";
 import { CompanyIcon } from "@/components/icons";
 import Link from "next/link";
@@ -48,6 +49,31 @@ export default function Experiences() {
   }, []);
 
   const experiences: Experience[] = [
+    {
+      title: "Full-Stack Engineer",
+      period: "March 2026 - Present",
+      company: "Pioneer Dev AI",
+      companyLink: "https://pioneerdev.ai/",
+      companyLogo: PioneerDevAI,
+      employmentType: "Full-time",
+      location: "Boulder, Colorado, United States",
+      workMode: "Remote",
+      descriptions: [
+        "Worked as a Full-Stack Engineer on an AI-powered creative studio platform for image, video, and audio generation. Built frontend features for real-time generative AI workflows, connecting queue- and worker-based systems to a fast, seamless user experience.",
+        "I collaborated with experienced developers and the engineering lead in a professional, fast-moving, team-based environment, working within AI-assisted workflows, ticket-based development, regular technical and stakeholder meetings, and disciplined engineering practices around commits, pull requests, branching, and code quality checks.",
+      ],
+      technologies: [
+        "Next.js",
+        "Prisma",
+        "Supabase",
+        "tRPC",
+        "Trigger.dev",
+        "Cloudflare",
+        "Redis",
+        "Sentry",
+        "Generative AI",
+      ],
+    },
     {
       title: "Software Developer",
       period: "May 2025 - Feb 2026",
