@@ -59,8 +59,8 @@ export default function Experiences() {
       location: "Boulder, Colorado, United States",
       workMode: "Remote",
       descriptions: [
-        "Worked as a Full-Stack Engineer on an AI-powered creative studio platform for image, video, and audio generation. Built frontend features for real-time generative AI workflows, connecting queue- and worker-based systems to a fast, seamless user experience.",
-        "I collaborated with experienced developers and the engineering lead in a professional, fast-moving, team-based environment, working within AI-assisted workflows, ticket-based development, regular technical and stakeholder meetings, and disciplined engineering practices around commits, pull requests, branching, and code quality checks.",
+        "Worked as a Full-Stack Engineer on an AI-powered creative studio platform for image, video, and audio generation. Contributed end-to-end across frontend and backend — building real-time generative AI workflows, async job pipelines, and type-safe server-client communication connecting queue- and worker-based systems into a seamless user experience.",
+        "Collaborated with experienced developers in a professional, fast-moving team environment, working within AI-assisted workflows, ticket-based development, PR-based code reviews, regular technical and stakeholder meetings, and disciplined engineering practices around commits, branching, and code quality.",
       ],
       technologies: [
         "Next.js",
