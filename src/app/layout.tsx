@@ -56,20 +56,13 @@ export default function RootLayout({
 
                   root.classList.remove('dark', 'teal');
 
-                  let logoClass = 'select-none';
-
                   if (savedMode === 'dark' || (savedMode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                     root.classList.add('dark');
-                    logoClass = 'brightness-0 select-none invert';
                   }
 
                   if (savedColor === 'teal') {
                     root.classList.add('teal');
-                    logoClass = 'select-none';
                   }
-
-                  // Store logo class on root for React to pick up
-                  root.setAttribute('data-logo-class', logoClass);
                 } catch(e) {}
               })();
             `,
