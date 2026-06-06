@@ -73,7 +73,7 @@ export default function Projects({ limit }: ProjectsProps = {}) {
       title: "PromptWise",
       type: "Company",
       description:
-        "AI Creative Studio with guided workflow and all-in-one tools for generating images, videos, and audio through Studio, conversational Wise, and node-based Flows.",
+        "AI Creative Studio with guided workflows and all-in-one tools for generating images, videos, and audio through Studio, conversational Wise, and node-based Flows. Also comes with Influencer Studio, UGC Factory, with Assets, and Prompts Management.",
       technologies: [
         "Next.js",
         "Prisma",
@@ -89,7 +89,7 @@ export default function Projects({ limit }: ProjectsProps = {}) {
       title: "Superproxy",
       type: "Company",
       description:
-        "Modern CRM with an AI sales agent that calls clients, handles conversations, summarizes outcomes, and recommends the next best action.",
+        "Modern CRM with an AI sales agent that calls clients, handles conversations, summarizes outcomes, and recommends the next best action. Also comes with real-time analytics, multi-currency support, inventory management, quotations, invoices, and an email composer.",
       technologies: ["Next.js", "Supabase", "Prisma", "ElevenLabs", "OpenAI"],
       images: [SuperproxyThumbnail],
       websiteLink: "https://www.superproxy.ai/",
@@ -106,7 +106,7 @@ export default function Projects({ limit }: ProjectsProps = {}) {
       title: "HueFit",
       type: "University",
       description:
-        "Modern E-commerce platform with web and mobile application, inventory system, order management for store owners, and shop, ai-powered recommendation for customers.",
+        "Modern E-commerce platform with web and mobile application, inventory system, order management for store owners, and shop, virtual fitting and ai-powered recommendation for customers.",
       technologies: [
         "Next.js",
         "Supabase",
