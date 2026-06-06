@@ -18,7 +18,6 @@ export default function NavBar() {
   const { mode, theme } = useThemeContext();
   const [logo, setLogo] = useState<LogoVariant>("light");
   const [prevLogo, setPrevLogo] = useState<LogoVariant | null>(null);
-  const [logoClass, setLogoClass] = useState<string>("select-none");
   const [visible, setVisible] = useState<boolean>(false);
   const cleanupRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -62,15 +61,8 @@ export default function NavBar() {
       setPrevLogo(current);
       setVisible(false);
 
-      return resolved;
-    });
-
-    if (typeof document !== "undefined") {
-      const attr =
-        document.documentElement.getAttribute("data-logo-class") ||
-        "select-none";
-      setLogoClass(attr);
-    }
+        return resolved;
+      });
   }, [mode, theme]);
 
   useEffect(() => {
@@ -106,7 +98,7 @@ export default function NavBar() {
               height={100}
               className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-300 ease-in-out ${
                 visible ? "opacity-0" : "opacity-100"
-              } ${logoClass}`}
+              } select-none`}
             />
           )}
 
@@ -118,7 +110,7 @@ export default function NavBar() {
             onLoad={handleLoaded}
             className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-300 ease-in-out ${
               visible ? "opacity-100" : "opacity-0"
-            } ${logoClass}`}
+            } select-none`}
             priority
           />
         </span>
