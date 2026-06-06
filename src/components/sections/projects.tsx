@@ -3,6 +3,7 @@
 import { useGetCSSVariable } from "@/hooks/use-get-css-variable";
 import { useIsMobile } from "@/hooks/use-is-mobile";
 import { StaticImageData } from "next/image";
+import PromptwiseThumbnail from "@/../public/promptwise/promptwise-1.webp";
 import SuperproxyThumbnail from "@/../public/superproxy/superproxy-1.webp";
 import ThryveThumbnail from "@/../public/thryve/thryve-1.webp";
 import HuefitThumbnail from "@/../public/huefit/huefit-1.webp";
@@ -69,13 +70,29 @@ export default function Projects({ limit }: ProjectsProps = {}) {
 
   const projects: Project[] = [
     {
+      title: "PromptWise",
+      type: "Company",
+      description:
+        "AI Creative Studio with guided workflow and all-in-one tools for generating images, videos, and audio through Studio, conversational Wise, and node-based Flows.",
+      technologies: [
+        "Next.js",
+        "Prisma",
+        "Supabase",
+        "Trigger.dev",
+        "Cloudflare",
+        "AI",
+      ],
+      images: [PromptwiseThumbnail],
+      websiteLink: "https://promptwise.com/",
+    },
+    {
       title: "Superproxy",
       type: "Company",
       description:
-        "Modern CRM with realtime analytics and currency, contacts, companies, and products inventory, quotation and invoice management, email composer, ai chatbot, and ai cold calling",
-      technologies: ["Next.js", "Supabase", "Prisma"],
+        "Modern CRM with an AI sales agent that calls clients, handles conversations, summarizes outcomes, and recommends the next best action.",
+      technologies: ["Next.js", "Supabase", "Prisma", "ElevenLabs", "OpenAI"],
       images: [SuperproxyThumbnail],
-      websiteLink: "https://www.superproxy.com/",
+      websiteLink: "https://www.superproxy.ai/",
     },
     {
       title: "Thryve",
