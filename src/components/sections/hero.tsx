@@ -46,7 +46,7 @@ export default function Hero() {
           height={96}
           draggable={false}
           className="select-none"
-          alt="Cyril James - Software Engineer"
+          alt="Cyril James - Full-Stack Engineer"
           placeholder="blur"
           priority
         />
@@ -85,7 +85,7 @@ export default function Hero() {
           <div className="flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-4">
             <p className="flex gap-2">
               <SuitcaseIcon className="size-5" />
-              Software Engineer
+              Full-Stack Engineer
             </p>
             <p className="flex gap-2">
               <LocationIcon className="size-5" />

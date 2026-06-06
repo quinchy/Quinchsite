@@ -8,21 +8,21 @@ import NoiseWrapper from "@/components/noise-wrapper";
 import Toast from "@/components/toast";
 
 export const metadata: Metadata = {
-  title: "Cyril James - Software Engineer",
+  title: "Cyril James - Full-Stack Engineer",
   description:
-    "Software Engineer focused on systems design and scalable solutions across the full stack, with a goal of delivering highly performant, and reliable applications.",
+    "Full-Stack Engineer focused on systems design and scalable solutions across the full stack, with a goal of delivering highly performant, and reliable applications.",
   openGraph: {
     title: "Cyril James De Guzman",
     description:
-      "Software Engineer focused on systems design and scalable solutions across the full stack, with a goal of delivering highly performant, and reliable applications.",
+      "Full-Stack Engineer focused on systems design and scalable solutions across the full stack, with a goal of delivering highly performant, and reliable applications.",
     url: "https://quinchy.dev",
-    siteName: "Cyril James - Software Engineer",
+    siteName: "Cyril James - Full-Stack Engineer",
     images: [
       {
         url: "https://quinchy.dev/portfolio-thumbnail.png",
         width: 1200,
         height: 630,
-        alt: "Cyril James - Software Engineer",
+        alt: "Cyril James - Full-Stack Engineer",
       },
     ],
     type: "website",
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Cyril James - Software Engineer",
+    title: "Cyril James - Full-Stack Engineer",
     description:
-      "Software Engineer focused on systems design and scalable solutions across the full stack, with a goal of delivering highly performant, and reliable applications.",
+      "Full-Stack Engineer focused on systems design and scalable solutions across the full stack, with a goal of delivering highly performant, and reliable applications.",
     images: ["https://quinchy.dev/portfolio-thumbnail.png"],
   },
 };

@@ -62,7 +62,7 @@ export default function About() {
 
       <div className="space-y-2">
         <p>
-          Software Engineer focused on systems design and scalable solutions
+          Full-Stack Engineer focused on systems design and scalable solutions
           across the full stack, with a goal of delivering highly performant,
           and reliable applications.
         </p>
