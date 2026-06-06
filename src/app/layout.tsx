@@ -1,6 +1,7 @@
 import "@/app/globals.css";
 import type { Metadata } from "next";
 import { GeistPixelSquare } from "geist/font/pixel";
+import { ViewTransition } from "react";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { QueryProvider } from "@/providers/query-provider";
 import NavBar from "@/components/navbar";
@@ -75,9 +76,11 @@ export default function RootLayout({
         <QueryProvider>
           <ThemeProvider>
             <NavBar />
-            <main className="h-[calc(100dvh-38px)] pt-8 translate-y-9.5 overflow-y-auto overflow-x-hidden border-x border-b border-border">
-              <div>{children}</div>
-            </main>
+            <ViewTransition name="page">
+              <main className="h-[calc(100dvh-38px)] pt-8 translate-y-9.5 overflow-y-auto overflow-x-hidden border-x border-b border-border">
+                <div>{children}</div>
+              </main>
+            </ViewTransition>
             <NoiseWrapper />
             <Toast />
           </ThemeProvider>
