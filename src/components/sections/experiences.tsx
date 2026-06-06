@@ -59,8 +59,8 @@ export default function Experiences() {
       location: "Boulder, Colorado, United States",
       workMode: "Remote",
       descriptions: [
-        "Worked as a Full-Stack Engineer on an AI-powered creative studio platform for image, video, and audio generation. Contributed end-to-end across frontend and backend — building real-time generative AI workflows, async job pipelines, and type-safe server-client communication connecting queue- and worker-based systems into a seamless user experience.",
-        "Collaborated with experienced developers in a professional, fast-moving team environment, working within AI-assisted workflows, ticket-based development, PR-based code reviews, regular technical and stakeholder meetings, and disciplined engineering practices around commits, branching, and code quality.",
+        "Working as a Full-Stack Engineer across AI-powered products, contributing end-to-end across frontend and backend. Across the projects I take on, my contributions include crafting intuitive, high-performance user experiences, building real-time systems and asynchronous job pipelines, optimizing databases and application performance, implementing observability, and maintaining reliable CI/CD workflows.",
+        "Collaborate with experienced developers across multiple projects in a professional, fast-moving team environment, working within AI-assisted workflows, ticket-based development, PR-based code reviews, regular technical and stakeholder meetings, and disciplined engineering practices around commits, branching, and code quality.",
       ],
       technologies: [
         "Next.js",
@@ -71,7 +71,9 @@ export default function Experiences() {
         "Cloudflare",
         "Redis",
         "Sentry",
-        "Generative AI",
+        "Langfuse",
+        "Infisical",
+        "AI",
       ],
     },
     {
