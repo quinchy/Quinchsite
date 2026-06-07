@@ -38,12 +38,12 @@ export default function Hero() {
   }, []);
 
   return (
-    <header className="flex flex-col items-start gap-2 lg:gap-6">
-      <div className="flex items-center gap-6">
+    <header className="flex flex-col lg:flex-row items-start gap-2 lg:gap-6">
+      <div className="flex flex-1 items-center gap-6">
         <Image
           src={ProfilePicture}
-          width={96}
-          height={96}
+          width={120}
+          height={120}
           draggable={false}
           className="select-none"
           alt="Cyril James - Full-Stack Engineer"
@@ -96,7 +96,7 @@ export default function Hero() {
       </div>
 
       <nav
-        className="flex flex-row gap-4 mt-4 md:mt-0"
+        className="flex flex-row lg:flex-col gap-2 mt-4 md:mt-0"
         aria-label="Social and Resume links"
       >
         <Link
