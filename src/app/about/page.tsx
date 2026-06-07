@@ -53,6 +53,7 @@ export default function About() {
           alt="Animated logo"
           className={logoClass + " transition-opacity duration-300"}
           draggable={false}
+          unoptimized
         />
       </div>
 
