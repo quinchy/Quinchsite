@@ -62,13 +62,15 @@ export default function About() {
 
       <div className="space-y-2">
         <p>
-          Full-Stack Engineer focused on building scalable, reliable products
-          across complex systems and evolving requirements.
+          I'm a full-stack engineer focused on speed and building scalable,
+          reliable products across complex systems and evolving requirements.
         </p>
         <p>
-          I take ownership across frontend, backend, infrastructure, and
-          delivery while collaborating with engineering teams, clients, and
-          stakeholders to turn ideas into polished products.
+          I can take responsibilities across frontend, backend, infrastructure,
+          and delivery while collaborating with engineering teams, and clients
+          to turn ideas into polished products. While I work across the full
+          stack, I specialize in frontend engineering, crafting intuitive,
+          high-performance experiences with clean component architecture.
         </p>
       </div>
     </article>
