@@ -73,14 +73,15 @@ export default function Projects({ limit }: ProjectsProps = {}) {
       title: "PromptWise",
       type: "Company",
       description:
-        "AI Creative Studio with guided workflows and all-in-one tools for generating images, videos, and audio through Studio, conversational Wise, and node-based Flows. Also comes with Influencer Studio, UGC Factory, with Assets, and Prompts Management.",
+        "An AI Creative Studio with guided workflows and all-in-one tools for generating images, videos, and audio that comes in classic, conversational, and node-based interfaces. It also includes specialized tools, centralized asset and prompt management.",
       technologies: [
         "Next.js",
         "Prisma",
         "Supabase",
+        "PostgreSQL",
         "Trigger.dev",
         "Cloudflare",
-        "AI",
+        "AI Generation",
       ],
       images: [PromptwiseThumbnail],
       websiteLink: "https://promptwise.com/",
@@ -89,8 +90,15 @@ export default function Projects({ limit }: ProjectsProps = {}) {
       title: "Superproxy",
       type: "Company",
       description:
-        "Modern CRM with an AI sales agent that calls clients, handles conversations, summarizes outcomes, and recommends the next best action. Also comes with real-time analytics, multi-currency support, inventory management, quotations, invoices, and an email composer.",
-      technologies: ["Next.js", "Supabase", "Prisma", "ElevenLabs", "OpenAI"],
+        "A modern Customer Relationship Management web application featuring a conversational AI Sales Agent that calls and engages with clients on users’ behalf, alongside quotations, invoices, call recordings, email management, currency conversion, and analytics.",
+      technologies: [
+        "Next.js",
+        "Supabase",
+        "Prisma",
+        "PostgreSQL",
+        "ElevenLabs",
+        "OpenAI",
+      ],
       images: [SuperproxyThumbnail],
       websiteLink: "https://www.superproxy.ai/",
     },
@@ -98,15 +106,15 @@ export default function Projects({ limit }: ProjectsProps = {}) {
       title: "Thryve",
       type: "Company",
       description:
-        "Dating Site with gender-based matching, profile management, like profiles, affiliate program, realtime messaging, and video calling.",
-      technologies: ["Next.js", "Supabase", "Prisma"],
+        "A Dating site with gender-based profile discovery, profile management, liking and matching, an affiliate program, real-time messaging with voice and video calling.",
+      technologies: ["Next.js", "Supabase", "Prisma", "PostgreSQL"],
       images: [ThryveThumbnail],
     },
     {
       title: "HueFit",
       type: "University",
       description:
-        "Modern E-commerce platform with web and mobile application, inventory system, order management for store owners, and shop, virtual fitting and ai-powered recommendation for customers.",
+        "A modern E-commerce mobile application featuring AI-powered and AR virtual fitting, skin tone-based outfit color matching, and a web-based system for inventory and order management.",
       technologies: [
         "Next.js",
         "Supabase",
@@ -122,7 +130,7 @@ export default function Projects({ limit }: ProjectsProps = {}) {
       title: "PasaBuy",
       type: "University",
       description:
-        "Android Application with location based pasabuy request posts, community platform, and ordering.",
+        "An Android Application with location based pasabuy request posts, community platform, and ordering.",
       technologies: ["Android Studio", "Java", "Firebase"],
       images: [PasabuyThumbnail],
       githubLink: "https://github.com/quinchy/Pasabuy",
@@ -131,7 +139,7 @@ export default function Projects({ limit }: ProjectsProps = {}) {
       title: "SmileCare",
       type: "University",
       description:
-        "Website for a local dental clinic with an appointment system dashboard.",
+        "A Website for a local dental clinic with an appointment system dashboard.",
       technologies: ["Laravel", "MySQL", "Heroku"],
       images: [SmilecareThumbnail],
       githubLink:
@@ -141,7 +149,7 @@ export default function Projects({ limit }: ProjectsProps = {}) {
       title: "OnlyFunds",
       type: "University",
       description:
-        "Basic mock-up of a Desktop Banking Application for OOP course.",
+        "A Basic mock-up of a Desktop Banking Application for OOP course.",
       technologies: ["C#", "WinForms", "MySQL"],
       images: [OnlyfundsThumbnail],
       githubLink: "https://github.com/quinchy/BankingSystem",
@@ -150,7 +158,7 @@ export default function Projects({ limit }: ProjectsProps = {}) {
       title: "AniQuinch",
       type: "University",
       description:
-        "Basic Website built using HTML and CSS only mimicking an e-commerce website.",
+        "A Basic Website built using HTML and CSS only mimicking an e-commerce website.",
       technologies: ["HTML", "CSS"],
       images: [AniquinchThumbnail],
       websiteLink: "https://quinchx.github.io/AniQuinch/",
