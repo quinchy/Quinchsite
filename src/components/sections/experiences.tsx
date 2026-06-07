@@ -59,8 +59,8 @@ export default function Experiences() {
       location: "Boulder, Colorado, United States",
       workMode: "Remote",
       descriptions: [
-        "Working as a Full-Stack Engineer across AI-powered products, contributing end-to-end across frontend and backend. Across the projects I take on, my contributions include crafting intuitive, high-performance user experiences, building real-time systems and asynchronous job pipelines, optimizing databases and application performance, implementing observability, and maintaining reliable CI/CD workflows.",
-        "Collaborate with experienced developers across multiple projects in a professional, fast-moving team environment, working within AI-assisted workflows, ticket-based development, PR-based code reviews, regular technical and stakeholder meetings, and disciplined engineering practices around commits, branching, and code quality.",
+        "Working as a Full-Stack Engineer across different products, including AI-powered ones, contributing end-to-end across frontend, backend, and infrastructure. Across the projects I work on, my contributions span from crafting sleek and intuitive UIs, building scalable backend systems and APIs, optimizing databases, and improving application performance",
+        "Collaborate with experienced developers across different projects in a professional, fast-moving team environment, working within AI-assisted workflows, ticket-based development, PR-based code reviews, regular dev meetings, and disciplined engineering practices around commits, PRs, and code quality.",
       ],
       technologies: [
         "Next.js",
@@ -85,8 +85,8 @@ export default function Experiences() {
       location: "Pasig City, Philippines",
       workMode: "Remote",
       descriptions: [
-        "Worked as an early engineer for a startup, I led the end-to-end architecture and development of our core software products. I spearheaded the full-stack implementation using Next.js and Supabase, while establishing a robust CI/CD pipeline via GitHub and Vercel.",
-        "I deliver complex platforms including a modern CRM with collaboration and realtime analytics, as well as various integrations of third-party services and AI-driven features. This work occurs in a fast-changing environment with frequent direction shifts, requiring strong adaptability and close collaboration with the founder.",
+        "Worked as a sole Founding Engineer for a startup, I led the end-to-end infrastructure and development of their core software products including a modern AI-Powered CRM. I developed products using Next.js, Prisma, Supabase and Vercel, while integrating various third-party services such as Stripe, Twilio, Resend and AI-integrations such as ElevenLabs and OpenAI.",
+        "Collaborate personally with the founder, translating business requirements into technical solutions while adapting quickly to frequent shifts in direction.",
       ],
       technologies: [
         "Next.js",
@@ -102,7 +102,7 @@ export default function Experiences() {
       ],
     },
     {
-      title: "Software Developer",
+      title: "Software Developer Intern",
       period: "May 2025 - Feb 2026",
       company: "Kynatech",
       companyLogo: Kynatech,
@@ -111,8 +111,8 @@ export default function Experiences() {
       location: "Taguig City, Philippines",
       workMode: "Remote",
       descriptions: [
-        "I delivered full-stack features for a Timesheet Application, prioritizing security and industry best practices while translating complex Figma designs into responsive, pixel-perfect user interfaces.",
-        "Beyond development, I drove the project's lifecycle by authoring technical documentation and conducting rigorous product testing. I thrived in a high-velocity Agile environment, maintaining constant alignment with the CTO and senior engineers to deliver high-quality, iterative software solutions.",
+        "Interned in a mid-sized software development company, working within a multidisciplinary team of designers, full-stack developers, QA testers, DevOps engineers, project managers, and specialists across web, and mobile development.",
+        "Completed a Timesheet Application project designed to develop industry-ready full-stack skills, with guidance and mentorship from senior engineers. Translated complex Figma designs into responsive, pixel-accurate interfaces while applying security standards, technical documentation, product testing, Agile practices, and established software development best practices.",
       ],
       technologies: ["Next.js", "Supabase", "Prisma", "Shadcn"],
     },
@@ -159,7 +159,7 @@ export default function Experiences() {
               <span>|</span>
               <span>{experience.employmentType}</span>
             </div>
-            <address className="flex gap-2">
+            <address className="flex gap-2 not-italic">
               <span>{experience.location}</span>
               <span>|</span>
               <span>{experience.workMode}</span>
