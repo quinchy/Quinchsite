@@ -73,7 +73,7 @@ export default function Experiences() {
         "Sentry",
         "Langfuse",
         "Infisical",
-        "AI",
+        "AI Generation",
       ],
     },
     {
