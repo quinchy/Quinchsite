@@ -3,6 +3,7 @@
 import { useGetCSSVariable } from "@/hooks/use-get-css-variable";
 import { useIsMobile } from "@/hooks/use-is-mobile";
 import { StaticImageData } from "next/image";
+import TenextThumbnail from "@/../public/tenext/tenext-1.webp";
 import PromptwiseThumbnail from "@/../public/promptwise/promptwise-1.webp";
 import SuperproxyThumbnail from "@/../public/superproxy/superproxy-1.webp";
 import ThryveThumbnail from "@/../public/thryve/thryve-1.webp";
@@ -44,6 +45,7 @@ interface Project {
   type: ProjectType;
   description: string;
   technologies: string[];
+  draft?: boolean;
   images?: StaticImageData[];
   websiteLink?: string;
   githubLink?: string;
@@ -69,6 +71,24 @@ export default function Projects({ limit }: ProjectsProps = {}) {
   }, []);
 
   const projects: Project[] = [
+    {
+      title: "Tenext",
+      type: "Company",
+      draft: true,
+      description:
+        "A B2B Customer-Engagement platform sold to large enterprises. It gives businesses AI-powered email, chatbot, and voice channels for reaching their own customers.",
+      technologies: [
+        "Next.js",
+        "FastAPI",
+        "PostgreSQL",
+        "AWS (SES, SNS, S3)",
+        "Redis/ARQ",
+        "LangGraph",
+        "AMP",
+      ],
+      images: [TenextThumbnail],
+      websiteLink: "https://tenext.ai/",
+    },
     {
       title: "PromptWise",
       type: "Company",
@@ -166,9 +186,16 @@ export default function Projects({ limit }: ProjectsProps = {}) {
     },
   ];
 
+  const showDrafts = ["development", "dev", "local"].includes(
+    process.env.NODE_ENV ?? "",
+  );
+  const publishedProjects = projects.filter(
+    (project) => showDrafts || !project.draft,
+  );
+
   const ProjectItem = ({ project }: { project: Project }) => (
     <div className="flex flex-col lg:flex-row gap-8 outline-dashed outline outline-border/0 hover:outline-border outline-offset-14 duration-300 transition-all">
-      <div className="space-y-2">
+      <div className="min-w-0 flex-1 space-y-2">
         <div className="flex items-center justify-between">
           <h2 className="text-primary font-semibold flex gap-2 items-center">
             {project.title}
@@ -215,11 +242,11 @@ export default function Projects({ limit }: ProjectsProps = {}) {
       <div>
         {project.images?.[0] && (
           <Image
-            width={384}
-            height={174}
+            width={285}
+            height={139}
             src={project.images[0]}
             draggable={false}
-            className="select-none min-w-96"
+            className="select-none w-auto h-auto"
             placeholder="blur"
             alt="Company Logo"
             priority
@@ -263,12 +290,12 @@ export default function Projects({ limit }: ProjectsProps = {}) {
       </header>
 
       <div className="space-y-8">
-        {projects.slice(0, limit).map((project, index) => (
+        {publishedProjects.slice(0, limit).map((project, index) => (
           <ProjectItem key={index} project={project} />
         ))}
       </div>
 
-      {limit && limit < projects.length && (
+      {limit && limit < publishedProjects.length && (
         <div className="flex justify-center">
           <Link
             href="/projects"
