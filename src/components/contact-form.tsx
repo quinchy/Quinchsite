@@ -1,12 +1,11 @@
-"use client";
-
-import { useState } from "react";
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
-import { contactValidation, type ContactFormData } from "@/validation/contact";
-import { showToast } from "@/components/toast";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { SpinnerIcon } from "@/components/icons";
+import { showToast } from "@/components/toast";
+import { QueryProvider } from "@/providers/query-provider";
+import { type ContactFormData, contactValidation } from "@/validation/contact";
 
 function ContactFormInner({ onSuccess }: { onSuccess: () => void }) {
   const {
@@ -54,19 +53,14 @@ function ContactFormInner({ onSuccess }: { onSuccess: () => void }) {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-2 px-8 py-4"
-    >
-      <fieldset className="flex flex-col gap-2">
-        <div className="flex items-center gap-2">
-          <label htmlFor="subject" className="font-semibold">
+    <form onSubmit={handleSubmit(onSubmit)} className="contact-form">
+      <fieldset className="field">
+        <div className="field__label-row">
+          <label htmlFor="subject" className="field__label">
             Subject
           </label>
           {errors.subject && (
-            <span className="text-red-500 text-xs">
-              {errors.subject.message}
-            </span>
+            <span className="field__error">{errors.subject.message}</span>
           )}
         </div>
         <input
@@ -74,35 +68,35 @@ function ContactFormInner({ onSuccess }: { onSuccess: () => void }) {
           id="subject"
           placeholder="Enter a subject line..."
           autoComplete="off"
-          className="transition-all text-sm border border-border px-2 py-1 focus-visible:ring-4 ring-border focus-visible:border-primary focus-visible:outline-none"
+          className="field__input"
           {...register("subject")}
         />
       </fieldset>
-      <fieldset className="flex flex-col gap-2">
-        <div className="flex items-center gap-2">
-          <label htmlFor="body" className="font-semibold">
+      <fieldset className="field">
+        <div className="field__label-row">
+          <label htmlFor="body" className="field__label">
             Body
           </label>
           {errors.body && (
-            <span className="text-red-500 text-xs">{errors.body.message}</span>
+            <span className="field__error">{errors.body.message}</span>
           )}
         </div>
         <textarea
           id="body"
           placeholder="Please include your name, email address, and a brief description of your inquiry."
           autoComplete="off"
-          className="resize-none transition-all min-h-30 max-h-30 text-sm border border-border px-2 py-1 focus-visible:ring-4 ring-border focus-visible:border-primary focus-visible:outline-none"
+          className="field__textarea"
           {...register("body")}
         />
       </fieldset>
       <button
         type="submit"
         disabled={mutation.isPending}
-        className="mt-2 bg-primary text-sm font-semibold brightness-75 transition-all duration-300 active:brightness-85 active:scale-[98%] hover:brightness-100 text-background py-2.5 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+        className="contact-form__submit"
       >
         {mutation.isPending ? (
           <>
-            <SpinnerIcon className="animate-spin size-4" />
+            <SpinnerIcon className="icon-4 spin" />
             Sending Email...
           </>
         ) : (
@@ -117,9 +111,11 @@ export default function ContactForm() {
   const [formKey, setFormKey] = useState(0);
 
   return (
-    <ContactFormInner
-      key={formKey}
-      onSuccess={() => setFormKey((prev) => prev + 1)}
-    />
+    <QueryProvider>
+      <ContactFormInner
+        key={formKey}
+        onSuccess={() => setFormKey((prev) => prev + 1)}
+      />
+    </QueryProvider>
   );
 }

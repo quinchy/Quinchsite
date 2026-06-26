@@ -1,0 +1,71 @@
+---
+import ContactForm from "@/components/contact-form";
+import {
+  EmailIcon,
+  GithubIcon,
+  LinkedinIcon,
+  PhoneIcon,
+} from "@/components/icons";
+import { SectionTitle } from "@/components/section-title";
+---
+
+<section class="section">
+  <SectionTitle
+    client:visible
+    text="Contacts"
+    titleStyle={{
+      lineHeight: "1.75rem",
+      letterSpacing: "-0.55px",
+      transform: "translateY(-2.5px) translateX(0.5px)",
+    }}
+    fallbackTransform="translateX(54px) translateY(-3px)"
+  />
+  <section class="contacts-grid">
+    <article class="contacts-info" aria-labelledby="contact-heading">
+      <h1 class="contacts-info__title">Let's Connect !</h1>
+      <p id="contact-heading" class="contacts-info__lead">
+        For professional inquiries, project collaborations, or career
+        opportunities, feel free to reach out or connect with me on any of the
+        following:
+      </p>
+      <address class="contacts-info__list">
+        <p class="contacts-info__row">
+          <EmailIcon className="icon-5" />
+          <a
+            href="mailto:deguzmancyriljames.dev@gmail.com"
+            class="contacts-info__link"
+          >
+            deguzmancyriljames.dev@gmail.com
+          </a>
+        </p>
+        <p class="contacts-info__row">
+          <PhoneIcon className="icon-5" />
+          <a href="tel:+639696028487" class="contacts-info__link">
+            +63 969 602 8487
+          </a>
+        </p>
+        <a
+          href="https://github.com/quinchy"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="contacts-info__row"
+          aria-label="Cyril James on GitHub"
+        >
+          <GithubIcon className="icon-5" />
+          <span class="contacts-info__link">quinchy</span>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/quinchy/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="contacts-info__row"
+          aria-label="Cyril James on LinkedIn"
+        >
+          <LinkedinIcon className="icon-5" />
+          <span class="contacts-info__link">Cyril James De Guzman</span>
+        </a>
+      </address>
+    </article>
+    <ContactForm client:load />
+  </section>
+</section>

@@ -1,6 +1,4 @@
-"use client";
-
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useThemeContext } from "@/providers/theme-provider";
 
 type Theme = "default" | "teal";
@@ -51,39 +49,41 @@ export default function ThemeMenu() {
     setIsOpen(false);
   };
 
+  const themes: { value: Theme; label: string }[] = [
+    { value: "default", label: "Default" },
+    { value: "teal", label: "Teal" },
+  ];
+
   return (
-    <div className="relative" ref={menuRef}>
+    <div className="menu" ref={menuRef}>
       <button
+        type="button"
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
         aria-haspopup="true"
         aria-label={`Color theme: ${theme}. Click to change.`}
-        className="cursor-pointer hover:bg-muted px-2 duration-300 transition-all"
+        className="menu__trigger"
       >
         Theme
       </button>
       {isOpen && (
         <div
-          className="absolute top-full right-0 bg-background border border-border min-w-30 overflow-hidden"
+          className="menu__dropdown"
           role="menu"
           aria-label="Color theme options"
         >
-          <button
-            onClick={() => handleThemeChange("default")}
-            role="menuitem"
-            aria-current={theme === "default" ? "true" : undefined}
-            className={`w-full px-4 py-2 text-left border-none cursor-pointer hover:bg-muted transition-colors ${theme === "default" ? "bg-primary hover:bg-primary/75 text-background" : "bg-transparent"}`}
-          >
-            Default
-          </button>
-          <button
-            onClick={() => handleThemeChange("teal")}
-            role="menuitem"
-            aria-current={theme === "teal" ? "true" : undefined}
-            className={`w-full px-4 py-2 text-left border-none cursor-pointer hover:bg-muted transition-colors ${theme === "teal" ? "bg-primary hover:bg-primary/75 text-background" : "bg-transparent"}`}
-          >
-            Teal
-          </button>
+          {themes.map((t) => (
+            <button
+              type="button"
+              key={t.value}
+              onClick={() => handleThemeChange(t.value)}
+              role="menuitem"
+              aria-current={theme === t.value ? "true" : undefined}
+              className={`menu__item${theme === t.value ? " menu__item--active" : ""}`}
+            >
+              {t.label}
+            </button>
+          ))}
         </div>
       )}
     </div>

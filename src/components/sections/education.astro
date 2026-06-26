@@ -1,0 +1,46 @@
+---
+import { SectionTitle } from "@/components/section-title";
+---
+
+<section class="section">
+  <SectionTitle
+    client:visible
+    text="Education"
+    titleStyle={{
+      lineHeight: "1.75rem",
+      letterSpacing: "-0.55px",
+      transform: "translateY(-2.5px) translateX(0.5px)",
+    }}
+    fallbackTransform="translateX(54px) translateY(-3px)"
+  />
+  <article class="stack-4">
+    <div class="entry__head">
+      <img
+        width={80}
+        height={80}
+        src="/bpsu.webp"
+        draggable="false"
+        class="entry__logo"
+        alt="Bataan Peninsula State University logo"
+      />
+      <div class="edu-meta">
+        <section class="entry__row">
+          <h1 class="entry__title">
+            Bataan Peninsula State University - Main Campus
+          </h1>
+          <time class="entry__period">September 2021 – August 2025</time>
+        </section>
+        <section class="entry__row">
+          <h1>BS in Computer Science, Major in Software Development</h1>
+          <address class="not-italic">Bataan, Philippines</address>
+        </section>
+      </div>
+    </div>
+    <p>
+      As early as my first year, I developed a strong interest in software
+      engineering; consequently, I took the initiative to be the lead developer
+      on every academic project, eventually graduating with Latin honors and
+      securing a developer role ahead of schedule.
+    </p>
+  </article>
+</section>

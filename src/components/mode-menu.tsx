@@ -1,6 +1,4 @@
-"use client";
-
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useThemeContext } from "@/providers/theme-provider";
 
 type Mode = "light" | "dark" | "system";
@@ -57,47 +55,38 @@ export default function ModeMenu() {
     setIsOpen(false);
   };
 
+  const modes: Mode[] = ["light", "dark", "system"];
+
   return (
-    <div className="relative" ref={menuRef}>
+    <div className="menu" ref={menuRef}>
       <button
+        type="button"
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
         aria-haspopup="true"
         aria-label={`Color mode: ${mode}. Click to change.`}
-        className="cursor-pointer hover:bg-muted px-2 duration-300 transition-all"
+        className="menu__trigger"
       >
         Mode
       </button>
       {isOpen && (
         <div
-          className="absolute top-full right-0 bg-background border border-border min-w-30 overflow-hidden"
+          className="menu__dropdown"
           role="menu"
           aria-label="Color mode options"
         >
-          <button
-            onClick={() => handleModeChange("light")}
-            role="menuitem"
-            aria-current={mode === "light" ? "true" : undefined}
-            className={`w-full px-4 py-2 text-left border-none cursor-pointer hover:bg-muted transition-colors ${mode === "light" ? "bg-primary hover:bg-primary/75 text-background" : "bg-transparent"}`}
-          >
-            Light
-          </button>
-          <button
-            onClick={() => handleModeChange("dark")}
-            role="menuitem"
-            aria-current={mode === "dark" ? "true" : undefined}
-            className={`w-full px-4 py-2 text-left border-none cursor-pointer hover:bg-muted transition-colors ${mode === "dark" ? "bg-primary hover:bg-primary/75 text-background" : "bg-transparent"}`}
-          >
-            Dark
-          </button>
-          <button
-            onClick={() => handleModeChange("system")}
-            role="menuitem"
-            aria-current={mode === "system" ? "true" : undefined}
-            className={`w-full px-4 py-2 text-left border-none cursor-pointer hover:bg-muted transition-colors ${mode === "system" ? "bg-primary hover:bg-primary/75 text-background" : "bg-transparent"}`}
-          >
-            System
-          </button>
+          {modes.map((m) => (
+            <button
+              type="button"
+              key={m}
+              onClick={() => handleModeChange(m)}
+              role="menuitem"
+              aria-current={mode === m ? "true" : undefined}
+              className={`menu__item${mode === m ? " menu__item--active" : ""}`}
+            >
+              {m.charAt(0).toUpperCase() + m.slice(1)}
+            </button>
+          ))}
         </div>
       )}
     </div>

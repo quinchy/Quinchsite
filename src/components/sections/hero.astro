@@ -1,0 +1,85 @@
+---
+import {
+  GithubIcon,
+  LinkedinIcon,
+  LocationIcon,
+  ResumeIcon,
+  SuitcaseIcon,
+} from "@/components/icons";
+import { SectionTitle } from "@/components/section-title";
+---
+
+<header class="hero">
+  <div class="hero__main">
+    <img
+      src="/profile-picture.webp"
+      width={120}
+      height={120}
+      draggable="false"
+      class="hero__photo"
+      alt="Cyril James - Full-Stack Engineer"
+    />
+
+    <div class="hero__info">
+      <SectionTitle
+        client:load
+        text="Cyril James"
+        titleFontSize={35}
+        fuzzFontSize={35}
+        fuzzRange={100}
+        hoverIntensity={0.05}
+        titleStyle={{
+          lineHeight: "2rem",
+          letterSpacing: "-0.5px",
+          transform: "translateY(-2px) translateX(1px)",
+        }}
+        marginLeft="-7.625rem"
+        fallbackTransform="translateX(126px) translateY(-2.5px) scale(1.02)"
+      />
+
+      <div class="hero__meta">
+        <p class="hero__meta-item">
+          <SuitcaseIcon className="icon-5" />
+          Full-Stack Engineer
+        </p>
+        <p class="hero__meta-item">
+          <LocationIcon className="icon-5" />
+          Philippines
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <nav class="hero__links" aria-label="Social and Resume links">
+    <a
+      href="https://github.com/quinchy"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="link-box"
+    >
+      <GithubIcon className="icon-5" />
+      GitHub
+    </a>
+
+    <a
+      href="https://www.linkedin.com/in/quinchy"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="link-box"
+    >
+      <LinkedinIcon className="icon-5" />
+      LinkedIn
+    </a>
+
+    <a
+      href="/cyril-james-resume.pdf"
+      target="_blank"
+      aria-label="Download Cyril James Resume PDF"
+      class="link-box"
+      rel="noopener noreferrer"
+    >
+      <ResumeIcon className="icon-5" />
+      Resume
+    </a>
+  </nav>
+</header>

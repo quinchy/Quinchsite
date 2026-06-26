@@ -2,6 +2,7 @@ export function GithubIcon({ className }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -20,6 +21,7 @@ export function LinkedinIcon({ className }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
       width="32"
       height="32"
       viewBox="0 0 32 32"
@@ -38,6 +40,7 @@ export function LocationIcon({ className }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -61,6 +64,7 @@ export function ResumeIcon({ className }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -79,9 +83,11 @@ export function SuitcaseIcon({ className }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
       width="24"
       height="24"
       viewBox="0 0 24 24"
+      className={className}
     >
       <path
         fill="currentColor"
@@ -95,6 +101,7 @@ export function UniversityIcon({ className }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
       width="32"
       height="32"
       viewBox="0 0 32 32"
@@ -118,6 +125,7 @@ export function CompanyIcon({ className }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -135,6 +143,7 @@ export function PersonalIcon({ className }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
       width="32"
       height="32"
       viewBox="0 0 32 32"
@@ -163,6 +172,7 @@ export function GlobeIcon({ className }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -180,6 +190,7 @@ export function ArrowLeftIcon({ className }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -197,6 +208,7 @@ export function EmailIcon({ className }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -214,6 +226,7 @@ export function PhoneIcon({ className }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -231,6 +244,7 @@ export function SpinnerIcon({ className }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -248,6 +262,7 @@ export function XIcon({ className }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
       width="24"
       height="24"
       viewBox="0 0 24 24"

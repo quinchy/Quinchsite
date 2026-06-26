@@ -1,0 +1,22 @@
+---
+import Footer from "@/components/Footer.astro";
+import About from "@/components/sections/about.astro";
+import Contacts from "@/components/sections/contacts.astro";
+import Experiences from "@/components/sections/experiences.astro";
+import Hero from "@/components/sections/hero.astro";
+import Projects from "@/components/sections/projects.astro";
+import Skills from "@/components/sections/skills.astro";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout>
+  <div class="page">
+    <Hero />
+    <About />
+    <Experiences />
+    <Projects limit={4} />
+    <Skills />
+    <Contacts />
+    <Footer />
+  </div>
+</Layout>

@@ -1,4 +1,3 @@
-"use client";
 import { createContext, useContext, useEffect, useState } from "react";
 
 type Mode = "light" | "dark" | "system";

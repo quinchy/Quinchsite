@@ -1,11 +1,6 @@
-"use client";
+import { lazy, Suspense, useEffect, useState } from "react";
 
-import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
-
-const Noise = dynamic(() => import("@/components/noise"), {
-  ssr: false,
-});
+const Noise = lazy(() => import("@/components/noise"));
 
 export default function NoiseWrapper() {
   const [isMobile, setIsMobile] = useState(false);
@@ -17,5 +12,9 @@ export default function NoiseWrapper() {
 
   if (isMobile) return null;
 
-  return <Noise />;
+  return (
+    <Suspense fallback={null}>
+      <Noise />
+    </Suspense>
+  );
 }

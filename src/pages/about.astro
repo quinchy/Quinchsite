@@ -1,0 +1,26 @@
+---
+import Footer from "@/components/Footer.astro";
+import About from "@/components/sections/about.astro";
+import Education from "@/components/sections/education.astro";
+import Experiences from "@/components/sections/experiences.astro";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="About | Cyril James - Full-Stack Engineer">
+  <div class="page">
+    <div class="logo-block">
+      <img
+        src="/animated-quinch-logo.gif"
+        width={150}
+        class="logo-block__img"
+        alt="Animated logo"
+        draggable={false}
+      />
+    </div>
+
+    <About />
+    <Experiences />
+    <Education />
+    <Footer />
+  </div>
+</Layout>

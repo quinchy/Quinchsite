@@ -1,41 +1,26 @@
-"use client";
-
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import ModeMenu from "@/components/mode-menu";
 import PagesMenu from "@/components/pages-menu";
 import ThemesMenu from "@/components/theme-menu";
 import { useThemeContext } from "@/providers/theme-provider";
-import LogoLight from "@/../public/logo/logo-light.webp";
-import LogoDark from "@/../public/logo/logo-dark.webp";
-import LogoTeal from "@/../public/logo/logo-teal.webp";
-import LogoTealDark from "@/../public/logo/logo-teal-dark.webp";
-import Image from "next/image";
 
 type LogoVariant = "light" | "dark" | "teal" | "teal-dark";
+
+const LOGO_SRC: Record<LogoVariant, string> = {
+  light: "/logo/logo-light.webp",
+  dark: "/logo/logo-dark.webp",
+  teal: "/logo/logo-teal.webp",
+  "teal-dark": "/logo/logo-teal-dark.webp",
+};
 
 export default function NavBar() {
   const { mode, theme } = useThemeContext();
   const [logo, setLogo] = useState<LogoVariant>("light");
   const [prevLogo, setPrevLogo] = useState<LogoVariant | null>(null);
   const [visible, setVisible] = useState<boolean>(false);
-  const cleanupRef = useRef<NodeJS.Timeout | null>(null);
+  const cleanupRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const srcFor = (v: LogoVariant) => {
-    switch (v) {
-      case "teal":
-        return LogoTeal;
-      case "dark":
-        return LogoDark;
-      case "teal-dark":
-        return LogoTealDark;
-      case "light":
-      default:
-        return LogoLight;
-    }
-  };
-
-  const resolveLogoVariant = (): LogoVariant => {
+  useEffect(() => {
     let effectiveMode = mode;
     if (mode === "system" && typeof window !== "undefined") {
       const prefersDark = window.matchMedia(
@@ -44,16 +29,13 @@ export default function NavBar() {
       effectiveMode = prefersDark ? "dark" : "light";
     }
 
-    if (effectiveMode === "light" && theme === "default") return "dark";
-    if (effectiveMode === "light" && theme === "teal") return "teal-dark";
-    if (effectiveMode === "dark" && theme === "default") return "light";
-    if (effectiveMode === "dark" && theme === "teal") return "teal";
-
-    return "light";
-  };
-
-  useEffect(() => {
-    const resolved = resolveLogoVariant();
+    let resolved: LogoVariant = "light";
+    if (effectiveMode === "light" && theme === "default") resolved = "dark";
+    else if (effectiveMode === "light" && theme === "teal")
+      resolved = "teal-dark";
+    else if (effectiveMode === "dark" && theme === "default")
+      resolved = "light";
+    else if (effectiveMode === "dark" && theme === "teal") resolved = "teal";
 
     setLogo((current) => {
       if (current === resolved) return current;
@@ -61,8 +43,8 @@ export default function NavBar() {
       setPrevLogo(current);
       setVisible(false);
 
-        return resolved;
-      });
+      return resolved;
+    });
   }, [mode, theme]);
 
   useEffect(() => {
@@ -80,45 +62,36 @@ export default function NavBar() {
   };
 
   return (
-    <nav
-      className="flex justify-between gap-2 fixed bg-background w-full py-1.5 px-4 border border-border z-10"
-      aria-label="Main navigation"
-    >
-      <Link
-        href={"/"}
-        aria-label="Home - Quinchy"
-        className="flex items-center gap-2"
-      >
-        <span className="relative w-5 h-5 inline-block" aria-hidden="true">
+    <nav className="navbar" aria-label="Main navigation">
+      <a href="/" aria-label="Home - Quinchy" className="navbar__brand">
+        <span className="navbar__logo-wrap" aria-hidden="true">
           {prevLogo && (
-            <Image
-              src={srcFor(prevLogo)}
+            <img
+              src={LOGO_SRC[prevLogo]}
               alt="Quinchy"
               width={100}
               height={100}
-              className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-300 ease-in-out ${
-                visible ? "opacity-0" : "opacity-100"
-              } select-none`}
+              className="navbar__logo"
+              style={{ opacity: visible ? 0 : 1 }}
             />
           )}
 
-          <Image
-            src={srcFor(logo)}
+          <img
+            src={LOGO_SRC[logo]}
             alt="Quinchy"
             width={100}
             height={100}
             onLoad={handleLoaded}
-            className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-300 ease-in-out ${
-              visible ? "opacity-100" : "opacity-0"
-            } select-none`}
-            priority
+            className="navbar__logo"
+            style={{ opacity: visible ? 1 : 0 }}
           />
         </span>
 
-        <span className="translate-y-px font-semibold">Quinchy</span>
-      </Link>
+        <span className="navbar__brand-name">Quinchy</span>
+      </a>
 
-      <div className="flex gap-2" role="group" aria-label="Site controls">
+      {/* biome-ignore lint/a11y/useSemanticElements: a labeled ARIA group is the correct pattern for this cluster of controls */}
+      <div className="navbar__controls" role="group" aria-label="Site controls">
         <PagesMenu />
         <ModeMenu />
         <ThemesMenu />

@@ -1,0 +1,236 @@
+---
+import Badge from "@/components/badge";
+import {
+  CompanyIcon,
+  GithubIcon,
+  GlobeIcon,
+  PersonalIcon,
+  UniversityIcon,
+} from "@/components/icons";
+import { SectionTitle } from "@/components/section-title";
+
+type ProjectType = "Company" | "University" | "Personal";
+
+interface Project {
+  title: string;
+  type: ProjectType;
+  description: string;
+  technologies: string[];
+  draft?: boolean;
+  images?: string[];
+  websiteLink?: string;
+  githubLink?: string;
+}
+
+interface Props {
+  limit?: number;
+}
+
+const { limit } = Astro.props;
+
+const projects: Project[] = [
+  {
+    title: "Tenext",
+    type: "Company",
+    draft: true,
+    description:
+      "A B2B Customer-Engagement platform sold to large enterprises. It gives businesses AI-powered email, chatbot, and voice channels for reaching their own customers.",
+    technologies: [
+      "Next.js",
+      "FastAPI",
+      "PostgreSQL",
+      "AWS (SES, SNS, S3)",
+      "Redis/ARQ",
+      "LangGraph",
+      "AMP",
+    ],
+    images: ["/tenext/tenext-1.webp"],
+    websiteLink: "https://tenext.ai/",
+  },
+  {
+    title: "PromptWise",
+    type: "Company",
+    description:
+      "An AI Creative Studio with guided workflows and all-in-one tools for generating images, videos, and audio that comes in classic, conversational, and node-based interfaces. It also includes specialized tools, centralized asset and prompt management.",
+    technologies: [
+      "Next.js",
+      "Prisma",
+      "Supabase",
+      "PostgreSQL",
+      "Trigger.dev",
+      "Cloudflare",
+      "AI Generation",
+    ],
+    images: ["/promptwise/promptwise-1.webp"],
+    websiteLink: "https://promptwise.com/",
+  },
+  {
+    title: "Superproxy",
+    type: "Company",
+    description:
+      "A modern Customer Relationship Management web application featuring a conversational AI Sales Agent that calls and engages with clients on users’ behalf, alongside quotations, invoices, call recordings, email management, currency conversion, and analytics.",
+    technologies: [
+      "Next.js",
+      "Supabase",
+      "Prisma",
+      "PostgreSQL",
+      "ElevenLabs",
+      "OpenAI",
+    ],
+    images: ["/superproxy/superproxy-1.webp"],
+    websiteLink: "https://www.superproxy.ai/",
+  },
+  {
+    title: "Thryve",
+    type: "Company",
+    description:
+      "A Dating site with gender-based profile discovery, profile management, liking and matching, an affiliate program, real-time messaging with voice and video calling.",
+    technologies: ["Next.js", "Supabase", "Prisma", "PostgreSQL"],
+    images: ["/thryve/thryve-1.webp"],
+  },
+  {
+    title: "HueFit",
+    type: "University",
+    description:
+      "A modern E-commerce mobile application featuring AI-powered and AR virtual fitting, skin tone-based outfit color matching, and a web-based system for inventory and order management.",
+    technologies: [
+      "Next.js",
+      "Supabase",
+      "Prisma",
+      "React Native Expo",
+      "FastAPI",
+    ],
+    images: ["/huefit/huefit-1.webp"],
+    websiteLink: "https://hue-fit.quinchy.dev/",
+    githubLink: "https://github.com/quinchy/Hue-Fit",
+  },
+  {
+    title: "PasaBuy",
+    type: "University",
+    description:
+      "An Android Application with location based pasabuy request posts, community platform, and ordering.",
+    technologies: ["Android Studio", "Java", "Firebase"],
+    images: ["/pasabuy/pasabuy-1.webp"],
+    githubLink: "https://github.com/quinchy/Pasabuy",
+  },
+  {
+    title: "SmileCare",
+    type: "University",
+    description:
+      "A Website for a local dental clinic with an appointment system dashboard.",
+    technologies: ["Laravel", "MySQL", "Heroku"],
+    images: ["/smilecare/smilecare-1.webp"],
+    githubLink:
+      "https://github.com/quinchy/Donna-Mae-Jorge-Hollman-Dental-Clinic-Scheduling-System",
+  },
+  {
+    title: "OnlyFunds",
+    type: "University",
+    description:
+      "A Basic mock-up of a Desktop Banking Application for OOP course.",
+    technologies: ["C#", "WinForms", "MySQL"],
+    images: ["/onlyfunds/onlyfunds-1.webp"],
+    githubLink: "https://github.com/quinchy/BankingSystem",
+  },
+  {
+    title: "AniQuinch",
+    type: "University",
+    description:
+      "A Basic Website built using HTML and CSS only mimicking an e-commerce website.",
+    technologies: ["HTML", "CSS"],
+    images: ["/aniquinch/aniquinch-1.webp"],
+    websiteLink: "https://quinchx.github.io/AniQuinch/",
+    githubLink: "https://github.com/QuinchX/AniQuinch",
+  },
+];
+
+const showDrafts = import.meta.env.DEV;
+const publishedProjects = projects.filter(
+  (project) => showDrafts || !project.draft,
+);
+const visibleProjects = publishedProjects.slice(0, limit);
+---
+
+<section class="section">
+  <SectionTitle
+    client:visible
+    text="Projects"
+    titleFontSize={30}
+    titleStyle={{ lineHeight: "1.5rem" }}
+    fallbackTransform="translateX(54px) translateY(-3px)"
+  />
+
+  <div class="stack-8">
+    {
+      visibleProjects.map((project) => (
+        <div class="project">
+          <div class="project__body">
+            <div class="project__head">
+              <h2 class="project__title">
+                {project.title}
+                {project.websiteLink && (
+                  <a
+                    href={project.websiteLink}
+                    aria-label={`${project.title} Link`}
+                    title={`${project.title} Link`}
+                    class="project__icon-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <GlobeIcon className="icon-4" />
+                  </a>
+                )}
+                {project.githubLink && (
+                  <a
+                    href={project.githubLink}
+                    aria-label={`${project.title} Github Link`}
+                    title={`${project.title} Github Link`}
+                    class="project__icon-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <GithubIcon className="icon-4" />
+                  </a>
+                )}
+              </h2>
+              <div class="project__type" title={project.type}>
+                {project.type === "Company" && <CompanyIcon />}
+                {project.type === "University" && <UniversityIcon />}
+                {project.type === "Personal" && <PersonalIcon />}
+                <span>{project.type}</span>
+              </div>
+            </div>
+            <p>{project.description}</p>
+            <div class="tag-list">
+              {project.technologies.map((tech) => (
+                <Badge name={tech} />
+              ))}
+            </div>
+          </div>
+          <div>
+            {project.images?.[0] && (
+              <img
+                width={285}
+                height={139}
+                src={project.images[0]}
+                draggable="false"
+                class="project__thumb"
+                alt={`${project.title} thumbnail`}
+              />
+            )}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  {
+    limit && limit < publishedProjects.length && (
+      <div class="view-all">
+        <a href="/projects" class="btn-outline">
+          View All Projects
+        </a>
+      </div>
+    )
+  }
+</section>

@@ -1,0 +1,169 @@
+---
+import Badge from "@/components/badge";
+import { CompanyIcon } from "@/components/icons";
+import { SectionTitle } from "@/components/section-title";
+
+interface Experience {
+  title: string;
+  period: string;
+  company: string;
+  companyLogo?: string;
+  companyLink?: string;
+  employmentType: string;
+  location: string;
+  workMode: string;
+  descriptions: string[];
+  technologies: string[];
+}
+
+const experiences: Experience[] = [
+  {
+    title: "Full-Stack Engineer",
+    period: "March 2026 - Present",
+    company: "Pioneer Dev AI",
+    companyLink: "https://pioneerdev.ai/",
+    companyLogo: "/pioneer-dev-ai.webp",
+    employmentType: "Full-time",
+    location: "Boulder, Colorado, United States",
+    workMode: "Remote",
+    descriptions: [
+      "Working as a Full-Stack Engineer across different products, including AI-powered ones, contributing end-to-end across frontend, backend, and infrastructure. Across the projects I work on, my contributions span from crafting sleek and intuitive UIs, building scalable backend systems and APIs, optimizing databases, and improving application performance",
+      "Collaborate with experienced developers across different projects in a professional, fast-moving team environment, working within AI-assisted workflows, ticket-based development, PR-based code reviews, regular dev meetings, and disciplined engineering practices around commits, PRs, and code quality.",
+    ],
+    technologies: [
+      "Next.js",
+      "Prisma",
+      "Supabase",
+      "tRPC",
+      "Trigger.dev",
+      "Cloudflare",
+      "Redis",
+      "Sentry",
+      "Langfuse",
+      "Infisical",
+      "AI Generation",
+    ],
+  },
+  {
+    title: "Software Developer",
+    period: "May 2025 - Feb 2026",
+    company: "AppQuant Technologies Inc.",
+    companyLogo: "/appquant.webp",
+    employmentType: "Full-time",
+    location: "Pasig City, Philippines",
+    workMode: "Remote",
+    descriptions: [
+      "Worked as a sole Founding Engineer for a startup, I led the end-to-end infrastructure and development of their core software products including a modern AI-Powered CRM. I developed products using Next.js, Prisma, Supabase and Vercel, while integrating various third-party services such as Stripe, Twilio, Resend and AI-integrations such as ElevenLabs and OpenAI.",
+      "Collaborate personally with the founder, translating business requirements into technical solutions while adapting quickly to frequent shifts in direction.",
+    ],
+    technologies: [
+      "Next.js",
+      "Supabase",
+      "Prisma",
+      "Vercel",
+      "OpenAI",
+      "Elevenlabs",
+      "Stripe",
+      "Resend",
+      "Twilio",
+      "Shadcn",
+    ],
+  },
+  {
+    title: "Software Developer Intern",
+    period: "May 2025 - Feb 2026",
+    company: "Kynatech",
+    companyLogo: "/kynatech.webp",
+    companyLink: "https://kynatech.ph/",
+    employmentType: "Internship",
+    location: "Taguig City, Philippines",
+    workMode: "Remote",
+    descriptions: [
+      "Interned in a mid-sized software development company, working within a multidisciplinary team of designers, full-stack developers, QA testers, DevOps engineers, project managers, and specialists across web, and mobile development.",
+      "Completed a Timesheet Application project designed to develop industry-ready full-stack skills, with guidance and mentorship from senior engineers. Translated complex Figma designs into responsive, pixel-accurate interfaces while applying security standards, technical documentation, product testing, Agile practices, and established software development best practices.",
+    ],
+    technologies: ["Next.js", "Supabase", "Prisma", "Shadcn"],
+  },
+];
+---
+
+<section class="section">
+  <SectionTitle
+    client:visible
+    text="Experiences"
+    titleStyle={{
+      lineHeight: "1.75rem",
+      letterSpacing: "-0.55px",
+      transform: "translateY(-2.5px) translateX(0.5px)",
+    }}
+    fallbackTransform="translateX(54px) translateY(-2px)"
+  />
+
+  <div class="stack-10">
+    {
+      experiences.map((experience) => (
+        <article class="entry">
+          <div class="entry__head">
+            {experience.companyLogo ? (
+              <img
+                width={80}
+                height={80}
+                src={experience.companyLogo}
+                draggable="false"
+                class="entry__logo"
+                alt={`${experience.company} logo`}
+              />
+            ) : (
+              <div class="entry__logo-fallback">
+                <CompanyIcon />
+              </div>
+            )}
+            <header class="entry__meta">
+              <div class="entry__row">
+                <h2 class="entry__title">{experience.title}</h2>
+                <time class="entry__period">{experience.period}</time>
+              </div>
+              <div class="entry__row">
+                <div class="entry__company-group">
+                  {experience.companyLink ? (
+                    <a
+                      href={experience.companyLink}
+                      class="entry__company-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {experience.company}
+                    </a>
+                  ) : (
+                    <span class="entry__company-plain">
+                      {experience.company}
+                    </span>
+                  )}
+                  <span>|</span>
+                  <span>{experience.employmentType}</span>
+                </div>
+                <address class="entry__address">
+                  <span>{experience.location}</span>
+                  <span>|</span>
+                  <span>{experience.workMode}</span>
+                </address>
+              </div>
+            </header>
+          </div>
+          <section class="entry__body">
+            {experience.descriptions.map((desc) => (
+              <p>{desc}</p>
+            ))}
+          </section>
+          <ul class="tag-list">
+            {experience.technologies.map((tech) => (
+              <li>
+                <Badge name={tech} />
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))
+    }
+  </div>
+</section>

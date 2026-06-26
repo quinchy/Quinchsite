@@ -1,0 +1,136 @@
+---
+import Badge from "@/components/badge";
+import { SectionTitle } from "@/components/section-title";
+
+interface SkillCategory {
+  title: string;
+  skills: string[];
+}
+
+const skillCategories: SkillCategory[] = [
+  {
+    title: "Frontend",
+    skills: ["React", "Tailwind CSS", "HTML", "CSS"],
+  },
+  {
+    title: "Backend & APIs",
+    skills: ["REST APIs", "tRPC", "Redis", "Node.js", "Trigger.dev"],
+  },
+  {
+    title: "Languages",
+    skills: ["TypeScript", "JavaScript", "Python", "PHP", "C#", "Java"],
+  },
+  {
+    title: "Frameworks",
+    skills: [
+      "Next.js",
+      "Astro",
+      "Express.js",
+      "Laravel",
+      "FastAPI",
+      "React Native Expo",
+    ],
+  },
+  {
+    title: "Libraries",
+    skills: [
+      "TanStack",
+      "Zustand",
+      "Zod",
+      "BetterAuth",
+      "Shadcn UI",
+      "Motion",
+      "GSAP",
+    ],
+  },
+  {
+    title: "Databases & Storage",
+    skills: [
+      "Prisma",
+      "Supabase",
+      "Cloudflare R2",
+      "PostgreSQL",
+      "MySQL",
+      "Firebase",
+      "NoSQL",
+    ],
+  },
+  {
+    title: "AI & Integrations",
+    skills: [
+      "OpenAI",
+      "ElevenLabs",
+      "Stripe",
+      "Resend",
+      "Twilio",
+      "Currencylayer",
+      "Promotekit",
+    ],
+  },
+  {
+    title: "Cloud & Deployment",
+    skills: [
+      "Cloudflare Workers",
+      "Vercel",
+      "GitHub Actions",
+      "Docker",
+      "Render",
+      "Heroku",
+    ],
+  },
+  {
+    title: "Observability & Security",
+    skills: ["Sentry", "Langfuse", "Infisical"],
+  },
+  {
+    title: "Tools & Testing",
+    skills: [
+      "Git",
+      "Zed",
+      "Cursor",
+      "Codex",
+      "Postman",
+      "MCP Servers",
+      "Linear",
+      "Node.js Test Runner",
+      "Figma",
+      "v0",
+      "Bun",
+      "NPM",
+      "PNPM",
+    ],
+  },
+];
+---
+
+<section class="section">
+  <SectionTitle
+    client:visible
+    text="Skills"
+    titleFontSize={30}
+    titleStyle={{ lineHeight: "1.5rem" }}
+    fallbackTransform="translateX(54px) translateY(-3px)"
+  />
+
+  <div class="skills-grid">
+    {
+      skillCategories.map((category, index) => (
+        <div
+          class={`skill-cat${
+            skillCategories.length % 2 === 1 &&
+            index === skillCategories.length - 1
+              ? " skill-cat--wide"
+              : ""
+          }`}
+        >
+          <h2 class="skill-cat__title">{category.title}</h2>
+          <div class="skill-cat__body">
+            {category.skills.map((skill) => (
+              <Badge name={skill} />
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

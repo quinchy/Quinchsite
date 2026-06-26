@@ -1,7 +1,4 @@
-"use client";
-
-import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 export default function PagesMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,38 +20,34 @@ export default function PagesMenu() {
     };
   }, [isOpen]);
 
+  const links = [
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/projects", label: "Projects" },
+  ];
+
   return (
-    <div className="relative" ref={menuRef}>
+    <div className="menu" ref={menuRef}>
       <button
+        type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="cursor-pointer hover:bg-muted px-2 duration-300 transition-all"
+        className="menu__trigger"
       >
         Pages
       </button>
 
       {isOpen && (
-        <div className="absolute top-full right-0 bg-background border border-border min-w-30 overflow-hidden">
-          <Link
-            href="/"
-            onClick={() => setIsOpen(false)}
-            className="block w-full px-4 py-2 text-left text-foreground no-underline hover:bg-muted duration-300 transition-all"
-          >
-            Home
-          </Link>
-          <Link
-            href="/about"
-            onClick={() => setIsOpen(false)}
-            className="block w-full px-4 py-2 text-left text-foreground no-underline hover:bg-muted duration-300 transition-all"
-          >
-            About
-          </Link>
-          <Link
-            href="/projects"
-            onClick={() => setIsOpen(false)}
-            className="block w-full px-4 py-2 text-left text-foreground no-underline hover:bg-muted duration-300 transition-all"
-          >
-            Projects
-          </Link>
+        <div className="menu__dropdown">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+              className="menu__item"
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
       )}
     </div>

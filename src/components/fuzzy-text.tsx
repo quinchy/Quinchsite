@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useEffect, useRef, useState } from "react";
 
 interface FuzzyTextProps {
@@ -28,9 +26,10 @@ interface FuzzyTextProps {
 const getAdaptiveFPS = () => {
   if (typeof window === "undefined") return 60;
   // Use lower FPS on mobile
-  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-    navigator.userAgent,
-  );
+  const isMobile =
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent,
+    );
   if (isMobile) return 30;
   return 60;
 };
@@ -183,9 +182,9 @@ const FuzzyText: React.FC<FuzzyTextProps> = ({
 
       if (gradient && Array.isArray(gradient) && gradient.length >= 2) {
         const grad = offCtx.createLinearGradient(0, 0, offscreenWidth, 0);
-        gradient.forEach((c, i) =>
-          grad.addColorStop(i / (gradient.length - 1), c),
-        );
+        gradient.forEach((c, i) => {
+          grad.addColorStop(i / (gradient.length - 1), c);
+        });
         offCtx.fillStyle = grad;
       } else {
         offCtx.fillStyle = color;
@@ -389,7 +388,7 @@ const FuzzyText: React.FC<FuzzyTextProps> = ({
       clearTimeout(glitchTimeoutId);
       clearTimeout(glitchEndTimeoutId);
       clearTimeout(clickTimeoutId);
-      if (canvas && canvas.cleanupFuzzyText) {
+      if (canvas?.cleanupFuzzyText) {
         canvas.cleanupFuzzyText();
       }
     };

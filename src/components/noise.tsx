@@ -1,6 +1,5 @@
-"use client";
-
-import React, { useRef, useEffect, useState } from "react";
+import type React from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface NoiseProps {
   patternSize?: number;
@@ -68,15 +67,11 @@ const Noise: React.FC<NoiseProps> = ({
   }, [patternRefreshInterval, patternAlpha]);
 
   return (
-    <div className="fixed inset-0 pointer-events-none" aria-hidden="true">
+    <div className="noise" aria-hidden="true">
       <canvas
         ref={grainRef}
-        className={`absolute inset-0 w-full h-full transition-opacity duration-500 ${
-          isAnimating ? "opacity-100" : "opacity-0"
-        }`}
-        style={{
-          imageRendering: "pixelated",
-        }}
+        className="noise__canvas"
+        style={{ opacity: isAnimating ? 1 : 0 }}
       />
     </div>
   );

@@ -1,6 +1,4 @@
-"use client";
-
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { XIcon } from "@/components/icons";
 
 export type ToastType = "success" | "error" | "info";
@@ -24,19 +22,23 @@ export const showToast = (message: string, type: ToastType = "info") => {
   const toast: Toast = { id, message, type };
 
   toastStore.toasts.push(toast);
-  toastStore.listeners.forEach((listener) => listener([...toastStore.toasts]));
+  for (const listener of toastStore.listeners) {
+    listener([...toastStore.toasts]);
+  }
 
   setTimeout(() => {
     toastStore.toasts = toastStore.toasts.filter((t) => t.id !== id);
-    toastStore.listeners.forEach((listener) =>
-      listener([...toastStore.toasts]),
-    );
+    for (const listener of toastStore.listeners) {
+      listener([...toastStore.toasts]);
+    }
   }, 3000);
 };
 
 const removeToast = (id: string) => {
   toastStore.toasts = toastStore.toasts.filter((t) => t.id !== id);
-  toastStore.listeners.forEach((listener) => listener([...toastStore.toasts]));
+  for (const listener of toastStore.listeners) {
+    listener([...toastStore.toasts]);
+  }
 };
 
 export default function Toast() {
@@ -50,25 +52,17 @@ export default function Toast() {
   }, []);
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 flex flex-col gap-2">
+    <div className="toast-stack">
       {toasts.map((toast) => (
-        <div
-          key={toast.id}
-          className={`border border-dashed bg-background px-4 py-3 text-sm font-medium toast-slide-in flex items-center justify-between gap-3 ${
-            toast.type === "success"
-              ? "border-primary/50 text-primary"
-              : toast.type === "error"
-                ? "border-rose-500/80 text-rose-500/80"
-                : "border-primary/50 text-primary"
-          }`}
-        >
+        <div key={toast.id} className={`toast toast--${toast.type}`}>
           <span>{toast.message}</span>
           <button
+            type="button"
             onClick={() => removeToast(toast.id)}
-            className="cursor-pointer hover:opacity-70 transition-opacity"
+            className="toast__close"
             aria-label="Close toast"
           >
-            <XIcon className="w-4 h-4" />
+            <XIcon className="icon-4" />
           </button>
         </div>
       ))}
