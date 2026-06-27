@@ -1,0 +1,46 @@
+---
+// Button primitive. Pass `href` to render an <a> (links are just a variant of
+// button), otherwise a <button>. Padding/gap come from the design-token scale.
+type Variant = "solid" | "outline" | "ghost" | "dashed" | "link";
+
+interface Props {
+  href?: string;
+  variant?: Variant;
+  type?: "button" | "submit";
+  class?: string;
+  [key: string]: unknown;
+}
+
+const {
+  href,
+  variant = "outline",
+  type = "button",
+  class: className,
+  ...rest
+} = Astro.props;
+
+const base =
+  "inline-flex items-center justify-center spacing-xs padding-xs text-sm animation-fast disabled:cursor-not-allowed disabled:opacity-50";
+
+const variants: Record<Variant, string> = {
+  solid:
+    "bg-primary font-semibold text-background brightness-75 hover:brightness-100 active:scale-95 active:brightness-90",
+  outline:
+    "border border-border font-semibold hover:bg-primary hover:text-background",
+  ghost: "hover:bg-muted",
+  dashed:
+    "border border-dashed border-border text-primary hover:border-primary hover:bg-muted/50",
+  link: "text-foreground/75 underline-offset-2 hover:text-foreground hover:underline",
+};
+
+const Tag = href ? "a" : "button";
+---
+
+<Tag
+  class:list={[base, variants[variant], className]}
+  href={href}
+  type={href ? undefined : type}
+  {...rest}
+>
+  <slot />
+</Tag>
