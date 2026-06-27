@@ -16,14 +16,12 @@
 # astro
 /dist/
 .astro/
+.tmp/
 
 # cloudflare
 .wrangler/
 .dev.vars
 .dev.vars.*
-
-# production
-/build
 
 # misc
 .DS_Store
@@ -40,9 +38,5 @@ dev.log
 # env files (can opt-in for committing if needed)
 .env*
 
-# vercel
-.vercel
-
 # typescript
 *.tsbuildinfo
-next-env.d.ts

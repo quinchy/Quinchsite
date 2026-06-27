@@ -4,9 +4,12 @@
 // `.env` (loaded by the dev server) and in production via
 // `wrangler secret put <NAME>`.
 declare module "cloudflare:workers" {
+  type RateLimitBinding = {
+    limit(options: { key: string }): Promise<{ success: boolean }>;
+  };
+
   export const env: {
-    UPSTASH_REDIS_REST_URL: string;
-    UPSTASH_REDIS_REST_TOKEN: string;
+    CONTACT_RATE_LIMITER: RateLimitBinding;
     EMAIL_USER: string;
     EMAIL_PASS: string;
   };
