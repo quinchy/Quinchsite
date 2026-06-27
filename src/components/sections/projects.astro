@@ -200,7 +200,8 @@ const eagerImages = limit ? 0 : 3;
           <div class="lg:w-2/5 lg:shrink-0">
             {project.images?.[0] && (
               <Image
-                width={760}
+                widths={[360, 540, 760]}
+                sizes="(min-width: 1024px) 360px, 100vw"
                 src={project.images[0]}
                 draggable="false"
                 loading={index < eagerImages ? "eager" : "lazy"}
