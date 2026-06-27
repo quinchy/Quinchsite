@@ -1,0 +1,244 @@
+---
+import Button from "@/components/ui/button.astro";
+
+const pages = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/projects", label: "Projects" },
+];
+const modes = [
+  { value: "light", label: "Light" },
+  { value: "dark", label: "Dark" },
+  { value: "system", label: "System" },
+];
+const colors = [
+  { value: "default", label: "Default" },
+  { value: "teal", label: "Teal" },
+  { value: "azure", label: "Azure" },
+  { value: "crimson", label: "Crimson" },
+  { value: "aurora", label: "Aurora" },
+];
+
+const dropdownClass =
+  "absolute top-full right-0 z-20 min-w-30 overflow-hidden border border-border bg-background";
+const triggerClass = "animation-normal";
+const itemClass =
+  "w-full justify-start text-left text-foreground animation-normal";
+---
+
+<nav
+  data-navbar
+  aria-label="Main navigation"
+  class="sticky top-0 z-10 flex w-full justify-between spacing-xs border border-border bg-background padding-xs"
+>
+  <a href="/" aria-label="Home - Quinchy" class="flex items-center spacing-xs">
+    <span class="relative inline-block size-5" aria-hidden="true">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 512 512"
+        fill="currentColor"
+        aria-hidden="true"
+        class="size-full text-primary"
+      >
+        <path d="M245 183 217 193 197 211 185 235 183 267 193 294 211 314 235 326 265 328 293 318 313 300 326 272 327 244 317 217 296 195 270 184Z" />
+
+        <path d="M157 101 142 107 116 125 92 150 76 174 66 196 58 225 56 275 67 320 77 341 95 367 117 389 135 402 152 411 169 412 182 406 190 397 194 386 193 370 181 354 160 341 139 319 127 298 119 265 122 230 132 205 142 190 159 173 186 155 194 139 193 123 187 112 172 102Z" />
+
+        <path d="M273 32 264 37 254 51 252 67 256 79 267 90 288 98 318 115 333 127 360 157 376 185 385 210 390 235 391 266 381 314 362 351 326 390 302 406 268 420 258 429 252 444 254 460 263 473 277 480 291 480 343 456 367 459 415 480 436 478 445 472 452 462 453 437 444 424 414 405 412 392 439 341 453 285 454 234 442 178 419 130 400 104 377 80 342 54 315 40 291 31Z" />
+      </svg>
+    </span>
+    <span class="font-semibold">Quinchy</span>
+  </a>
+
+  <div class="flex spacing-xs" role="group" aria-label="Site controls">
+    <div class="relative" data-menu>
+      <Button
+        type="button"
+        variant="ghost"
+        class={triggerClass}
+        data-menu-trigger
+        aria-expanded="false"
+        aria-haspopup="true"
+      >
+        Pages
+      </Button>
+      <div class={`${dropdownClass} hidden`} data-menu-dropdown>
+        {
+          pages.map((page) => (
+            <Button
+              href={page.href}
+              variant="ghost"
+              class={itemClass}
+              data-page={page.href}
+            >
+              {page.label}
+            </Button>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="relative" data-menu>
+      <Button
+        type="button"
+        variant="ghost"
+        class={triggerClass}
+        data-menu-trigger
+        aria-expanded="false"
+        aria-haspopup="true"
+        aria-label="Change color mode"
+      >
+        Mode
+      </Button>
+      <div
+        class={`${dropdownClass} hidden`}
+        data-menu-dropdown
+        role="menu"
+        aria-label="Color mode options"
+      >
+        {
+          modes.map((mode) => (
+            <Button
+              type="button"
+              variant="ghost"
+              class={itemClass}
+              role="menuitem"
+              data-mode={mode.value}
+            >
+              {mode.label}
+            </Button>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="relative" data-menu>
+      <Button
+        type="button"
+        variant="ghost"
+        class={triggerClass}
+        data-menu-trigger
+        aria-expanded="false"
+        aria-haspopup="true"
+        aria-label="Change color theme"
+      >
+        Theme
+      </Button>
+      <div
+        class={`${dropdownClass} hidden`}
+        data-menu-dropdown
+        role="menu"
+        aria-label="Color theme options"
+      >
+        {
+          colors.map((color) => (
+            <Button
+              type="button"
+              variant="ghost"
+              class={itemClass}
+              role="menuitem"
+              data-color={color.value}
+            >
+              {color.label}
+            </Button>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const ACTIVE = ["bg-primary", "text-background", "hover:bg-primary/75"];
+  const INACTIVE = ["text-foreground", "hover:bg-muted"];
+  const COLOR_THEMES = ["default", "teal", "azure", "crimson", "aurora"];
+
+  const readMode = () => localStorage.getItem("theme") || "system";
+  const readColor = () => {
+    const color = localStorage.getItem("color-theme") || "default";
+    return COLOR_THEMES.includes(color) ? color : "default";
+  };
+  const readPage = () => location.pathname.replace(/\/$/, "") || "/";
+
+  const applyClasses = (mode: string, color: string) => {
+    const root = document.documentElement;
+    const dark =
+      mode === "dark" ||
+      (mode === "system" &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches);
+    root.classList.toggle("dark", dark);
+    root.classList.remove("teal", "azure", "crimson", "aurora");
+    if (["teal", "azure", "crimson", "aurora"].includes(color)) {
+      root.classList.add(color);
+    }
+  };
+
+  const markActive = (attr: string, value: string) => {
+    for (const el of document.querySelectorAll(`[${attr}]`)) {
+      const active = el.getAttribute(attr) === value;
+      el.classList.remove(...ACTIVE, ...INACTIVE);
+      el.classList.add(...(active ? ACTIVE : INACTIVE));
+      if (active) el.setAttribute("aria-current", "true");
+      else el.removeAttribute("aria-current");
+    }
+  };
+
+  const closeAll = () => {
+    for (const d of document.querySelectorAll("[data-menu-dropdown]"))
+      d.classList.add("hidden");
+    for (const t of document.querySelectorAll("[data-menu-trigger]"))
+      t.setAttribute("aria-expanded", "false");
+  };
+
+  const initNavbar = () => {
+    const nav = document.querySelector("[data-navbar]");
+    if (!nav) return;
+
+    for (const menu of nav.querySelectorAll("[data-menu]")) {
+      const trigger = menu.querySelector("[data-menu-trigger]");
+      const dropdown = menu.querySelector("[data-menu-dropdown]");
+      if (!trigger || !dropdown) continue;
+      trigger.addEventListener("click", (event) => {
+        event.stopPropagation();
+        const willOpen = dropdown.classList.contains("hidden");
+        closeAll();
+        if (willOpen) {
+          dropdown.classList.remove("hidden");
+          trigger.setAttribute("aria-expanded", "true");
+        }
+      });
+    }
+
+    for (const button of nav.querySelectorAll("[data-mode]")) {
+      button.addEventListener("click", () => {
+        const mode = button.getAttribute("data-mode");
+        if (!mode) return;
+        localStorage.setItem("theme", mode);
+        applyClasses(mode, readColor());
+        markActive("data-mode", mode);
+      });
+    }
+
+    for (const button of nav.querySelectorAll("[data-color]")) {
+      button.addEventListener("click", () => {
+        const color = button.getAttribute("data-color");
+        if (!color) return;
+        localStorage.setItem("color-theme", color);
+        applyClasses(readMode(), color);
+        markActive("data-color", color);
+      });
+    }
+
+    markActive("data-mode", readMode());
+    markActive("data-color", readColor());
+    markActive("data-page", readPage());
+  };
+
+  document.addEventListener("click", closeAll);
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeAll();
+  });
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", initNavbar);
+  else initNavbar();
+</script>

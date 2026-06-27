@@ -1,0 +1,24 @@
+---
+import Footer from "@/components/footer.astro";
+import About from "@/components/sections/about.astro";
+import Contacts from "@/components/sections/contacts.astro";
+import Experiences from "@/components/sections/experiences.astro";
+import Hero from "@/components/sections/hero.astro";
+import Projects from "@/components/sections/projects.astro";
+import Skills from "@/components/sections/skills.astro";
+import Layout from "@/layouts/layout.astro";
+
+export const prerender = true;
+---
+
+<Layout>
+  <div class="flex w-full max-w-4xl flex-col spacing-xl padding-xs">
+    <Hero />
+    <About />
+    <Experiences />
+    <Projects limit={4} />
+    <Skills />
+    <Contacts />
+    <Footer />
+  </div>
+</Layout>

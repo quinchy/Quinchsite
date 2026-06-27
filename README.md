@@ -1,8 +1,8 @@
 # quinchy.dev
 
-Cyril James De Guzman's personal portfolio, built with Next.js, React, and Tailwind CSS.
+Cyril James De Guzman's personal portfolio, built with Astro, React islands, Tailwind CSS, and Cloudflare Workers.
 
 ```bash
 bun install   # install dependencies
-bun dev       # start the dev server at http://localhost:3000
+bun dev       # start the dev server at http://localhost:4321
 ```

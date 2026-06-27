@@ -1,0 +1,132 @@
+---
+import SectionTitle from "@/components/section-title.astro";
+import Badge from "@/components/ui/badge.astro";
+
+interface SkillCategory {
+  title: string;
+  skills: string[];
+}
+
+const skillCategories: SkillCategory[] = [
+  {
+    title: "Frontend",
+    skills: ["React", "Tailwind CSS", "HTML", "CSS"],
+  },
+  {
+    title: "Backend & APIs",
+    skills: ["REST APIs", "tRPC", "Redis", "Node.js", "Trigger.dev"],
+  },
+  {
+    title: "Languages",
+    skills: ["TypeScript", "JavaScript", "Python", "PHP", "C#", "Java"],
+  },
+  {
+    title: "Frameworks",
+    skills: [
+      "Next.js",
+      "Astro",
+      "Express.js",
+      "Laravel",
+      "FastAPI",
+      "React Native Expo",
+    ],
+  },
+  {
+    title: "Libraries",
+    skills: [
+      "TanStack",
+      "Zustand",
+      "Zod",
+      "BetterAuth",
+      "Shadcn UI",
+      "Motion",
+      "GSAP",
+    ],
+  },
+  {
+    title: "Databases & Storage",
+    skills: [
+      "Prisma",
+      "Supabase",
+      "Cloudflare R2",
+      "PostgreSQL",
+      "MySQL",
+      "Firebase",
+      "NoSQL",
+    ],
+  },
+  {
+    title: "AI & Integrations",
+    skills: [
+      "OpenAI",
+      "ElevenLabs",
+      "Stripe",
+      "Resend",
+      "Twilio",
+      "Currencylayer",
+      "Promotekit",
+    ],
+  },
+  {
+    title: "Cloud & Deployment",
+    skills: [
+      "Cloudflare Workers",
+      "Vercel",
+      "GitHub Actions",
+      "Docker",
+      "Render",
+      "Heroku",
+    ],
+  },
+  {
+    title: "Observability & Security",
+    skills: ["Sentry", "Langfuse", "Infisical"],
+  },
+  {
+    title: "Tools & Testing",
+    skills: [
+      "Git",
+      "Zed",
+      "Cursor",
+      "Codex",
+      "Postman",
+      "MCP Servers",
+      "Linear",
+      "Node.js Test Runner",
+      "Figma",
+      "v0",
+      "Bun",
+      "NPM",
+      "PNPM",
+    ],
+  },
+];
+---
+
+<section class="flex flex-col spacing-md">
+  <SectionTitle text="Skills" />
+
+  <div class="grid grid-cols-1 border-t border-l border-dashed border-border lg:grid-cols-2">
+    {
+      skillCategories.map((category, index) => (
+        <div
+          class={`border-r border-b border-dashed border-border${
+            skillCategories.length % 2 === 1 &&
+            index === skillCategories.length - 1
+              ? " lg:col-span-2"
+              : ""
+          }`}
+        >
+          <h2 class="border-b border-dashed border-border padding-md font-semibold">
+            {category.title}
+          </h2>
+          <div class="flex flex-wrap spacing-xs padding-md">
+            {category.skills.map((skill) => (
+              <Badge name={skill} />
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

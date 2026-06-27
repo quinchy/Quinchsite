@@ -2,41 +2,42 @@
 
 ## Project Structure & Module Organization
 
-This is a Bun-managed Next.js 16 portfolio using the App Router, React 19, TypeScript, and Tailwind CSS v4.
+This is a Bun-managed **Astro** portfolio (`output: "server"`) deployed to **Cloudflare Workers**, using React islands for interactivity, TypeScript, and Tailwind CSS v4.
 
-- `src/app/` contains routes, layouts, metadata, global styles, and the `api/send-email` endpoint.
-- `src/components/` contains shared UI; portfolio content is stored in typed arrays under `src/components/sections/`.
-- `src/hooks/`, `src/providers/`, and `src/validation/` hold reusable hooks, React providers, and Zod schemas.
-- `public/` stores project images, logos, the résumé PDF, and other static assets.
-- Root configuration lives in `next.config.ts`, `tsconfig.json`, `biome.json`, and `postcss.config.mjs`.
+- `src/pages/` contains routes: `.astro` pages, `404.astro`, the static `robots.txt.ts` endpoint, and the `api/send-email.ts` POST endpoint.
+- `src/layouts/layout.astro` is the shared page shell (head/SEO, theme script, scroll restoration).
+- `src/components/` holds shared UI; `src/components/ui/` holds reusable primitives (`badge.astro`, `button.astro`, `button.tsx`, `input.tsx`, `toast.tsx`); page sections and their hardcoded content arrays live in `src/components/sections/`.
+- `src/validation/` holds Zod schemas; `src/styles/global.css` holds theme tokens, design tokens, and global CSS.
+- `public/` stores static assets: `projects/` (project images), `companies/` (employer logos), fonts, the résumé PDF, profile image, favicon, and SEO thumbnail.
+- Root configuration lives in `astro.config.mjs`, `wrangler` config, `tsconfig.json`, and `biome.json`.
 
-Use the `@/*` alias for imports from `src/`. Keep route-specific code near its route and reusable UI in `components/`.
+Use the `@/*` alias for imports from `src/`. Keep route-specific code near its route and reusable UI in `components/` (primitives in `components/ui/`).
 
 ## Build, Test, and Development Commands
 
 Use Bun; `bun.lock` is the source of dependency resolution.
 
 - `bun install` installs dependencies.
-- `bun dev` starts the development server at `http://localhost:3000`.
-- `bun run lint` runs Biome checks, including linting and import organization.
-- `bun run format` rewrites files using Biome formatting.
-- `bun run build` creates a production build and performs Next.js/TypeScript validation.
-- `bun run start` serves the completed production build.
+- `bun dev` starts the dev server at `http://localhost:4321`.
+- `bun run build` creates a production build (prerenders static pages, bundles the Worker) and runs type validation.
+- `bun run preview` serves the production build locally.
+- `bun run deploy` builds and deploys via `wrangler`.
+- `bun run lint` runs Biome checks; `bun run format` rewrites with Biome formatting.
 
 ## Coding Style & Naming Conventions
 
-Biome enforces two-space indentation, recommended React/Next.js rules, and organized imports. Use strict TypeScript, double quotes, and the existing component patterns. Name React components in PascalCase, functions and variables in camelCase, hooks with a `use-` filename prefix, and component files in kebab-case (for example, `theme-provider.tsx`).
+Biome enforces two-space indentation, recommended rules, and organized imports. Use strict TypeScript and double quotes. Component and asset filenames are **kebab-case / lowercase** (e.g. `layout.astro`, `section-title.astro`, `noise` removed in favor of CSS). React components are PascalCase in code; Astro components are imported under a PascalCase local name regardless of filename.
 
-Keep theme keys synchronized between `src/app/layout.tsx`, `src/providers/theme-provider.tsx`, and CSS variables in `src/app/globals.css`.
+Prefer static Astro/HTML; reach for a React island (`client:*`) only when interactivity requires it. Icons are inline `<svg>` at the call site — do not add an icon library. Keep color-theme keys (`default`, `teal`, `azure`, `crimson`, `aurora`) synchronized between the inline script in `layout.astro`, the toggle logic in `navbar.astro`, and the CSS variables in `src/styles/global.css`.
 
 ## Testing Guidelines
 
-No automated test runner is currently configured. Before submitting changes, run `bun run lint` and `bun run build`, then manually verify affected routes and responsive states. For UI changes, check light/dark and default/teal themes. If adding tests, use `*.test.ts` or `*.test.tsx` beside the code and add the runner command to `package.json`.
+No automated test runner is configured. Before submitting changes, run `bun run lint` and `bun run build`, then manually verify affected routes and responsive states. For UI changes, check light/dark and all color themes (`default`, `teal`, `azure`, `crimson`, `aurora`), and verify scroll restoration and the contact form.
 
 ## Security & Configuration
 
-The contact endpoint requires `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`, `EMAIL_USER`, and `EMAIL_PASS`. Store these in local environment files; `.env*` is intentionally ignored. Never commit credentials.
+The contact endpoint uses the Cloudflare native `CONTACT_RATE_LIMITER` binding and requires `EMAIL_USER` and `EMAIL_PASS`, read from the Cloudflare runtime (`cloudflare:workers` `env`). Provide email secrets via `.dev.vars` locally and `wrangler secret` in production. `.env*`/`.dev.vars` are intentionally ignored — never commit credentials.
 
 ## Commit & Pull Request Guidelines
 
-Follow the repository’s Conventional Commit style: `feat(projects): ...`, `content(experience): ...`, `perf(projects): ...`, or `chore(deps): ...`. Keep commits focused and imperative. Pull requests should explain behavior changes, list validation performed, link related issues, and include screenshots for visual changes. Call out new environment variables or configuration changes explicitly.
+Follow Conventional Commit style: `feat(projects): ...`, `refactor(layout): ...`, `perf(noise): ...`, or `chore(deps): ...`. Keep commits focused and imperative. Pull requests should explain behavior changes, list validation performed, link related issues, and include screenshots for visual changes. Call out new environment variables or configuration changes explicitly.

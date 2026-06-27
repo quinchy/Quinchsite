@@ -1,0 +1,401 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --font-pixel: "Geist Pixel Square", ui-monospace, monospace;
+}
+
+/* ------------------------------------------------------------------ */
+/* Design tokens: use spacing-*, padding-*, margin-*, and animation-* classes. */
+/* ------------------------------------------------------------------ */
+@theme {
+  --spacing-xxs: 0.25rem; /* 4px  */
+  --spacing-xs: 0.5rem; /* 8px  */
+  --spacing-sm: 0.75rem; /* 12px */
+  --spacing-md: 1rem; /* 16px */
+  --spacing-lg: 2rem; /* 32px */
+  --spacing-xl: 4rem; /* 64px */
+
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-instant: 0ms;
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-slower: 700ms;
+}
+
+@utility spacing-xs {
+  gap: var(--spacing-xs);
+}
+@utility spacing-sm {
+  gap: var(--spacing-sm);
+}
+@utility spacing-md {
+  gap: var(--spacing-md);
+}
+@utility spacing-lg {
+  gap: var(--spacing-lg);
+}
+@utility spacing-xl {
+  gap: var(--spacing-xl);
+}
+
+@utility padding-xs {
+  padding: var(--spacing-xs);
+}
+@utility padding-sm {
+  padding: var(--spacing-sm);
+}
+@utility padding-md {
+  padding: var(--spacing-md);
+}
+@utility padding-lg {
+  padding: var(--spacing-lg);
+}
+@utility padding-xl {
+  padding: var(--spacing-xl);
+}
+
+@utility margin-xs {
+  margin: var(--spacing-xs);
+}
+@utility margin-sm {
+  margin: var(--spacing-sm);
+}
+@utility margin-md {
+  margin: var(--spacing-md);
+}
+@utility margin-lg {
+  margin: var(--spacing-lg);
+}
+@utility margin-xl {
+  margin: var(--spacing-xl);
+}
+
+@utility focus-ring {
+  &:focus-visible {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 var(--spacing-xxs) var(--border);
+    outline: none;
+  }
+}
+
+@utility aspect-project {
+  aspect-ratio: 1280 / 625;
+}
+
+@utility outline-offset-xs {
+  outline-offset: var(--spacing-xs);
+}
+
+@utility toast-enter {
+  animation: toast-slide-in var(--duration-normal) var(--ease-default) forwards;
+}
+
+/* Animation tokens — bundle transition-property + duration + easing so any
+   hover/effect just uses one class (animation-fast, animation-normal, …)
+   instead of repeating `transition` + `duration-*` + `ease-*`. */
+@utility animation-instant {
+  transition-property: var(--transition-props);
+  transition-timing-function: var(--ease-default);
+  transition-duration: var(--duration-instant);
+}
+@utility animation-fast {
+  transition-property: var(--transition-props);
+  transition-timing-function: var(--ease-default);
+  transition-duration: var(--duration-fast);
+}
+@utility animation-normal {
+  transition-property: var(--transition-props);
+  transition-timing-function: var(--ease-default);
+  transition-duration: var(--duration-normal);
+}
+@utility animation-slow {
+  transition-property: var(--transition-props);
+  transition-timing-function: var(--ease-default);
+  transition-duration: var(--duration-slow);
+}
+@utility animation-slower {
+  transition-property: var(--transition-props);
+  transition-timing-function: var(--ease-default);
+  transition-duration: var(--duration-slower);
+}
+
+/* ------------------------------------------------------------------ */
+/* Fonts                                                              */
+/* ------------------------------------------------------------------ */
+@font-face {
+  font-family: "Geist Pixel Square";
+  src: url("/fonts/GeistPixel-Square.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  /* block = the real font is always applied once loaded (preloaded, so fast),
+     giving a stable final height. The scroll-restore script in layout.astro
+     waits for document.fonts.ready before restoring, so this swap is never
+     visible and never shifts the restored position. */
+  font-display: block;
+}
+
+/* ------------------------------------------------------------------ */
+/* Theme tokens (utilities map to these via @theme inline above)      */
+/* ------------------------------------------------------------------ */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: #000000;
+  --muted: #17171725;
+  --border: #17171735;
+
+  /* Property list the animation-* tokens transition (compositor-safe set). */
+  --transition-props:
+    color, background-color, border-color, outline-color, text-decoration-color,
+    fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+}
+
+:root.dark {
+  --background: #0a0a0a;
+  --foreground: #cbcbcb;
+  --primary: #ededed;
+  --muted: #cbcbcb50;
+  --border: #cbcbcb35;
+}
+
+:root.teal {
+  --background: #e4eaf2;
+  --foreground: #1d857d;
+  --primary: #006156;
+  --muted: #00615625;
+  --border: #00615650;
+}
+
+:root.teal.dark {
+  --background: #0a0c0f;
+  --foreground: #8abeae;
+  --primary: #baffea;
+  --muted: #1f282b;
+  --border: #83ffc035;
+}
+
+:root.aurora {
+  --background: #fff3fb;
+  --foreground: #5f235f;
+  --primary: #b22586;
+  --muted: #ead2f2;
+  --border: #9b3bd040;
+}
+
+:root.aurora.dark {
+  --background: #100812;
+  --foreground: #f1b7e8;
+  --primary: #ff8bd6;
+  --muted: #241126;
+  --border: #c77dff45;
+}
+
+:root.azure {
+  --background: #eff7ff;
+  --foreground: #17456c;
+  --primary: #075b9f;
+  --muted: #c9dff1;
+  --border: #075b9f40;
+}
+
+:root.azure.dark {
+  --background: #071018;
+  --foreground: #a9cde6;
+  --primary: #8fd3ff;
+  --muted: #102435;
+  --border: #62b7ee45;
+}
+
+:root.crimson {
+  --background: #fff4f3;
+  --foreground: #6f1d2d;
+  --primary: #b51f32;
+  --muted: #f0d0cf;
+  --border: #b51f3240;
+}
+
+:root.crimson.dark {
+  --background: #130809;
+  --foreground: #f3b3ba;
+  --primary: #ff7a87;
+  --muted: #2b1114;
+  --border: #ff7a8745;
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                               */
+/* ------------------------------------------------------------------ */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    border-color: var(--border);
+  }
+
+  html {
+    font-family: var(--font-pixel);
+  }
+
+  /* Added only by the scroll-restore script in layout.astro, removed once the
+     saved scroll position is set — keeps the top from painting before the jump. */
+  html.scroll-restoring {
+    visibility: hidden;
+  }
+
+  /* Suppress transitions during initial load (class added in <head>, removed
+     after the first painted/restored frame) so hover-styled elements — badges,
+     links, nav menus, cards — don't all animate once on refresh. */
+  html.preload *,
+  html.preload *::before,
+  html.preload *::after {
+    transition: none;
+  }
+
+  body {
+    min-height: 100dvh;
+    letter-spacing: 0;
+    background: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Global pseudo-elements (not expressible as utilities)              */
+/* ------------------------------------------------------------------ */
+
+/* Film-grain overlay — SVG noise jittered via a `transform` steps-animation,
+   no JS/canvas/rAF (replaces the React noise island). transform runs on the
+   compositor, so the flicker costs ~nothing on the main thread (Lighthouse-
+   safe). Tile is 200% and offset so translating never exposes an edge.
+   Desktop only, matching the old behavior. */
+body::after {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain var(--duration-slow) steps(1) infinite;
+}
+
+@keyframes grain {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -5%);
+  }
+  20% {
+    transform: translate(-10%, 5%);
+  }
+  30% {
+    transform: translate(5%, -10%);
+  }
+  40% {
+    transform: translate(-5%, 12%);
+  }
+  50% {
+    transform: translate(-10%, 5%);
+  }
+  60% {
+    transform: translate(12%, 0);
+  }
+  70% {
+    transform: translate(0, 8%);
+  }
+  80% {
+    transform: translate(-12%, 0);
+  }
+  90% {
+    transform: translate(8%, 5%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@media (max-width: 768px) {
+  body::after {
+    display: none;
+  }
+}
+
+/* Respect users who prefer no motion — show the grain, just hold it still. */
+@media (prefers-reduced-motion: reduce) {
+  body::after {
+    animation: none;
+  }
+}
+
+::selection {
+  background-color: var(--muted);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  opacity: 0.5;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 0;
+}
+
+/* ------------------------------------------------------------------ */
+/* Keyframes                                                          */
+/* ------------------------------------------------------------------ */
+@keyframes toast-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes logo-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* About-page logo (theme-conditional filters)                        */
+/* ------------------------------------------------------------------ */
+.logo-block__img {
+  filter: grayscale(1) saturate(0);
+  animation: logo-fade-in var(--duration-normal) var(--ease-default);
+}
+
+:root.dark .logo-block__img {
+  filter: grayscale(1) saturate(0) invert(1);
+}
+
+:root.teal .logo-block__img {
+  filter: none;
+}

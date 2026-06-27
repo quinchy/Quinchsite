@@ -1,0 +1,36 @@
+---
+import Button from "@/components/ui/button.astro";
+import Layout from "@/layouts/layout.astro";
+---
+
+<Layout title="Page Not Found | Cyril James">
+  <div class="flex min-h-dvh flex-col items-center justify-center spacing-lg">
+    <section class="flex flex-col items-center justify-center spacing-xs">
+      <h1 class="text-4xl font-black">404</h1>
+      <h1 class="text-2xl font-bold">Page Not Found</h1>
+      <p class="text-sm text-foreground/75">
+        The page you're looking for doesn't exist or has been moved.
+      </p>
+    </section>
+    <Button
+      href="/"
+      variant="dashed"
+      class="w-full max-w-50"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        class="size-4"
+        aria-hidden="true"
+      >
+        <path
+          fill="currentColor"
+          d="M20 11v2H8v2H6v-2H4v-2h2V9h2v2zM10 7H8v2h2zm0 0h2V5h-2zm0 10H8v-2h2zm0 0h2v2h-2z"
+        ></path>
+      </svg>
+      <span>Return to Home</span>
+    </Button>
+  </div>
+</Layout>
