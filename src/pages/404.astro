@@ -1,24 +1,28 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import Button from "@/components/ui/button.astro";
+import Layout from "@/layouts/layout.astro";
 ---
 
 <Layout title="Page Not Found | Cyril James">
-  <div class="notfound">
-    <section class="notfound__head">
-      <h1 class="notfound__code">404</h1>
-      <h1 class="notfound__title">Page Not Found</h1>
-      <p class="notfound__text">
+  <div class="flex min-h-dvh flex-col items-center justify-center spacing-lg">
+    <section class="flex flex-col items-center justify-center spacing-xs">
+      <h1 class="text-4xl font-black">404</h1>
+      <h1 class="text-2xl font-bold">Page Not Found</h1>
+      <p class="text-sm text-foreground/75">
         The page you're looking for doesn't exist or has been moved.
       </p>
     </section>
-    <a href="/" class="notfound__link">
+    <Button
+      href="/"
+      variant="dashed"
+      class="w-full max-w-50"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
         height="24"
         viewBox="0 0 24 24"
-        class="icon-4"
-        style="transform: translateY(2px)"
+        class="size-4"
         aria-hidden="true"
       >
         <path
@@ -27,6 +31,6 @@ import Layout from "@/layouts/Layout.astro";
         ></path>
       </svg>
       <span>Return to Home</span>
-    </a>
+    </Button>
   </div>
 </Layout>

@@ -1,6 +1,4 @@
 import { env } from "cloudflare:workers";
-import { Ratelimit } from "@upstash/ratelimit";
-import { Redis } from "@upstash/redis";
 import type { APIRoute } from "astro";
 import nodemailer from "nodemailer";
 import { ZodError } from "zod";
@@ -16,35 +14,25 @@ const json = (data: unknown, status: number) =>
 
 export const POST: APIRoute = async ({ request }) => {
   try {
-    const redis = new Redis({
-      url: env.UPSTASH_REDIS_REST_URL,
-      token: env.UPSTASH_REDIS_REST_TOKEN,
-    });
-
-    const ratelimit = new Ratelimit({
-      redis,
-      limiter: Ratelimit.fixedWindow(5, "1 d"),
-    });
+    const body = await request.json();
+    const validatedData = contactValidation.parse(body);
 
     const ip =
       request.headers.get("cf-connecting-ip") ??
-      request.headers.get("x-forwarded-for") ??
+      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
       "anonymous";
-    const { success, remaining } = await ratelimit.limit(ip);
+    const { success } = await env.CONTACT_RATE_LIMITER.limit({ key: ip });
 
     if (!success) {
       return json(
         {
           success: false,
           message:
-            "You have hit the rate limit. You can only send 5 messages per day.",
+            "You have hit the rate limit. Please wait a minute before sending another message.",
         },
         429,
       );
     }
-
-    const body = await request.json();
-    const validatedData = contactValidation.parse(body);
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -65,7 +53,6 @@ export const POST: APIRoute = async ({ request }) => {
       {
         success: true,
         message: "Email sent successfully",
-        remaining,
         data: validatedData,
       },
       200,
