@@ -1,7 +1,6 @@
 ---
-import Badge from "@/components/badge";
-import { CompanyIcon } from "@/components/icons";
-import { SectionTitle } from "@/components/section-title";
+import SectionTitle from "@/components/section-title.astro";
+import Badge from "@/components/ui/badge.astro";
 
 interface Experience {
   title: string;
@@ -22,7 +21,7 @@ const experiences: Experience[] = [
     period: "March 2026 - Present",
     company: "Pioneer Dev AI",
     companyLink: "https://pioneerdev.ai/",
-    companyLogo: "/pioneer-dev-ai.webp",
+    companyLogo: "/companies/pioneer-dev-ai.webp",
     employmentType: "Full-time",
     location: "Boulder, Colorado, United States",
     workMode: "Remote",
@@ -48,7 +47,7 @@ const experiences: Experience[] = [
     title: "Software Developer",
     period: "May 2025 - Feb 2026",
     company: "AppQuant Technologies Inc.",
-    companyLogo: "/appquant.webp",
+    companyLogo: "/companies/appquant.webp",
     employmentType: "Full-time",
     location: "Pasig City, Philippines",
     workMode: "Remote",
@@ -73,7 +72,7 @@ const experiences: Experience[] = [
     title: "Software Developer Intern",
     period: "May 2025 - Feb 2026",
     company: "Kynatech",
-    companyLogo: "/kynatech.webp",
+    companyLogo: "/companies/kynatech.webp",
     companyLink: "https://kynatech.ph/",
     employmentType: "Internship",
     location: "Taguig City, Philippines",
@@ -87,62 +86,51 @@ const experiences: Experience[] = [
 ];
 ---
 
-<section class="section">
-  <SectionTitle
-    client:visible
-    text="Experiences"
-    titleStyle={{
-      lineHeight: "1.75rem",
-      letterSpacing: "-0.55px",
-      transform: "translateY(-2.5px) translateX(0.5px)",
-    }}
-    fallbackTransform="translateX(54px) translateY(-2px)"
-  />
+<section class="flex flex-col spacing-md">
+  <SectionTitle text="Experiences" />
 
-  <div class="stack-10">
+  <div class="flex flex-col spacing-lg">
     {
       experiences.map((experience) => (
-        <article class="entry">
-          <div class="entry__head">
+        <article class="group flex flex-col spacing-md">
+          <div class="flex flex-col spacing-xs lg:flex-row lg:items-center">
             {experience.companyLogo ? (
               <img
                 width={80}
                 height={80}
                 src={experience.companyLogo}
                 draggable="false"
-                class="entry__logo"
+                class="select-none border border-border outline-1 outline-dashed outline-transparent outline-offset-xs animation-normal group-hover:outline-border"
                 alt={`${experience.company} logo`}
               />
             ) : (
-              <div class="entry__logo-fallback">
-                <CompanyIcon />
+              <div class="flex min-h-20 min-w-20 items-center justify-center border border-border bg-muted">
+                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" class="size-10 text-primary/50"><path fill="currentColor" d="M2 2h14v4h6v16H2zm18 6h-4v2h2v2h-2v2h2v2h-2v2h2v2h2zm-6-4H4v16h2v-2h6v2h2zM6 6h2v2H6zm6 0h-2v2h2zm-6 4h2v2H6zm6 0h-2v2h2zm-6 4h2v2H6zm6 0h-2v2h2z"></path></svg>
               </div>
             )}
-            <header class="entry__meta">
-              <div class="entry__row">
-                <h2 class="entry__title">{experience.title}</h2>
-                <time class="entry__period">{experience.period}</time>
+            <header class="w-full border-b border-dashed border-transparent padding-md animation-normal group-hover:border-border">
+              <div class="flex flex-col justify-between lg:flex-row">
+                <h2 class="font-semibold text-primary">{experience.title}</h2>
+                <time class="text-primary">{experience.period}</time>
               </div>
-              <div class="entry__row">
-                <div class="entry__company-group">
+              <div class="flex flex-col justify-between lg:flex-row">
+                <div class="flex spacing-xs">
                   {experience.companyLink ? (
                     <a
                       href={experience.companyLink}
-                      class="entry__company-link"
+                      class="text-primary underline underline-offset-2"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       {experience.company}
                     </a>
                   ) : (
-                    <span class="entry__company-plain">
-                      {experience.company}
-                    </span>
+                    <span class="text-primary">{experience.company}</span>
                   )}
                   <span>|</span>
                   <span>{experience.employmentType}</span>
                 </div>
-                <address class="entry__address">
+                <address class="flex spacing-xs not-italic">
                   <span>{experience.location}</span>
                   <span>|</span>
                   <span>{experience.workMode}</span>
@@ -150,12 +138,12 @@ const experiences: Experience[] = [
               </div>
             </header>
           </div>
-          <section class="entry__body">
+          <section class="flex flex-col spacing-xs">
             {experience.descriptions.map((desc) => (
               <p>{desc}</p>
             ))}
           </section>
-          <ul class="tag-list">
+          <ul class="flex flex-wrap spacing-xs">
             {experience.technologies.map((tech) => (
               <li>
                 <Badge name={tech} />

@@ -1,20 +1,11 @@
 ---
-import { SectionTitle } from "@/components/section-title";
+import SectionTitle from "@/components/section-title.astro";
 ---
 
-<article class="section">
-  <SectionTitle
-    client:visible
-    text="About"
-    titleStyle={{
-      lineHeight: "1.5rem",
-      letterSpacing: "-0.5px",
-      transform: "translateX(-1px)",
-    }}
-    fallbackTransform="translateX(53px)"
-  />
+<article class="flex flex-col spacing-md">
+  <SectionTitle text="About" />
 
-  <div class="stack-2">
+  <div class="flex flex-col spacing-xs">
     <p>
       I'm a full-stack engineer focused on speed and building scalable, reliable
       products across complex systems and evolving requirements.

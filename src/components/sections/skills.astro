@@ -1,6 +1,6 @@
 ---
-import Badge from "@/components/badge";
-import { SectionTitle } from "@/components/section-title";
+import SectionTitle from "@/components/section-title.astro";
+import Badge from "@/components/ui/badge.astro";
 
 interface SkillCategory {
   title: string;
@@ -103,28 +103,24 @@ const skillCategories: SkillCategory[] = [
 ];
 ---
 
-<section class="section">
-  <SectionTitle
-    client:visible
-    text="Skills"
-    titleFontSize={30}
-    titleStyle={{ lineHeight: "1.5rem" }}
-    fallbackTransform="translateX(54px) translateY(-3px)"
-  />
+<section class="flex flex-col spacing-md">
+  <SectionTitle text="Skills" />
 
-  <div class="skills-grid">
+  <div class="grid grid-cols-1 border-t border-l border-dashed border-border lg:grid-cols-2">
     {
       skillCategories.map((category, index) => (
         <div
-          class={`skill-cat${
+          class={`border-r border-b border-dashed border-border${
             skillCategories.length % 2 === 1 &&
             index === skillCategories.length - 1
-              ? " skill-cat--wide"
+              ? " lg:col-span-2"
               : ""
           }`}
         >
-          <h2 class="skill-cat__title">{category.title}</h2>
-          <div class="skill-cat__body">
+          <h2 class="border-b border-dashed border-border padding-md font-semibold">
+            {category.title}
+          </h2>
+          <div class="flex flex-wrap spacing-xs padding-md">
             {category.skills.map((skill) => (
               <Badge name={skill} />
             ))}
