@@ -1,14 +1,17 @@
 ---
+import { Image } from "astro:assets";
+import profilePicture from "@/assets/profile-picture.webp";
 import SectionTitle from "@/components/section-title.astro";
 import Button from "@/components/ui/button.astro";
 ---
 
 <header class="flex flex-col items-start spacing-xs lg:flex-row lg:spacing-lg mt-10">
   <div class="flex flex-1 items-center spacing-lg">
-    <img
-      src="/profile-picture.webp"
-      width={140}
-      height={140}
+    <Image
+      src={profilePicture}
+      width={280}
+      height={280}
+      loading="eager"
       fetchpriority="high"
       decoding="async"
       draggable="false"

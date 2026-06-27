@@ -133,6 +133,9 @@ const publishedProjects = projects.filter(
   (project) => showDrafts || !project.draft,
 );
 const visibleProjects = publishedProjects.slice(0, limit);
+// ponytail: eager-load the above-the-fold thumbnails only on the dedicated
+// /projects page (no limit); on the home page this section sits below the fold.
+const eagerImages = limit ? 0 : 3;
 ---
 
 <section class="flex flex-col spacing-md">
@@ -140,7 +143,7 @@ const visibleProjects = publishedProjects.slice(0, limit);
 
   <div class="flex flex-col spacing-lg">
     {
-      visibleProjects.map((project) => (
+      visibleProjects.map((project, index) => (
         <div class="flex flex-col spacing-lg outline-1 outline-dashed outline-transparent outline-offset-xs animation-normal hover:outline-border lg:flex-row">
           <div class="flex min-w-0 flex-1 flex-col spacing-xs">
             <div class="flex items-center justify-between">
@@ -200,7 +203,7 @@ const visibleProjects = publishedProjects.slice(0, limit);
                 width={760}
                 src={project.images[0]}
                 draggable="false"
-                loading="lazy"
+                loading={index < eagerImages ? "eager" : "lazy"}
                 class="aspect-project w-full border border-border object-cover select-none"
                 alt={`${project.title} thumbnail`}
               />

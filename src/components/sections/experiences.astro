@@ -95,7 +95,7 @@ const experiences: Experience[] = [
 
   <div class="flex flex-col spacing-lg">
     {
-      experiences.map((experience) => (
+      experiences.map((experience, index) => (
         <article class="group flex flex-col spacing-md">
           <div class="flex flex-col spacing-xs lg:flex-row lg:items-center">
             {experience.companyLogo ? (
@@ -103,7 +103,7 @@ const experiences: Experience[] = [
                 width={160}
                 src={experience.companyLogo}
                 draggable="false"
-                loading="lazy"
+                loading={index === 0 ? "eager" : "lazy"}
                 class="size-20 select-none border border-border object-cover outline-1 outline-dashed outline-transparent outline-offset-xs animation-normal group-hover:outline-border"
                 alt={`${experience.company} logo`}
               />

@@ -11,6 +11,7 @@ export const prerender = true;
 <Layout title="About | Cyril James - Full-Stack Engineer">
   <div class="flex w-full max-w-4xl flex-col spacing-xl padding-md">
     <div class="flex justify-center padding-lg">
+      {/* ponytail: raw <img>, not astro:assets <Image> — sharp flattens animated GIFs */}
       <img
         src="/animated-quinch-logo.gif"
         width={150}

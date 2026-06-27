@@ -18,6 +18,8 @@ export default defineConfig({
     inlineStylesheets: "always",
   },
   vite: {
+    // Modern target so esbuild stops emitting legacy transforms/polyfills.
+    build: { target: "es2022" },
     plugins: [tailwindcss()],
     ssr: {
       external: ["nodemailer"],
