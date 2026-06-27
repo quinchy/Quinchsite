@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import bpsuLogo from "@/assets/bpsu.webp";
 import SectionTitle from "@/components/section-title.astro";
 ---
 
@@ -6,12 +8,12 @@ import SectionTitle from "@/components/section-title.astro";
   <SectionTitle text="Education" />
   <article class="flex flex-col spacing-md">
     <div class="flex flex-col spacing-xs lg:flex-row lg:items-center">
-      <img
-        width={80}
-        height={80}
-        src="/bpsu.webp"
+      <Image
+        width={160}
+        src={bpsuLogo}
         draggable="false"
-        class="select-none border border-border"
+        loading="lazy"
+        class="size-20 select-none border border-border object-cover"
         alt="Bataan Peninsula State University logo"
       />
       <div class="flex w-full flex-col padding-md">

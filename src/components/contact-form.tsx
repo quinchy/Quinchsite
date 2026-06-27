@@ -1,11 +1,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Input, Textarea } from "@/components/ui/input";
-import { showToast } from "@/components/ui/toast";
-import { QueryProvider } from "@/providers/query-provider";
+import Toast, { showToast } from "@/components/ui/toast";
 import { type ContactFormData, contactValidation } from "@/validation/contact";
 
 function ContactFormInner({ onSuccess }: { onSuccess: () => void }) {
@@ -21,8 +19,11 @@ function ContactFormInner({ onSuccess }: { onSuccess: () => void }) {
     },
   });
 
-  const mutation = useMutation({
-    mutationFn: async (data: ContactFormData) => {
+  const [isPending, setIsPending] = useState(false);
+
+  const onSubmit = async (data: ContactFormData) => {
+    setIsPending(true);
+    try {
       const response = await fetch("/api/send-email", {
         method: "POST",
         headers: {
@@ -38,19 +39,16 @@ function ContactFormInner({ onSuccess }: { onSuccess: () => void }) {
         } catch {}
         throw new Error(message);
       }
-      return response.json();
-    },
-    onSuccess: () => {
       showToast("Your email has been sent.", "success");
       onSuccess();
-    },
-    onError: (error: Error) => {
-      showToast(error.message, "error");
-    },
-  });
-
-  const onSubmit = (data: ContactFormData) => {
-    mutation.mutate(data);
+    } catch (error) {
+      showToast(
+        error instanceof Error ? error.message : "Failed to send email",
+        "error",
+      );
+    } finally {
+      setIsPending(false);
+    }
   };
 
   return (
@@ -95,11 +93,11 @@ function ContactFormInner({ onSuccess }: { onSuccess: () => void }) {
       </fieldset>
       <Button
         type="submit"
-        disabled={mutation.isPending}
+        disabled={isPending}
         variant="solid"
         className="animation-normal"
       >
-        {mutation.isPending ? (
+        {isPending ? (
           <>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -128,11 +126,12 @@ export default function ContactForm() {
   const [formKey, setFormKey] = useState(0);
 
   return (
-    <QueryProvider>
+    <>
       <ContactFormInner
         key={formKey}
         onSuccess={() => setFormKey((prev) => prev + 1)}
       />
-    </QueryProvider>
+      <Toast />
+    </>
   );
 }

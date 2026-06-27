@@ -14,6 +14,9 @@ export default defineConfig({
     imageService: "compile",
   }),
   integrations: [react(), sitemap()],
+  build: {
+    inlineStylesheets: "always",
+  },
   vite: {
     plugins: [tailwindcss()],
     ssr: {

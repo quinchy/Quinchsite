@@ -1,6 +1,5 @@
 ---
 import NavBar from "@/components/navbar.astro";
-import Toast from "@/components/ui/toast";
 import "@/styles/global.css";
 
 interface Props {
@@ -165,7 +164,6 @@ const structuredData = {
     >
       <slot />
     </main>
-    <Toast client:only="react" />
     <script is:inline>
       (function () {
         var key = "scroll:" + location.pathname;

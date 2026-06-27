@@ -1,4 +1,13 @@
 ---
+import { Image } from "astro:assets";
+import aniquinch from "@/assets/projects/aniquinch-1.webp";
+import huefit from "@/assets/projects/huefit-1.webp";
+import onlyfunds from "@/assets/projects/onlyfunds-1.webp";
+import pasabuy from "@/assets/projects/pasabuy-1.webp";
+import promptwise from "@/assets/projects/promptwise-1.webp";
+import smilecare from "@/assets/projects/smilecare-1.webp";
+import superproxy from "@/assets/projects/superproxy-1.webp";
+import thryve from "@/assets/projects/thryve-1.webp";
 import SectionTitle from "@/components/section-title.astro";
 import Badge from "@/components/ui/badge.astro";
 import Button from "@/components/ui/button.astro";
@@ -11,7 +20,7 @@ interface Project {
   description: string;
   technologies: string[];
   draft?: boolean;
-  images?: string[];
+  images?: ImageMetadata[];
   websiteLink?: string;
   githubLink?: string;
 }
@@ -37,7 +46,7 @@ const projects: Project[] = [
       "Cloudflare",
       "AI Generation",
     ],
-    images: ["/projects/promptwise-1.webp"],
+    images: [promptwise],
     websiteLink: "https://promptwise.com/",
   },
   {
@@ -53,7 +62,7 @@ const projects: Project[] = [
       "ElevenLabs",
       "OpenAI",
     ],
-    images: ["/projects/superproxy-1.webp"],
+    images: [superproxy],
     websiteLink: "https://www.superproxy.ai/",
   },
   {
@@ -62,7 +71,7 @@ const projects: Project[] = [
     description:
       "A Dating site with gender-based profile discovery, profile management, liking and matching, an affiliate program, real-time messaging with voice and video calling.",
     technologies: ["Next.js", "Supabase", "Prisma", "PostgreSQL"],
-    images: ["/projects/thryve-1.webp"],
+    images: [thryve],
   },
   {
     title: "HueFit",
@@ -76,7 +85,7 @@ const projects: Project[] = [
       "React Native Expo",
       "FastAPI",
     ],
-    images: ["/projects/huefit-1.webp"],
+    images: [huefit],
     githubLink: "https://github.com/quinchy/Hue-Fit",
   },
   {
@@ -85,7 +94,7 @@ const projects: Project[] = [
     description:
       "An Android Application with location based pasabuy request posts, community platform, and ordering.",
     technologies: ["Android Studio", "Java", "Firebase"],
-    images: ["/projects/pasabuy-1.webp"],
+    images: [pasabuy],
     githubLink: "https://github.com/quinchy/Pasabuy",
   },
   {
@@ -94,7 +103,7 @@ const projects: Project[] = [
     description:
       "A Website for a local dental clinic with an appointment system dashboard.",
     technologies: ["Laravel", "MySQL", "Heroku"],
-    images: ["/projects/smilecare-1.webp"],
+    images: [smilecare],
     githubLink:
       "https://github.com/quinchy/Donna-Mae-Jorge-Hollman-Dental-Clinic-Scheduling-System",
   },
@@ -104,7 +113,7 @@ const projects: Project[] = [
     description:
       "A Basic mock-up of a Desktop Banking Application for OOP course.",
     technologies: ["C#", "WinForms", "MySQL"],
-    images: ["/projects/onlyfunds-1.webp"],
+    images: [onlyfunds],
     githubLink: "https://github.com/quinchy/BankingSystem",
   },
   {
@@ -113,7 +122,7 @@ const projects: Project[] = [
     description:
       "A Basic Website built using HTML and CSS only mimicking an e-commerce website.",
     technologies: ["HTML", "CSS"],
-    images: ["/projects/aniquinch-1.webp"],
+    images: [aniquinch],
     websiteLink: "https://quinchx.github.io/AniQuinch/",
     githubLink: "https://github.com/QuinchX/AniQuinch",
   },
@@ -187,11 +196,11 @@ const visibleProjects = publishedProjects.slice(0, limit);
           </div>
           <div class="lg:w-2/5 lg:shrink-0">
             {project.images?.[0] && (
-              <img
-                width={285}
-                height={139}
+              <Image
+                width={760}
                 src={project.images[0]}
                 draggable="false"
+                loading="lazy"
                 class="aspect-project w-full border border-border object-cover select-none"
                 alt={`${project.title} thumbnail`}
               />
