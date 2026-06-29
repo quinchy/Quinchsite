@@ -10,7 +10,7 @@ import superproxy from "@/assets/projects/superproxy-1.webp";
 import thryve from "@/assets/projects/thryve-1.webp";
 import SectionTitle from "@/components/section-title.astro";
 import Badge from "@/components/ui/badge.astro";
-import Button from "@/components/ui/button.astro";
+import Link from "@/components/ui/link.astro";
 
 type ProjectType = "Company" | "University" | "Personal";
 
@@ -218,13 +218,13 @@ const eagerImages = limit ? 0 : 3;
   {
     limit && limit < publishedProjects.length && (
       <div class="flex justify-center">
-        <Button
+        <Link
           href="/projects"
           variant="dashed"
           class="w-full animation-normal"
         >
           View All Projects
-        </Button>
+        </Link>
       </div>
     )
   }

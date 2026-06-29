@@ -1,5 +1,6 @@
 ---
 import Button from "@/components/ui/button.astro";
+import Link from "@/components/ui/link.astro";
 
 const pages = [
   { href: "/", label: "Home" },
@@ -65,14 +66,14 @@ const itemClass =
       <div class={`${dropdownClass} hidden`} data-menu-dropdown>
         {
           pages.map((page) => (
-            <Button
+            <Link
               href={page.href}
               variant="ghost"
               class={itemClass}
               data-page={page.href}
             >
               {page.label}
-            </Button>
+            </Link>
           ))
         }
       </div>

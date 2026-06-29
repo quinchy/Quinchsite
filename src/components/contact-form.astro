@@ -1,0 +1,226 @@
+---
+import Input from "@/components/ui/input.astro";
+import Textarea from "@/components/ui/textarea.astro";
+import Toast from "@/components/ui/toast.astro";
+---
+
+<form data-contact-form class="flex flex-col spacing-xs padding-lg" novalidate>
+  <fieldset class="flex flex-col spacing-xs border-0">
+    <div class="flex items-center spacing-xs">
+      <label for="subject" class="font-semibold">Subject</label>
+      <span
+        id="subject-error"
+        data-contact-error="subject"
+        class="text-xs text-red-500"
+        hidden
+      ></span>
+    </div>
+    <Input
+      type="text"
+      id="subject"
+      name="subject"
+      placeholder="Enter a subject line..."
+      autocomplete="off"
+      required
+      maxlength="50"
+      aria-describedby="subject-error"
+    />
+  </fieldset>
+
+  <fieldset class="flex flex-col spacing-xs border-0">
+    <div class="flex items-center spacing-xs">
+      <label for="body" class="font-semibold">Body</label>
+      <span
+        id="body-error"
+        data-contact-error="body"
+        class="text-xs text-red-500"
+        hidden
+      ></span>
+    </div>
+    <Textarea
+      id="body"
+      name="body"
+      placeholder="Please include your name, email address, and a brief description of your inquiry."
+      autocomplete="off"
+      required
+      maxlength="1000"
+      aria-describedby="body-error"
+    />
+  </fieldset>
+
+  <button
+    type="submit"
+    data-contact-submit
+    class="inline-flex items-center justify-center spacing-xs padding-xs bg-primary text-sm font-semibold text-background brightness-75 animation-normal hover:brightness-100 active:scale-95 active:brightness-90 disabled:cursor-not-allowed disabled:opacity-50"
+  >
+    <span data-submit-idle>Send Email</span>
+    <span data-submit-pending class="inline-flex items-center spacing-xs" hidden>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        class="size-4 animate-spin"
+      >
+        <path
+          fill="currentColor"
+          d="M23 9v6h-1v2h-2v-2h1V9h-1V7h-1V5h-2V4h-2V3h-3V1h3v1h2v1h2v1h1v1h1v2h1v2z"
+        ></path>
+      </svg>
+      Sending Email...
+    </span>
+  </button>
+</form>
+
+<Toast />
+
+<script>
+  type ContactField = "subject" | "body";
+  type ToastType = "success" | "warning" | "error" | "info";
+  type ApiError = {
+    message?: string;
+    errors?: Array<{ path?: Array<string | number>; message?: string }>;
+  };
+
+  const form = document.querySelector<HTMLFormElement>("[data-contact-form]");
+  const toast = (message: string, type: ToastType = "info") => {
+    const toastWindow = window as Window & {
+      quinchToast?: (message: string, type?: ToastType) => void;
+    };
+    toastWindow.quinchToast?.(message, type);
+  };
+
+  const fieldMessages: Record<
+    ContactField,
+    { required: string; max: string; maxLength: number }
+  > = {
+    subject: {
+      required: "Subject is required",
+      max: "Subject must be 50 characters or less",
+      maxLength: 50,
+    },
+    body: {
+      required: "Message body is required",
+      max: "Message body must be 1000 characters or less",
+      maxLength: 1000,
+    },
+  };
+
+  const getField = (name: ContactField) =>
+    form?.elements.namedItem(name) as HTMLInputElement | HTMLTextAreaElement;
+
+  const setFieldError = (name: ContactField, message = "") => {
+    const error = document.querySelector<HTMLElement>(
+      `[data-contact-error="${name}"]`,
+    );
+    const field = getField(name);
+    if (!error || !field) return;
+
+    error.textContent = message;
+    error.hidden = !message;
+    field.setAttribute("aria-invalid", message ? "true" : "false");
+  };
+
+  const clearErrors = () => {
+    setFieldError("subject");
+    setFieldError("body");
+  };
+
+  const validateField = (name: ContactField) => {
+    const field = getField(name);
+    const messages = fieldMessages[name];
+    if (!field.value) return messages.required;
+    if (field.value.length > messages.maxLength) return messages.max;
+    return "";
+  };
+
+  const validateForm = () => {
+    let firstInvalidField: HTMLInputElement | HTMLTextAreaElement | undefined;
+
+    for (const name of Object.keys(fieldMessages) as ContactField[]) {
+      const message = validateField(name);
+      setFieldError(name, message);
+      if (message && !firstInvalidField) {
+        firstInvalidField = getField(name);
+      }
+    }
+
+    firstInvalidField?.focus();
+    return !firstInvalidField;
+  };
+
+  const setPending = (pending: boolean) => {
+    const submit = form?.querySelector<HTMLButtonElement>(
+      "[data-contact-submit]",
+    );
+    const idle = form?.querySelector<HTMLElement>("[data-submit-idle]");
+    const pendingLabel = form?.querySelector<HTMLElement>(
+      "[data-submit-pending]",
+    );
+    if (!submit || !idle || !pendingLabel) return;
+
+    submit.disabled = pending;
+    idle.hidden = pending;
+    pendingLabel.hidden = !pending;
+  };
+
+  const readApiError = async (response: Response): Promise<ApiError> => {
+    try {
+      return (await response.json()) as ApiError;
+    } catch {
+      return {};
+    }
+  };
+
+  const contactForm = form;
+
+  contactForm?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    clearErrors();
+
+    if (!validateForm()) return;
+
+    setPending(true);
+    try {
+      const data = Object.fromEntries(new FormData(contactForm).entries());
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        const error = await readApiError(response);
+        let hasFieldErrors = false;
+
+        for (const issue of error.errors ?? []) {
+          const field = issue.path?.[0];
+          if (
+            (field === "subject" || field === "body") &&
+            typeof issue.message === "string"
+          ) {
+            setFieldError(field, issue.message);
+            hasFieldErrors = true;
+          }
+        }
+
+        toast(
+          hasFieldErrors ? "Please check the highlighted fields." : error.message ?? "Failed to send email",
+          "error",
+        );
+        return;
+      }
+
+      contactForm.reset();
+      toast("Your email has been sent.", "success");
+    } catch (error) {
+      toast(
+        error instanceof Error ? error.message : "Failed to send email",
+        "error",
+      );
+    } finally {
+      setPending(false);
+    }
+  });
+</script>

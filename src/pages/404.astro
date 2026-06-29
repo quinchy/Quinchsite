@@ -1,5 +1,5 @@
 ---
-import Button from "@/components/ui/button.astro";
+import Link from "@/components/ui/link.astro";
 import Layout from "@/layouts/layout.astro";
 ---
 
@@ -12,7 +12,7 @@ import Layout from "@/layouts/layout.astro";
         The page you're looking for doesn't exist or has been moved.
       </p>
     </section>
-    <Button
+    <Link
       href="/"
       variant="dashed"
       class="w-full max-w-50"
@@ -31,6 +31,6 @@ import Layout from "@/layouts/layout.astro";
         ></path>
       </svg>
       <span>Return to Home</span>
-    </Button>
+    </Link>
   </div>
 </Layout>
