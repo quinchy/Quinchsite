@@ -1,6 +1,5 @@
 // @ts-check
 
-import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
@@ -9,7 +8,7 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
   site: "https://www.quinchy.dev",
   output: "static",
-  integrations: [react(), sitemap()],
+  integrations: [sitemap()],
   build: {
     inlineStylesheets: "always",
   },
