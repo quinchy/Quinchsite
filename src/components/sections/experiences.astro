@@ -95,15 +95,17 @@ const experiences: Experience[] = [
 
   <div class="flex flex-col spacing-lg">
     {
-      experiences.map((experience, index) => (
+      experiences.map((experience) => (
         <article class="group flex flex-col spacing-md">
           <div class="flex flex-col spacing-xs lg:flex-row lg:items-center">
             {experience.companyLogo ? (
               <Image
                 width={160}
+                format="webp"
+                quality="mid"
                 src={experience.companyLogo}
                 draggable="false"
-                loading={index === 0 ? "eager" : "lazy"}
+                loading="lazy"
                 class="size-20 select-none border border-border object-cover outline-1 outline-dashed outline-transparent outline-offset-xs animation-normal group-hover:outline-border"
                 alt={`${experience.company} logo`}
               />
