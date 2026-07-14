@@ -9,13 +9,13 @@
     "preview": "astro preview",
     "start": "astro preview",
     "astro": "astro",
-    "deploy": "astro build && wrangler deploy -c dist/server/wrangler.json",
+    "dev:pages": "astro build && wrangler pages dev dist",
+    "deploy": "astro build && wrangler pages deploy dist",
     "cf-typegen": "wrangler types",
     "lint": "biome check",
     "format": "biome format --write"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^14.0.1",
     "@astrojs/react": "^6.0.0",
     "@astrojs/sitemap": "^3.7.3",
     "@hookform/resolvers": "^5.2.2",
