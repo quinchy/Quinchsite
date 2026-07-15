@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-This is a Bun-managed **Astro** portfolio (`output: "server"`) deployed to **Cloudflare Workers**, using React islands for interactivity, TypeScript, and Tailwind CSS v4.
+This is an npm-managed **Astro** portfolio deployed to **Cloudflare Pages**, using TypeScript and Tailwind CSS v4.
 
 - `src/pages/` contains routes: `.astro` pages, `404.astro`, the static `robots.txt.ts` endpoint, and the `api/send-email.ts` POST endpoint.
 - `src/layouts/layout.astro` is the shared page shell (head/SEO, theme script, scroll restoration).
@@ -15,14 +15,14 @@ Use the `@/*` alias for imports from `src/`. Keep route-specific code near its r
 
 ## Build, Test, and Development Commands
 
-Use Bun; `bun.lock` is the source of dependency resolution.
+Use npm; `package-lock.json` is the source of dependency resolution.
 
-- `bun install` installs dependencies.
-- `bun dev` starts the dev server at `http://localhost:4321`.
-- `bun run build` creates a production build (prerenders static pages, bundles the Worker) and runs type validation.
-- `bun run preview` serves the production build locally.
-- `bun run deploy` builds and deploys via `wrangler`.
-- `bun run lint` runs Biome checks; `bun run format` rewrites with Biome formatting.
+- `npm install` installs dependencies.
+- `npm run dev` starts the dev server at `http://localhost:4321`.
+- `npm run build` creates a production build and runs type validation.
+- `npm run preview` serves the production build locally.
+- `npm run deploy` builds and deploys via `wrangler`.
+- `npm run lint` runs Biome checks; `npm run format` rewrites with Biome formatting.
 
 ## Coding Style & Naming Conventions
 

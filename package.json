@@ -27,13 +27,5 @@
     "@types/node": "^20",
     "typescript": "^5",
     "wrangler": "^4.105.0"
-  },
-  "ignoreScripts": [
-    "sharp",
-    "unrs-resolver"
-  ],
-  "trustedDependencies": [
-    "sharp",
-    "unrs-resolver"
-  ]
+  }
 }
