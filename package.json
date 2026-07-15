@@ -27,5 +27,8 @@
     "@types/node": "^20",
     "typescript": "^5",
     "wrangler": "^4.105.0"
+  },
+  "optionalDependencies": {
+    "@rolldown/binding-linux-x64-gnu": "^1.1.3"
   }
 }
