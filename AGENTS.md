@@ -36,7 +36,7 @@ No automated test runner is configured. Before submitting changes, run `bun run 
 
 ## Security & Configuration
 
-The contact endpoint uses the Cloudflare native `CONTACT_RATE_LIMITER` binding and requires `EMAIL_USER` and `EMAIL_PASS`, read from the Cloudflare runtime (`cloudflare:workers` `env`). Provide email secrets via `.dev.vars` locally and `wrangler secret` in production. `.env*`/`.dev.vars` are intentionally ignored — never commit credentials.
+The contact endpoint calls Resend with the `RESEND_API_KEY` secret from the Pages Function runtime. Provide it through `.env` locally and Cloudflare Pages Variables and Secrets in production. `.env*`/`.dev.vars` are intentionally ignored — never commit credentials.
 
 ## Commit & Pull Request Guidelines
 
